@@ -48,7 +48,7 @@ public class ExcelUtils {
     }
 
     public static void get_row_data(int row_num) {
-        for (int i = 0; i < get_last_cell_num(); i++) {
+        for (int i = 1; i <= get_last_cell_num(); i++) {
             data_map.put(cell_headers.get(i), sheet.getRow(row_num).getCell(i).getStringCellValue());
         }
     }
