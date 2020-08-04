@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Properties>
+            <Property name="baseDir">./../amazon_data/Logs</Property>
+        </Properties>
+        <RollingFile name="RollingFile" fileName="{baseDir}/amazon.log"
+                     filePattern="{baseDir}/$${date:yyyy-MM}/amazon-%d{MM-dd-yyyy}-%i.log">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss} %p %c{3} [%t] - %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50 MB"/>
+            </Policies>
+        </RollingFile>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <!--<Logger name="com.foo.Bar" level="trace">
+            <AppenderRef ref="Console"/>
+        </Logger>-->
+        <Root level="error">
+            <AppenderRef ref="Console"/>
+        </Root>
+        <Root level="trace">
+            <AppenderRef ref="RollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
