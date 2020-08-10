@@ -27,7 +27,7 @@ public class ExcelUtils {
      * This method runs in the beginning of the Project execution as set in @BeforeSuite Annotation
      * This method declares the Workbook and stores all the headers to ArrayList<String>
      * */
-    public static void excel(String path) {
+    public static void excelConfigure(String path) {
         cell_headers = new ArrayList<>();
         data_map = new HashMap<>();
         formatter = new DataFormatter();
@@ -53,8 +53,8 @@ public class ExcelUtils {
     /*
      * Fetch the entire row data and map it to HashMap<String, String>
      * */
-    public static void get_row_data(int row_num) {
-        for (int i = 0; i < get_last_cell_num(); i++) {
+    public static void getRowData(int row_num) {
+        for (int i = 0; i < getLastCellNumber(); i++) {
             data_map.put(cell_headers.get(i), formatter.formatCellValue(sheet.getRow(row_num).getCell(i)));
         }
     }
@@ -63,7 +63,7 @@ public class ExcelUtils {
      * Fetch the last row number from the Excel Sheet
      * And return the Integer
      * */
-    public static int get_last_row_num() {
+    public static int getLastRowNumber() {
         return sheet.getLastRowNum();
     }
 
@@ -71,21 +71,21 @@ public class ExcelUtils {
      * Fetch the last cell number from the Excel Sheet
      * And return the Integer
      * */
-    public static int get_last_cell_num() {
+    public static int getLastCellNumber() {
         return sheet.getRow(0).getLastCellNum();
     }
 
     /*
      * Return the Cell Headers list from ArrayList<String>
      * */
-    public static ArrayList<String> getCell_headers() {
+    public static ArrayList<String> getCellHeaders() {
         return cell_headers;
     }
 
     /*
      * Return the Data that is Mapped from HashMap<String,String>
      * */
-    public static HashMap<String, String> getData_map() {
+    public static HashMap<String, String> getDataMap() {
         return data_map;
     }
 }

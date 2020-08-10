@@ -15,10 +15,11 @@ public class AppTest implements Constants {
     public static void main(String[] args) {
         Loggers.setLogger();
         ExcelUtils.excel(excel_path);
-        ExcelUtils.get_row_data(1);
-        System.out.println(ExcelUtils.get_last_cell_num());
-        System.out.println(ExcelUtils.getData_map().get("email_id"));
+        ExcelUtils.getRowData(1);
+        System.out.println(ExcelUtils.getLastCellNumber());
+        System.out.println(ExcelUtils.getDataMap().get("email_id"));
         Loggers.getLogger().info("Test");
         System.out.println("Completed");
     }
+
 }

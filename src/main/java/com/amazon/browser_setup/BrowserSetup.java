@@ -21,8 +21,8 @@ public class BrowserSetup implements Constants {
      * Executing all the Pre Test Run methods in @BeforeSuite
      * */
     @BeforeSuite
-    public void pre_test_run() {
-        ExcelUtils.excel(excel_path);
+    public void preTestRun() {
+        ExcelUtils.excelConfigure(excel_path);
 
     }
 
@@ -60,7 +60,7 @@ public class BrowserSetup implements Constants {
         }
 
         // Hitting the URL and Maximizing the window
-        driver.get(Property.get_Property("url"));
+        driver.get(Property.getProperty("url"));
         driver.manage().window().maximize();
     }
 

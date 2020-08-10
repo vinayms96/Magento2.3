@@ -7,7 +7,7 @@ import java.util.Properties;
 import com.amazon.path.Constants;
 
 public class Property implements Constants{
-	public static String get_Property(String key) {
+	public static String getProperty(String key) {
 		try {
 			Properties prop = new Properties();
 			prop.load(new FileInputStream(new File(prop_path)));
