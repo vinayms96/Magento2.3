@@ -1,6 +1,7 @@
 package com.amazon.utilities;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -20,6 +21,7 @@ public class ExcelUtils {
     private static XSSFCell cell;
     private static ArrayList<String> cell_headers;
     private static HashMap<String, String> data_map;
+    private static DataFormatter formatter;
 
     /*
         This method runs in the beginning of the Project execution as set in @BeforeSuite Annotation
@@ -28,6 +30,7 @@ public class ExcelUtils {
     public static void excel(String path) {
         cell_headers = new ArrayList<>();
         data_map = new HashMap<>();
+        formatter = new DataFormatter();
 
         try {
             // Declaring the Workbook by passing the path to Excel file
@@ -47,16 +50,20 @@ public class ExcelUtils {
         }
     }
 
+    /*
+    * Fetch the entire row data and map it to HashMap<String, String>
+    * */
     public static void get_row_data(int row_num) {
-        for (int i = 1; i <= get_last_cell_num(); i++) {
-            data_map.put(cell_headers.get(i), sheet.getRow(row_num).getCell(i).getStringCellValue());
+        row = sheet.getRow(row_num);
+        for (int i = 0; i < get_last_cell_num(); i++) {
+            data_map.put(cell_headers.get(i), formatter.formatCellValue(row.getCell(i)));
         }
     }
 
     /*
        Fetch the last row number from the Excel Sheet
        And return the Integer
-    */
+     */
     public static int get_last_row_num() {
         return sheet.getLastRowNum();
     }
