@@ -1,5 +1,8 @@
 package com.amazon.browser_setup;
 
+import com.amazon.modules.DatabaseSampleData;
+import com.amazon.modules.JdbcConnection;
+import com.amazon.modules.Loggers;
 import com.amazon.path.Constants;
 import com.amazon.utilities.ExcelUtils;
 import com.amazon.utilities.Property;
@@ -10,6 +13,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
@@ -23,7 +27,7 @@ public class BrowserSetup implements Constants {
     @BeforeSuite
     public void preTestRun() {
         ExcelUtils.excelConfigure(excel_path);
-
+        JdbcConnection.establishConnection();
     }
 
     /*
@@ -70,6 +74,15 @@ public class BrowserSetup implements Constants {
     @AfterTest
     public void finish() {
         driver.quit();
+    }
+
+    @AfterSuite
+    public void postTestRun() {
+        try {
+            JdbcConnection.getConnection().close();
+        } catch (Exception e) {
+            Loggers.getLogger().error(e.getMessage());
+        }
     }
 
 }
