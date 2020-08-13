@@ -1,8 +1,7 @@
 package com.amazon.browser_setup;
 
-import com.amazon.modules.DatabaseSampleData;
-import com.amazon.modules.JdbcConnection;
-import com.amazon.modules.Loggers;
+import com.amazon.mysql.JdbcConnection;
+import com.amazon.loggers.Loggers;
 import com.amazon.path.Constants;
 import com.amazon.utilities.ExcelUtils;
 import com.amazon.utilities.Property;

@@ -1,5 +1,6 @@
-package com.amazon.modules;
+package com.amazon.mysql;
 
+import com.amazon.loggers.Loggers;
 import com.amazon.utilities.Property;
 
 import java.sql.Connection;
@@ -16,22 +17,22 @@ public class JdbcConnection {
      */
     public static void establishConnection() {
 
-        // Defining the Username and Password for the mysql from Property file
+         /*Defining the Username and Password for the mysql from Property file*/
         final String USERNAME = Property.getProperty("database_username");
         final String PASSWORD = Property.getProperty("database_password");
 
-        // Getting the url and the port from Property file
+        /*Getting the url and the port from Property file*/
         database_url = Property.getProperty("database_url");
         database_port = Property.getProperty("database_port");
         database_name = Property.getProperty("database_name");
 
-        // Defining the Driver and DB URL
+        /*Defining the Driver and DB URL*/
         final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
         final String DATABASE_URL = "jdbc:mysql://" + database_url + ":" + database_port + "/" + database_name;
         final String NO_DATABASE_URL = "jdbc:mysql://" + database_url + ":" + database_port;
 
-        // Registering the Driver
-        // Connecting to Driver by passing the URL, Username and Password
+        /*Registering the Driver
+        * Connecting to Driver by passing the URL, Username and Password*/
         try {
 
             Class.forName(JDBC_DRIVER);
@@ -40,7 +41,7 @@ public class JdbcConnection {
 
         } catch (Exception e) {
 
-            // If above database is not present then Creating Sample Data
+            /*If above database is not present then Creating Sample Data*/
             Loggers.getLogger().info("Database not found!\n Creating Sample Database...");
             DatabaseSampleData.createData(JDBC_DRIVER, NO_DATABASE_URL, USERNAME, PASSWORD);
 
