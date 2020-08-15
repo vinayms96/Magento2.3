@@ -1,7 +1,7 @@
-package com.amazon.mysql;
+package com.magento.mysql;
 
-import com.amazon.loggers.Loggers;
-import com.amazon.utilities.Property;
+import com.magento.loggers.Loggers;
+import com.magento.utilities.Property;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

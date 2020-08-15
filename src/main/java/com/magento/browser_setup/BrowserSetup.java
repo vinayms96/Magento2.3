@@ -1,10 +1,10 @@
-package com.amazon.browser_setup;
+package com.magento.browser_setup;
 
-import com.amazon.mysql.JdbcConnection;
-import com.amazon.loggers.Loggers;
-import com.amazon.path.Constants;
-import com.amazon.utilities.ExcelUtils;
-import com.amazon.utilities.Property;
+import com.magento.mysql.JdbcConnection;
+import com.magento.loggers.Loggers;
+import com.magento.path.Constants;
+import com.magento.utilities.ExcelUtils;
+import com.magento.utilities.Property;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

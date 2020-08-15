@@ -3,8 +3,8 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-    	<class name="com.amazon.browser_setup.BrowserSetup"/>
-    	<class name="com.amazon.AppTest"/>
+    	<class name="com.magento.browser_setup.BrowserSetup"/>
+    	<class name="com.magento.AppTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

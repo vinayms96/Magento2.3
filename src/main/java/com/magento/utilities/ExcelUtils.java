@@ -1,4 +1,4 @@
-package com.amazon.utilities;
+package com.magento.utilities;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
