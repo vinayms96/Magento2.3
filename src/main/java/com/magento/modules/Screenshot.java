@@ -12,7 +12,7 @@ import java.io.File;
 public class Screenshot implements Constants {
     private static BrowserSetup webDriver = new BrowserSetup();
     private static TakesScreenshot shot;
-    private static String screenshotPath = shot_path + DatePicker.getDateTime() + "/";
+    private static String screenshotPath = SHOT_PATH + DatePicker.getDateTime() + "/";
 
     public static String getScreenshotBase64() {
         shot = (TakesScreenshot) webDriver.driver;

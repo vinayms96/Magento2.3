@@ -49,7 +49,7 @@ public class JdbcConnection {
     }
 
     /**
-     * @return Return the Connection reference
+     * @return Connection
      */
     public static Connection getConnection() {
         return connect;

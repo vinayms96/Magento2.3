@@ -10,7 +10,7 @@ public class Property implements Constants{
 	public static String getProperty(String key) {
 		try {
 			Properties prop = new Properties();
-			prop.load(new FileInputStream(new File(prop_path)));
+			prop.load(new FileInputStream(new File(PROP_PATH)));
 			return prop.getProperty(key);
 		}catch (Exception e) {
 			e.printStackTrace();

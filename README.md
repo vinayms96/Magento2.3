@@ -16,6 +16,7 @@ This README would normally document whatever steps are necessary to get your app
 * Database configuration
 * How to run tests
 * Deployment instructions
+* Image name should be constant 'Report-Logo'
 
 ### Contribution guidelines ###
 

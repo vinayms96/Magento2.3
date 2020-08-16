@@ -4,8 +4,9 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.magento.modules.DatePicker;
+import com.magento.path.Constants;
 
-public class ExtentReport {
+public class ExtentReport implements Constants {
     private static ExtentSparkReporter sparkReporter;
     private static ExtentReports extentReports;
     private static ExtentTest extentTest;
@@ -21,10 +22,10 @@ public class ExtentReport {
 
         /*Defining the ype of reporter
         * And specifying the path to save the report*/
-        sparkReporter = new ExtentSparkReporter("./../magento_data/Reports/Test Report " + dateTime + ".html");
+        sparkReporter = new ExtentSparkReporter(EXTENT_PATH + dateTime + ".html");
 
         /*Loading the Extent Configuration XML file*/
-        sparkReporter.loadXMLConfig("./src/test/Resources/extent-config.xml");
+        sparkReporter.loadXMLConfig(EXTENT_CONFIG_PATH);
 
         /*Defining the ExtentReports and attaching the above reporter*/
         extentReports = new ExtentReports();

@@ -17,7 +17,7 @@ public class AppTest implements Constants {
 //    @Test
     public static void main(String[] args) throws SQLException {
         Loggers.setLogger();
-        ExcelUtils.excelConfigure(excel_path);
+        ExcelUtils.excelConfigure(EXCEL_PATH);
         ExcelUtils.getRowData(1);
         System.out.println(ExcelUtils.getLastCellNumber());
         System.out.println(ExcelUtils.getDataMap().get("password"));
