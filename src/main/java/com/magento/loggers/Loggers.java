@@ -1,4 +1,4 @@
-package com.amazon.modules;
+package com.magento.loggers;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,6 +16,9 @@ public class Loggers {
         log = LogManager.getLogger(stackTrace.getClassName());
     }
 
+    /**
+     * @return Logger
+     */
     public static Logger getLogger() {
         return log;
     }

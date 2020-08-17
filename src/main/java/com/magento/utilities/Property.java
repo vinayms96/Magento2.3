@@ -1,16 +1,16 @@
-package com.amazon.utilities;
+package com.magento.utilities;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
 
-import com.amazon.path.Constants;
+import com.magento.path.Constants;
 
 public class Property implements Constants{
-	public static String get_Property(String key) {
+	public static String getProperty(String key) {
 		try {
 			Properties prop = new Properties();
-			prop.load(new FileInputStream(new File(prop_path)));
+			prop.load(new FileInputStream(new File(PROP_PATH)));
 			return prop.getProperty(key);
 		}catch (Exception e) {
 			e.printStackTrace();
