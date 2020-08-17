@@ -36,7 +36,7 @@ public class AppTest implements Constants {
 //        ExtentReport.getExtentTest().pass("Extent test Pass");
 //        ExtentReport.getExtentReports().flush();
         JdbcConnection.establishConnection();
-
+//        DatabaseSampleData.test();
 
 //        if(JdbcConnection.getConnection() != null){
 //            System.out.println(JdbcConnection.getConnection().getClientInfo());

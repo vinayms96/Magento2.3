@@ -39,7 +39,7 @@ public class DatabaseSampleData {
             /*Re-Establishing connection after creating new database*/
             JdbcConnection.establishConnection();
         } catch (Exception e) {
-            Loggers.getLogger().error(e.getStackTrace()[0] + "\n" + e.getStackTrace()[1]);
+            Loggers.getLogger().error(e.getMessage());
         }
 
         /*Creating Sample Table and Values*/
@@ -78,27 +78,34 @@ public class DatabaseSampleData {
             statement.executeUpdate(create_table);
             Loggers.getLogger().info("Table with the name '" + database_table_1 + "' is created");
 
-            /*Creating the Table values*/
-            preparedStatement = table_connect.prepareStatement("INSERT INTO " + database_table_1 + " VALUES " + "(?,?,?,?,?,?,?,?,?,?);");
-            preparedStatement.setInt(1, Integer.parseInt(ExcelUtils.getDataMap().get(cell_0)));
-            preparedStatement.setString(2, ExcelUtils.getDataMap().get(cell_1));
-            preparedStatement.setString(3, ExcelUtils.getDataMap().get(cell_2));
-            preparedStatement.setString(4, ExcelUtils.getDataMap().get(cell_3));
-            preparedStatement.setLong(5, Long.parseLong(ExcelUtils.getDataMap().get(cell_4)));
-            preparedStatement.setString(6, ExcelUtils.getDataMap().get(cell_5));
-            preparedStatement.setString(7, ExcelUtils.getDataMap().get(cell_6));
-            preparedStatement.setString(8, ExcelUtils.getDataMap().get(cell_7));
-            preparedStatement.setString(9, ExcelUtils.getDataMap().get(cell_8));
-            preparedStatement.setInt(10, Integer.parseInt(ExcelUtils.getDataMap().get(cell_9)));
+            /*Adding multiple row data to the Database Table*/
+            for (int row = 1; row <= ExcelUtils.getLastRowNumber(); row++) {
+                /*Fetching each row data*/
+                ExcelUtils.getRowData(row);
 
-            /*Executing the PreparedStatement to enter the table values*/
-            preparedStatement.executeUpdate();
+                /*Creating the Table values*/
+                preparedStatement = table_connect.prepareStatement("INSERT INTO " + database_table_1 + "(" +
+                        cell_1 + "," + cell_2 + "," + cell_3 + "," + cell_4 + "," + cell_5 + "," + cell_6 + "," + cell_7 + "," +
+                        cell_8 + "," + cell_9 + ")" + " VALUES " + "(?,?,?,?,?,?,?,?,?);");
+
+                /*Setting the Column values by fetching it from Excel*/
+                preparedStatement.setString(1, ExcelUtils.getDataMap().get(cell_1));
+                preparedStatement.setString(2, ExcelUtils.getDataMap().get(cell_2));
+                preparedStatement.setString(3, ExcelUtils.getDataMap().get(cell_3));
+                preparedStatement.setLong(4, Long.parseLong(ExcelUtils.getDataMap().get(cell_4)));
+                preparedStatement.setString(5, ExcelUtils.getDataMap().get(cell_5));
+                preparedStatement.setString(6, ExcelUtils.getDataMap().get(cell_6));
+                preparedStatement.setString(7, ExcelUtils.getDataMap().get(cell_7));
+                preparedStatement.setString(8, ExcelUtils.getDataMap().get(cell_8));
+                preparedStatement.setInt(9, Integer.parseInt(ExcelUtils.getDataMap().get(cell_9)));
+
+                /*Executing the PreparedStatement to enter the table values*/
+                preparedStatement.executeUpdate();
+            }
             Loggers.getLogger().info("Sample data is added to the '" + database_table_1 + "' table");
 
-
         } catch (Exception e) {
-            Loggers.getLogger().error(e.getStackTrace()[0] + ", " + e.getStackTrace()[1]);
+            Loggers.getLogger().error(e.getMessage());
         }
     }
-
 }
