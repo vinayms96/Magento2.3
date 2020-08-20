@@ -1,26 +1,29 @@
 package com.magento.mysql;
 
+import com.magento.interfaces.DatabaseHeaders;
 import com.magento.loggers.Loggers;
 import com.magento.utilities.ExcelUtils;
 import com.magento.utilities.Property;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
+import java.sql.*;
 
-public class DatabaseSampleData {
+public class DatabaseSampleData implements DatabaseHeaders {
     private static Connection no_connect;
     private static String database_name;
     private static Statement statement;
     private static PreparedStatement preparedStatement;
+    private static DatabaseMetaData databaseMetaData;
+    private static ResultSet resultSet;
 
     /**
      * Creating Sample Database
-     * With Sample Table and Values
      */
-    public static void createData(String JDBC_DRIVER, String NO_DATABASE_URL, String USERNAME, String PASSWORD) {
+    public static void createDatabase(String JDBC_DRIVER, String NO_DATABASE_URL, String USERNAME, String PASSWORD) {
 
+        /*Setting the Loggers*/
+        Loggers.setLogger(DatabaseSampleData.class.getName());
+
+        /*Getting the database name*/
         database_name = Property.getProperty("database_name");
 
         /*Creating Sample database*/
@@ -42,21 +45,21 @@ public class DatabaseSampleData {
             Loggers.getLogger().error(e.getMessage());
         }
 
-        /*Creating Sample Table and Values*/
+        /*Calling the Create Table method to add Sample Table and data*/
+        createTable();
+    }
+
+    /**
+     * Creating Sample Table and Values
+     */
+    public static void createTable() {
+
+        /*Setting the Loggers*/
+        Loggers.setLogger(DatabaseSampleData.class.getName());
+
+        /*Establish connection with database*/
         Connection table_connect = JdbcConnection.getConnection();
         String database_table_1 = Property.getProperty("database_table_1");
-
-        /*Fetching the Column Headers*/
-        String cell_0 = ExcelUtils.getCellHeaders().get(0);
-        String cell_1 = ExcelUtils.getCellHeaders().get(1);
-        String cell_2 = ExcelUtils.getCellHeaders().get(2);
-        String cell_3 = ExcelUtils.getCellHeaders().get(3);
-        String cell_4 = ExcelUtils.getCellHeaders().get(4);
-        String cell_5 = ExcelUtils.getCellHeaders().get(5);
-        String cell_6 = ExcelUtils.getCellHeaders().get(6);
-        String cell_7 = ExcelUtils.getCellHeaders().get(7);
-        String cell_8 = ExcelUtils.getCellHeaders().get(8);
-        String cell_9 = ExcelUtils.getCellHeaders().get(9);
 
         try {
             /*Creating the Column Headers*/
@@ -104,6 +107,54 @@ public class DatabaseSampleData {
             }
             Loggers.getLogger().info("Sample data is added to the '" + database_table_1 + "' table");
 
+        } catch (Exception e) {
+            Loggers.getLogger().error(e.getMessage());
+        }
+    }
+
+    /*Update the Table if table exists*/
+    public static void updateTable() {
+
+        /*Setting the Loggers*/
+        Loggers.setLogger(DatabaseSampleData.class.getName());
+
+        /*Establish connection with database*/
+        Connection table_connect = JdbcConnection.getConnection();
+        String database_table_1 = Property.getProperty("database_table_1");
+
+        try {
+            /*Fetching the Database Metadata and Finding the table in the database*/
+            databaseMetaData = table_connect.getMetaData();
+            resultSet = databaseMetaData.getTables(null, null, database_table_1, null);
+
+            if (resultSet.next()) {
+                for (int row = 1; row <= ExcelUtils.getLastRowNumber(); row++) {
+                    ExcelUtils.getRowData(row);
+                    preparedStatement = table_connect.prepareStatement("UPDATE " + database_table_1 + " SET " +
+                            cell_1 + " = ?, " + cell_2 + " = ?, " + cell_3 + " = ?, " + cell_4 + " = ?, " +
+                            cell_5 + " = ?, " + cell_6 + " = ?, " + cell_7 + " = ?, " + cell_8 + " = ?, " + cell_9 +
+                            " = ? WHERE id = " + ExcelUtils.getDataMap().get(cell_0) + ";");
+
+                    /*Setting the Column values*/
+                    preparedStatement.setString(1, ExcelUtils.getDataMap().get(cell_1));
+                    preparedStatement.setString(2, ExcelUtils.getDataMap().get(cell_2));
+                    preparedStatement.setString(3, ExcelUtils.getDataMap().get(cell_3));
+                    preparedStatement.setLong(4, Long.parseLong(ExcelUtils.getDataMap().get(cell_4)));
+                    preparedStatement.setString(5, ExcelUtils.getDataMap().get(cell_5));
+                    preparedStatement.setString(6, ExcelUtils.getDataMap().get(cell_6));
+                    preparedStatement.setString(7, ExcelUtils.getDataMap().get(cell_7));
+                    preparedStatement.setString(8, ExcelUtils.getDataMap().get(cell_8));
+                    preparedStatement.setInt(9, Integer.parseInt(ExcelUtils.getDataMap().get(cell_9)));
+
+                    /*Executing the PreparedStatement to enter the table values*/
+                    preparedStatement.executeUpdate();
+                    Loggers.getLogger().info("The '" + database_table_1 + "' data is updated");
+                }
+            } else {
+                /*Creating the entire table and data if table doesn't exist*/
+                Loggers.getLogger().warn("Table " + database_table_1 + " doesn't exist\n Creating New table with the name '" + database_table_1 + "'...");
+                createTable();
+            }
         } catch (Exception e) {
             Loggers.getLogger().error(e.getMessage());
         }

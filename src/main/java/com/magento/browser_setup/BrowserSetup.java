@@ -1,9 +1,10 @@
 package com.magento.browser_setup;
 
 import com.magento.extent_reports.ExtentReport;
-import com.magento.mysql.JdbcConnection;
+import com.magento.interfaces.Constants;
 import com.magento.loggers.Loggers;
-import com.magento.path.Constants;
+import com.magento.mysql.DatabaseSampleData;
+import com.magento.mysql.JdbcConnection;
 import com.magento.utilities.ExcelUtils;
 import com.magento.utilities.Property;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -26,15 +27,43 @@ public class BrowserSetup implements Constants {
      */
     @BeforeSuite
     public void preTestRun() {
-        ExcelUtils.excelConfigure(EXCEL_PATH);
+        /*Setting the Loggers*/
+        Loggers.setLogger(BrowserSetup.class.getName());
+
+        /*Configuring the Excel Data*/
+        ExcelUtils.excelConfigure(EXCEL_TEST_PATH);
+        ExcelUtils.getRowData(1);
+        System.out.println(ExcelUtils.getLastCellNumber());
+
+        /*Configuring the Database Connection*/
         JdbcConnection.establishConnection();
+
+        /*Add full or Update the database from Excel*/
+        String property = Property.getProperty("updateData");
+
+        switch (property) {
+            case "table":
+                /*Creating the table and data*/
+                DatabaseSampleData.createTable();
+                break;
+            case "update":
+                /*Updating the table and data*/
+                ExcelUtils.excelConfigure(EXCEL_UPDATE_PATH);
+                DatabaseSampleData.updateTable();
+                ExcelUtils.excelConfigure(EXCEL_TEST_PATH);
+                break;
+            default:
+                break;
+        }
+
+        /*configuring the Extent Reports*/
         ExtentReport.extentReport();
     }
 
     /**
      * Invoke the Browser specified as System Argument (Chrome or Firefox)
      * Also selecting Browser Modes (Headless or not)
-     *   off -> Headless
+     * off -> Headless
      */
     @BeforeTest
     public void setup() {
@@ -50,23 +79,26 @@ public class BrowserSetup implements Constants {
         ff_options.merge(capabilities);
 
         /*Setting Browser Mode*/
-        if (System.getProperty("head").equalsIgnoreCase("off")) {
+        if (Property.getProperty("head").equalsIgnoreCase("off")) {
             ch_options.addArguments("--headless");
             ff_options.addArguments("--headless");
         }
 
         /*Selecting the Browser*/
-        if (System.getProperty("browser").equalsIgnoreCase("Chrome")) {
+        if (Property.getProperty("browser").equalsIgnoreCase("Chrome")) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
-        } else if (System.getProperty("browser").equalsIgnoreCase("Firefox")) {
+            Loggers.getLogger().info("Chrome browser is Launched");
+        } else if (Property.getProperty("browser").equalsIgnoreCase("Firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
+            Loggers.getLogger().info("Firefox browser is Launched");
         }
 
         /*Hitting the URL and Maximizing the window*/
-        driver.get(Property.getProperty("url"));
         driver.manage().window().maximize();
+        driver.get(Property.getProperty("url"));
+        Loggers.getLogger().info("Website Url is hit");
     }
 
     /**
@@ -75,6 +107,7 @@ public class BrowserSetup implements Constants {
     @AfterTest
     public void finish() {
         driver.quit();
+        Loggers.getLogger().info("Browser is closed");
     }
 
     /**
@@ -85,12 +118,14 @@ public class BrowserSetup implements Constants {
         /*Closing the Database Connection*/
         try {
             JdbcConnection.getConnection().close();
+            Loggers.getLogger().info("Database connection is closed.");
         } catch (Exception e) {
             Loggers.getLogger().error(e.getMessage());
         }
 
         /*Flushing the Extent Reports to generate the report*/
         ExtentReport.getExtentReports().flush();
+        Loggers.getLogger().info("Extent Report is flushed and report is created");
     }
 
 }
