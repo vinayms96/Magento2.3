@@ -14,4 +14,7 @@ public interface DatabaseHeaders {
     String cell_7 = ExcelUtils.getCellHeaders().get(7);
     String cell_8 = ExcelUtils.getCellHeaders().get(8);
     String cell_9 = ExcelUtils.getCellHeaders().get(9);
+    String cell_10 = ExcelUtils.getCellHeaders().get(10);
+    String cell_11 = ExcelUtils.getCellHeaders().get(11);
+    String cell_12 = ExcelUtils.getCellHeaders().get(12);
 }

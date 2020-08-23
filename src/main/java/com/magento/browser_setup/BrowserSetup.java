@@ -7,7 +7,6 @@ import com.magento.mysql.DatabaseSampleData;
 import com.magento.mysql.JdbcConnection;
 import com.magento.utilities.ExcelUtils;
 import com.magento.utilities.Property;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -20,20 +19,22 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
 public class BrowserSetup implements Constants {
-    public WebDriver driver = null;
+    public static WebDriver driver;
+    private DesiredCapabilities capabilities;
+    private ChromeOptions ch_options;
+    private FirefoxOptions ff_options;
 
     /**
      * Executing all the Pre Test Run methods in @BeforeSuite
      */
     @BeforeSuite
     public void preTestRun() {
+
         /*Setting the Loggers*/
         Loggers.setLogger(BrowserSetup.class.getName());
 
         /*Configuring the Excel Data*/
         ExcelUtils.excelConfigure(EXCEL_TEST_PATH);
-        ExcelUtils.getRowData(1);
-        System.out.println(ExcelUtils.getLastCellNumber());
 
         /*Configuring the Database Connection*/
         JdbcConnection.establishConnection();
@@ -68,14 +69,14 @@ public class BrowserSetup implements Constants {
     @BeforeTest
     public void setup() {
         /*Setting Browser Capabilities*/
-        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities = new DesiredCapabilities();
         capabilities.setAcceptInsecureCerts(true);
 
         /*Setting Browser Options*/
-        ChromeOptions ch_options = new ChromeOptions();
+        ch_options = new ChromeOptions();
         ch_options.merge(capabilities);
 
-        FirefoxOptions ff_options = new FirefoxOptions();
+        ff_options = new FirefoxOptions();
         ff_options.merge(capabilities);
 
         /*Setting Browser Mode*/
@@ -86,11 +87,13 @@ public class BrowserSetup implements Constants {
 
         /*Selecting the Browser*/
         if (Property.getProperty("browser").equalsIgnoreCase("Chrome")) {
-            WebDriverManager.chromedriver().setup();
+//            WebDriverManager.chromedriver().setup();
+            System.setProperty("webdriver.chrome.driver", "./../magento_data/browser_drivers/chromedriver");
             driver = new ChromeDriver();
             Loggers.getLogger().info("Chrome browser is Launched");
         } else if (Property.getProperty("browser").equalsIgnoreCase("Firefox")) {
-            WebDriverManager.firefoxdriver().setup();
+//            WebDriverManager.firefoxdriver().setup();
+            System.setProperty("webdriver.chrome.driver", "./../magento_data/browser_drivers/geckodriver");
             driver = new FirefoxDriver();
             Loggers.getLogger().info("Firefox browser is Launched");
         }
@@ -124,8 +127,10 @@ public class BrowserSetup implements Constants {
         }
 
         /*Flushing the Extent Reports to generate the report*/
-        ExtentReport.getExtentReports().flush();
-        Loggers.getLogger().info("Extent Report is flushed and report is created");
+        if (Property.getProperty("extent").equalsIgnoreCase("enable")) {
+            ExtentReport.getExtentReports().flush();
+            Loggers.getLogger().info("Extent Report is flushed and report is created");
+        }
     }
 
 }
