@@ -2,7 +2,7 @@ package com.magento.pageModels;
 
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
-import com.magento.modules.ClickActions;
+import com.magento.modules.MouseActions;
 import com.magento.modules.WebdriverWait;
 import com.magento.utilities.ExcelUtils;
 import org.openqa.selenium.WebDriver;
@@ -31,18 +31,18 @@ public class LoginModel {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
-    public static void fillLoginForm() {
+    public void fillLoginForm() {
         /*Creating Extent Node*/
         ExtentReport.createNode("Enter the Login Details");
 
+        /*Click on Login link*/
         WebdriverWait.waitTillClickable(login_link);
-//        ClickActions.moveClick(login_link);
         login_link.click();
 
         /*Entering the form details*/
         email_id.sendKeys(ExcelUtils.getDataMap().get("email_id"));
         password.sendKeys(ExcelUtils.getDataMap().get("password"));
-        ClickActions.moveClick(submit);
+        MouseActions.moveClickEvent(submit);
 
         /*Verifying if user is logged in*/
         WebdriverWait.waitTillVisibility(page_title);

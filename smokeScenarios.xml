@@ -10,11 +10,12 @@
             <class name="com.magento.AppTest"/>
             <class name="com.magento.UserAccounts">
                 <methods>
-                    <include name="setLoggerExtent"/>
+                    <exclude name="setLoggerExtent"/>
                     <exclude name="accountCreate"/>
-                    <include name="accountLogin"/>
+                    <exclude name="accountLogin"/>
                 </methods>
             </class>
+            <class name="com.magento.AddToCart"></class>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

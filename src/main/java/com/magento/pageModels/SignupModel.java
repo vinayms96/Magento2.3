@@ -2,10 +2,9 @@ package com.magento.pageModels;
 
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
-import com.magento.modules.ClickActions;
+import com.magento.modules.MouseActions;
 import com.magento.modules.WebdriverWait;
 import com.magento.utilities.ExcelUtils;
-import com.magento.utilities.Property;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -41,6 +40,7 @@ public class SignupModel {
 
     /**
      * Constructor
+     *
      * @param driver
      */
     public SignupModel(WebDriver driver) {
@@ -51,19 +51,19 @@ public class SignupModel {
     /**
      * Click on Create Account link
      */
-    public static void clickCreateAccountLink() {
+    public void clickCreateAccountLink() {
         /*Creating Extent Node*/
         ExtentReport.createNode("Click Create Account Link");
 
         /*Clicking on link*/
-        ClickActions.moveClick(create_account_link);
+        MouseActions.moveClickEvent(create_account_link);
 
         /*Logging and Reporting*/
         Loggers.getLogger().info("Create account link clicked");
         ExtentReport.getExtentNode().pass("Create account link clicked");
     }
 
-    public static void fillCustomerForm() {
+    public void fillCustomerForm() {
         /*Creating Extent Node*/
         ExtentReport.createNode("Fill Customer Form");
 
@@ -82,7 +82,7 @@ public class SignupModel {
         ExtentReport.getExtentNode().pass("Entered the Password");
         password_confirmation.sendKeys(ExcelUtils.getDataMap().get("password"));
         ExtentReport.getExtentNode().pass("Entered the Confirmation Password");
-        ClickActions.moveClick(submit);
+        MouseActions.moveClickEvent(submit);
 
         /*Checking if the email id already exists*/
         WebdriverWait.waitTillVisibility(messages);
