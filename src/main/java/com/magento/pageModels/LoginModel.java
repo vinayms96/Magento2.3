@@ -36,7 +36,7 @@ public class LoginModel {
         ExtentReport.createNode("Enter the Login Details");
 
         /*Click on Login link*/
-        WebdriverWait.waitTillClickable(login_link);
+        WebdriverWait.waitTillClickable(login_link, 5);
         login_link.click();
 
         /*Entering the form details*/
@@ -45,7 +45,7 @@ public class LoginModel {
         MouseActions.moveClickEvent(submit);
 
         /*Verifying if user is logged in*/
-        WebdriverWait.waitTillVisibility(page_title);
+        WebdriverWait.waitTillVisibility(page_title, 5);
         if (page_title.getText().equals("My Account")) {
             Loggers.getLogger().info("User logged in Successfully");
             ExtentReport.getExtentNode().pass("User logged in Successfully");

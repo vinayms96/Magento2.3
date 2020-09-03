@@ -34,9 +34,6 @@ public class ExcelUtils {
         data_map = new HashMap<>();
         formatter = new DataFormatter();
 
-        /*Setting the Loggers*/
-        Loggers.setLogger(ExcelUtils.class.getName());
-
         try {
             /*Declaring the Workbook by passing the interfaces to Excel file*/
             work_book = new XSSFWorkbook(new FileInputStream(new File(path)));
@@ -60,9 +57,6 @@ public class ExcelUtils {
      * @param row_num
      */
     public static void getRowData(int row_num) {
-        /*Setting the Loggers*/
-        Loggers.setLogger(ExcelUtils.class.getName());
-
         for (int i = 0; i < getLastCellNumber(); i++) {
             data_map.put(cell_headers.get(i), formatter.formatCellValue(sheet.getRow(row_num).getCell(i)));
         }

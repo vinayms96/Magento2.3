@@ -5,7 +5,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.magento.interfaces.Constants;
 import com.magento.loggers.Loggers;
-import com.magento.modules.DatePicker;
+import com.magento.pickers.DatePicker;
 
 public class ExtentReport implements Constants {
     private static ExtentSparkReporter sparkReporter;

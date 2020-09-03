@@ -14,7 +14,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class HomepageModel {
+public class HomeModel {
 
     @FindBy(xpath = "//nav/ul/li")
     private static List<WebElement> menu_links;
@@ -23,7 +23,7 @@ public class HomepageModel {
     @FindBy(xpath = "(//nav/ul/li)[3]/a/span[2]")
     private static WebElement main_menu;
 
-    public HomepageModel(WebDriver driver) {
+    public HomeModel(WebDriver driver) {
         PageFactory.initElements(driver, this);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
@@ -46,7 +46,7 @@ public class HomepageModel {
                     if (menu_tag.getText().equalsIgnoreCase(main_category)) {
 //                        MouseActions.moveOverEvent(outer_nav.findElement(By.tagName("a")));
 //                        MouseActions.jsHoverEvent(outer_nav.findElement(By.tagName("a")));
-                        WebdriverWait.waitTillVisibility(outer_nav.findElement(By.xpath("//a/span[1]")));
+                        WebdriverWait.waitTillVisibility(outer_nav.findElement(By.xpath("//a/span[1]")), 5);
                         MouseActions.robotMoveOverPosition(outer_nav.findElement(By.xpath("//a/span[1]")));
                         break;
                     }

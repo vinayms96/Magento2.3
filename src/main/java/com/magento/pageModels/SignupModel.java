@@ -85,7 +85,7 @@ public class SignupModel {
         MouseActions.moveClickEvent(submit);
 
         /*Checking if the email id already exists*/
-        WebdriverWait.waitTillVisibility(messages);
+        WebdriverWait.waitTillVisibility(messages, 5);
         if (messages.getAttribute("innerHTML").contains("There is already an account with this email address.")) {
             Loggers.getLogger().error("There is already an account with this email address.");
             ExtentReport.getExtentNode().fail("There is already an account with this email address.");

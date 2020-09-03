@@ -13,6 +13,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
@@ -27,7 +28,7 @@ public class BrowserSetup implements Constants {
     /**
      * Executing all the Pre Test Run methods in @BeforeSuite
      */
-    @BeforeSuite
+    @BeforeSuite(description = "Pre Test Configurations", groups = {"preTestRuns"})
     public void preTestRun() {
 
         /*Setting the Loggers*/
@@ -66,7 +67,7 @@ public class BrowserSetup implements Constants {
      * Also selecting Browser Modes (Headless or not)
      * off -> Headless
      */
-    @BeforeTest
+    @BeforeTest(description = "Browser setup configurations", groups = {"browserSetup"})
     public void setup() {
         /*Setting Browser Capabilities*/
         capabilities = new DesiredCapabilities();
@@ -101,13 +102,20 @@ public class BrowserSetup implements Constants {
         /*Hitting the URL and Maximizing the window*/
         driver.manage().window().maximize();
         driver.get(Property.getProperty("url"));
-        Loggers.getLogger().info("Website Url is hit");
+
+        try {
+            Assert.assertEquals(driver.getTitle(), "Home Page");
+            Loggers.getLogger().info("Website Url is hit");
+        } catch (Exception e) {
+            Loggers.getLogger().error("Could not launch the website");
+        }
+
     }
 
     /**
      * Closing the Browser after the end of each Test
      */
-    @AfterTest
+    @AfterTest(description = "Post Test configurations", groups = {"postTestRuns"})
     public void finish() {
         driver.quit();
         Loggers.getLogger().info("Browser is closed");
@@ -116,7 +124,7 @@ public class BrowserSetup implements Constants {
     /**
      * Executing all the Post Test Run methods in @AfterSuite
      */
-    @AfterSuite
+    @AfterSuite(description = "Final finish configurations", groups = {"finalFinish"})
     public void postTestRun() {
         /*Closing the Database Connection*/
         try {

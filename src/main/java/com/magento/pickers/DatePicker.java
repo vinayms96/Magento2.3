@@ -1,4 +1,4 @@
-package com.magento.modules;
+package com.magento.pickers;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
