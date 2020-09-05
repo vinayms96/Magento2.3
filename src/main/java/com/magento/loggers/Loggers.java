@@ -11,7 +11,11 @@ public class Loggers {
     private static StackTraceElement stackTrace;
     private static Logger log;
 
-    public static void setLogger() {
+    /**
+     * Setting the Loggers
+     * @param className
+     */
+    public static void setLogger(String className) {
         stackTrace = new Throwable().getStackTrace()[1];
         log = LogManager.getLogger(stackTrace.getClassName());
     }

@@ -16,11 +16,14 @@ public class DatabaseUtils {
 
     /**
      * Execute the query passed and return the ResultSet
-     *
      * @param getQuery
      * @return ResultSet
      */
     public static ResultSet getData(String getQuery) {
+
+        /*Setting the Loggers*/
+        Loggers.setLogger(DatabaseUtils.class.getName());
+
         try {
             /*Creating the Statement*/
             stmt = connect.createStatement();
@@ -37,7 +40,7 @@ public class DatabaseUtils {
 
         } catch (Exception e) {
             /*Logging any error occurred*/
-            Loggers.getLogger().error(e.getStackTrace()[0] + ", " + e.getStackTrace()[1]);
+            Loggers.getLogger().error(e.getMessage());
         }
 
         return null;
@@ -48,6 +51,9 @@ public class DatabaseUtils {
      * @return ResultSetMetaData
      */
     public static ResultSetMetaData getResultSetMetaData() {
+        /*Setting the Loggers*/
+        Loggers.setLogger(DatabaseUtils.class.getName());
+
         try {
             /*Fetching the MetaData*/
             resultSetMetaData = result.getMetaData();

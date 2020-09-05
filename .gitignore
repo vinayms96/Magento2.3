@@ -3,3 +3,4 @@
 .classpath
 Magento2.3.iml
 test-output/
+.settings/

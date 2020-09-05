@@ -1,15 +1,12 @@
 package com.magento;
 
-import com.magento.extent_reports.ExtentReport;
+import com.magento.interfaces.Constants;
 import com.magento.loggers.Loggers;
 import com.magento.mysql.DatabaseSampleData;
 import com.magento.mysql.JdbcConnection;
-import com.magento.path.Constants;
-import com.magento.utilities.DatabaseUtils;
 import com.magento.utilities.ExcelUtils;
+import org.testng.annotations.Test;
 
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 /**
@@ -20,9 +17,9 @@ public class AppTest implements Constants {
      * Rigourous Test :-)
      */
 //    @Test
-    public static void main(String[] args) throws SQLException {
-        Loggers.setLogger();
-        ExcelUtils.excelConfigure(EXCEL_PATH);
+  /*  public static void main(String[] args) throws SQLException {
+        Loggers.setLogger(AppTest.class.getName());
+        ExcelUtils.excelConfigure(EXCEL_TEST_PATH);
         ExcelUtils.getRowData(1);
         System.out.println(ExcelUtils.getLastCellNumber());
         System.out.println(ExcelUtils.getDataMap().get("password"));
@@ -35,7 +32,10 @@ public class AppTest implements Constants {
 //        ExtentReport.getExtentNode().fail("Node2 Fail");
 //        ExtentReport.getExtentTest().pass("Extent test Pass");
 //        ExtentReport.getExtentReports().flush();
-        JdbcConnection.establishConnection();
+//        JdbcConnection.establishConnection();
+//        ExcelUtils.excelConfigure(EXCEL_UPDATE_PATH);
+//        DatabaseSampleData.updateTable();
+
 //        DatabaseSampleData.test();
 
 //        if(JdbcConnection.getConnection() != null){
@@ -49,7 +49,17 @@ public class AppTest implements Constants {
 //        System.out.println(result.getString(0));
 //        DynamicPath.getScreenshotPath();
 //        System.out.println(Screenshot.getScreenshotBase64());
+        Loggers.getLogger().info("Success");
         System.out.println("Completed");
+    } */
+    @Test
+    public void test() {
+        Loggers.setLogger(AppTest.class.getName());
+//        System.out.println(DatabaseUtils.getData("SELECT * FROM customer_data;"));
+        Loggers.getLogger().info("Completed in AppTest");
+//        Logger log = LogManager.getLogger(AppTest.class.getName());
+//        log.info("Tested");
+//        System.out.println("Completed");
     }
 
 }
