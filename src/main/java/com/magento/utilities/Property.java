@@ -16,9 +16,6 @@ public class Property implements Constants {
      */
     public static String getProperty(String key) {
 
-        /*Setting the Loggers*/
-        Loggers.setLogger(Property.class.getName());
-
         try {
             /*Creating the Property Object and loading the properties file*/
             Properties prop = new Properties();

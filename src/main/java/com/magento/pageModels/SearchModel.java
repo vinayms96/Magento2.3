@@ -24,28 +24,26 @@ public class SearchModel {
     }
 
     public void searchText() {
+        /*Setting the extent reports*/
+        ExtentReport.createNode("Search for product");
+
+        /*Getting the Search query*/
         String searchQuery = ExcelUtils.getDataMap().get("search_text");
 
-        try {
-            if (search_box.isDisplayed()) {
-                search_box.sendKeys(searchQuery);
-                search_box.sendKeys(Keys.ENTER);
+        if (search_box.isDisplayed()) {
+            search_box.sendKeys(searchQuery);
+            search_box.sendKeys(Keys.ENTER);
 
-                if (search_heading.isDisplayed()) {
-                    Assert.assertTrue(search_heading.getText().contains(searchQuery));
-                }
-
-                Loggers.getLogger().info("Search result is displayed for '" + searchQuery + "'");
-                ExtentReport.getExtentTest().pass("Search result is displayed for '" + searchQuery + "'");
-            } else {
-                Loggers.getLogger().error("Could not find the Search Box");
-                ExtentReport.getExtentTest().fail("Could not find the Search Box");
+            /*Verifying the Search page heading*/
+            if (search_heading.isDisplayed()) {
+                Assert.assertTrue(search_heading.getText().contains(searchQuery));
             }
-        } catch (AssertionError e) {
-            Loggers.getLogger().error("The search query doesn't match the result");
-            ExtentReport.getExtentTest().fail("The search query doesn't match the result");
+
+            Loggers.getLogger().info("Search result is displayed for '" + searchQuery + "'");
+            ExtentReport.getExtentNode().pass("Search result is displayed for '" + searchQuery + "'");
+        } else {
+            Loggers.getLogger().error("Could not find the Search Box");
+            ExtentReport.getExtentNode().fail("Could not find the Search Box");
         }
-
     }
-
 }

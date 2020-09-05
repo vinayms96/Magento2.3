@@ -1,5 +1,6 @@
 package com.magento.browser_setup;
 
+import com.aventstack.extentreports.Status;
 import com.magento.extent_reports.ExtentReport;
 import com.magento.interfaces.Constants;
 import com.magento.loggers.Loggers;
@@ -14,6 +15,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;

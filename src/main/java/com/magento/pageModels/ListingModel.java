@@ -30,7 +30,6 @@ public class ListingModel {
 
     /**
      * Constructor
-     *
      * @param driver
      */
     public ListingModel(WebDriver driver) {
@@ -48,37 +47,64 @@ public class ListingModel {
 
         int product_id = RandomPicker.numberPicker(product_list.size());
 
+        /*Fetching the Product name*/
         list_product_name = product_item_link.get(product_id).getText();
         Loggers.getLogger().info("Product '" + list_product_name + "' is picked");
         ExtentReport.getExtentNode().pass("Product '" + list_product_name + "' is picked");
 
+        /*Fetching Old Price if present*/
         try {
             if (old_price_list.get(product_id).isDisplayed()) {
+                /*Fetching the Old Price in listing page*/
                 list_product_old_price = old_price_list.get(product_id).findElement(By.className("price")).getText();
                 Loggers.getLogger().info("Fetched the Product old price");
                 ExtentReport.getExtentNode().pass("Fetched the Product old price");
-            }
-        } catch (Exception e) {
-            if (final_price_list.get(product_id).isDisplayed()) {
+
+                /*Fetching the Final Price in listing page*/
                 list_product_final_price = final_price_list.get(product_id).findElement(By.className("price")).getText();
                 Loggers.getLogger().info("Fetched the Product final price");
                 ExtentReport.getExtentNode().pass("Fetched the Product final price");
             }
+        } catch (Exception e) {
+            /*Fetching Final Price if Old Price not present*/
+            try {
+                if (final_price_list.get(product_id).isDisplayed()) {
+                    list_product_final_price = final_price_list.get(product_id).findElement(By.className("price")).getText();
+                    Loggers.getLogger().info("Fetched the Product final price");
+                    ExtentReport.getExtentNode().pass("Fetched the Product final price");
+                }
+            } catch (Exception er) {
+                Loggers.getLogger().error("Could not fetch the Product Price in listing page");
+                ExtentReport.getExtentNode().pass("Could not fetch the Product Price in listing page");
+            }
         }
 
+        /*Clicking on the Product name*/
         MouseActions.moveClickEvent(product_item_link.get(product_id));
         Loggers.getLogger().info("Clicked on '" + list_product_name + "' product");
         ExtentReport.getExtentNode().pass("Clicked on '" + list_product_name + "' product");
     }
 
+    /**
+     * Get Product name
+     * @return
+     */
     public static String getList_product_name() {
         return list_product_name;
     }
 
+    /**
+     * Get the Product Old price
+     * @return
+     */
     public static String getList_product_old_price() {
         return list_product_old_price;
     }
 
+    /**
+     * Get Product final price
+     * @return
+     */
     public static String getList_product_final_price() {
         return list_product_final_price;
     }
