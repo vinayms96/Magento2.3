@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <Property name="baseDir">Logs</Property>
+    </Properties>
+    <Appenders>
+        <RollingFile name="RollingFile" fileName="./../magento_data/${baseDir}/magento.log"
+                     filePattern="./../magento_data/${baseDir}/$${date:yyyy-MM}/magento-%d{MM-dd-yyyy}-%i.log">
+            <PatternLayout>
+                <Pattern>%d{dd:MM:yyyy - HH:mm:ss} [%t] %p %c{3} - %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+        </RollingFile>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss:SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="RollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>

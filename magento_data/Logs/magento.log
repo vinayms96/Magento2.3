@@ -1,0 +1,504 @@
+05:09:2020 - 00:58:07 [main] INFO magento.mysql.JdbcConnection - Database Connection Established at Port:3306
+05:09:2020 - 00:58:07 [main] INFO magento.extent_reports.ExtentReport - Extent report config file is loaded
+05:09:2020 - 00:58:07 [main] INFO magento.extent_reports.ExtentReport - Reporter attached to reports
+05:09:2020 - 00:58:08 [main] INFO magento.extent_reports.ExtentReport - Chrome browser is Launched
+05:09:2020 - 00:58:09 [main] INFO magento.extent_reports.ExtentReport - Website Url is hit
+05:09:2020 - 00:58:09 [main] INFO magento.extent_reports.ExtentReport - Test 'setLoggerExtent' execution Started
+05:09:2020 - 00:58:09 [main] INFO com.magento.AddToCart - Row 1 data is fetched and mapped
+05:09:2020 - 00:58:09 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 00:58:09 [main] INFO com.magento.AddToCart - Test 'navListingPage' execution Started
+05:09:2020 - 00:58:10 [main] INFO com.magento.AddToCart - Search result is displayed for 'jacket'
+05:09:2020 - 00:58:10 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 00:58:10 [main] INFO com.magento.AddToCart - Test 'addProductToCart' execution Started
+05:09:2020 - 00:58:10 [main] INFO com.magento.AddToCart - Product 'Olivia 1/4 Zip Light Jacket' is picked
+05:09:2020 - 00:58:16 [main] INFO com.magento.AddToCart - Fetched the Product final price
+05:09:2020 - 00:58:16 [main] INFO com.magento.AddToCart - Clicked on 'Olivia 1/4 Zip Light Jacket' product
+05:09:2020 - 00:58:17 [main] INFO com.magento.AddToCart - Selected a Configurable Product
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - com.sun.proxy.$Proxy25 cannot be cast to org.openqa.selenium.By
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - com.magento.pageModels.ProductModel.addToCart(ProductModel.java:88)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - com.magento.AddToCart.addProductToCart(AddToCart.java:40)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - java.lang.reflect.Method.invoke(Method.java:498)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - java.util.ArrayList.forEach(ArrayList.java:1259)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.TestRunner.privateRun(TestRunner.java:766)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.TestRunner.run(TestRunner.java:587)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunner.run(SuiteRunner.java:286)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.TestNG.runSuites(TestNG.java:1039)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.testng.TestNG.run(TestNG.java:1007)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+05:09:2020 - 00:58:17 [main] ERROR com.magento.AddToCart - Keys to send should be a not null CharSequence
+05:09:2020 - 00:58:17 [main] INFO magento.modules.Screenshot - Base64 screenshot taken
+05:09:2020 - 00:58:17 [main] INFO magento.modules.Screenshot - Browser is closed
+05:09:2020 - 00:58:17 [main] INFO magento.modules.Screenshot - Database connection is closed.
+05:09:2020 - 01:01:40 [main] INFO magento.mysql.JdbcConnection - Database Connection Established at Port:3306
+05:09:2020 - 01:01:40 [main] INFO magento.extent_reports.ExtentReport - Extent report config file is loaded
+05:09:2020 - 01:01:40 [main] INFO magento.extent_reports.ExtentReport - Reporter attached to reports
+05:09:2020 - 01:01:52 [main] INFO magento.mysql.JdbcConnection - Database Connection Established at Port:3306
+05:09:2020 - 01:01:53 [main] INFO magento.extent_reports.ExtentReport - Extent report config file is loaded
+05:09:2020 - 01:01:53 [main] INFO magento.extent_reports.ExtentReport - Reporter attached to reports
+05:09:2020 - 01:01:54 [main] INFO magento.extent_reports.ExtentReport - Chrome browser is Launched
+05:09:2020 - 01:01:55 [main] INFO magento.extent_reports.ExtentReport - Website Url is hit
+05:09:2020 - 01:01:55 [main] INFO magento.extent_reports.ExtentReport - Test 'setLoggerExtent' execution Started
+05:09:2020 - 01:01:55 [main] INFO com.magento.AddToCart - Row 1 data is fetched and mapped
+05:09:2020 - 01:01:55 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 01:01:55 [main] INFO com.magento.AddToCart - Test 'navListingPage' execution Started
+05:09:2020 - 01:01:56 [main] INFO com.magento.AddToCart - Search result is displayed for 'jacket'
+05:09:2020 - 01:01:56 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 01:01:56 [main] INFO com.magento.AddToCart - Test 'addProductToCart' execution Started
+05:09:2020 - 01:01:56 [main] INFO com.magento.AddToCart - Product 'Riona Full Zip Jacket' is picked
+05:09:2020 - 01:02:01 [main] INFO com.magento.AddToCart - Fetched the Product final price
+05:09:2020 - 01:02:02 [main] INFO com.magento.AddToCart - Clicked on 'Riona Full Zip Jacket' product
+05:09:2020 - 01:02:03 [main] INFO com.magento.AddToCart - Selected a Configurable Product
+05:09:2020 - 01:02:03 [main] INFO com.magento.AddToCart - Swatch 'null' is selected
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - javascript error: Failed to execute 'elementsFromPoint' on 'Document': The provided double value is non-finite.
+  (Session info: chrome=80.0.3987.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'thundurus', ip: '192.168.43.96', os.name: 'Linux', os.arch: 'amd64', os.version: '4.15.0-112-generic', java.version: '1.8.0_265'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.132, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: /tmp/.com.google.Chrome.dSkPEQ}, goog:chromeOptions: {debuggerAddress: localhost:34593}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: ed185221038a667a10832db09283dd62
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:618)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:639)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - com.magento.modules.MouseActions.moveClickEvent(MouseActions.java:20)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - com.magento.pageModels.ProductModel.addToCart(ProductModel.java:98)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - com.magento.AddToCart.addProductToCart(AddToCart.java:40)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - java.lang.reflect.Method.invoke(Method.java:498)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - java.util.ArrayList.forEach(ArrayList.java:1259)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.TestRunner.privateRun(TestRunner.java:766)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.TestRunner.run(TestRunner.java:587)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunner.run(SuiteRunner.java:286)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.TestNG.runSuites(TestNG.java:1039)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.testng.TestNG.run(TestNG.java:1007)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+05:09:2020 - 01:02:03 [main] ERROR com.magento.AddToCart - Keys to send should be a not null CharSequence
+05:09:2020 - 01:02:03 [main] INFO magento.modules.Screenshot - Base64 screenshot taken
+05:09:2020 - 01:02:03 [main] INFO magento.modules.Screenshot - Browser is closed
+05:09:2020 - 01:02:03 [main] INFO magento.modules.Screenshot - Database connection is closed.
+05:09:2020 - 01:04:52 [main] INFO magento.mysql.JdbcConnection - Database Connection Established at Port:3306
+05:09:2020 - 01:04:52 [main] INFO magento.extent_reports.ExtentReport - Extent report config file is loaded
+05:09:2020 - 01:04:52 [main] INFO magento.extent_reports.ExtentReport - Reporter attached to reports
+05:09:2020 - 01:04:53 [main] INFO magento.extent_reports.ExtentReport - Chrome browser is Launched
+05:09:2020 - 01:04:54 [main] INFO magento.extent_reports.ExtentReport - Website Url is hit
+05:09:2020 - 01:04:54 [main] INFO magento.extent_reports.ExtentReport - Test 'setLoggerExtent' execution Started
+05:09:2020 - 01:04:54 [main] INFO com.magento.AddToCart - Row 1 data is fetched and mapped
+05:09:2020 - 01:04:54 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 01:04:54 [main] INFO com.magento.AddToCart - Test 'navListingPage' execution Started
+05:09:2020 - 01:04:56 [main] INFO com.magento.AddToCart - Search result is displayed for 'jacket'
+05:09:2020 - 01:04:56 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 01:04:56 [main] INFO com.magento.AddToCart - Test 'addProductToCart' execution Started
+05:09:2020 - 01:04:56 [main] INFO com.magento.AddToCart - Product 'Inez Full Zip Jacket' is picked
+05:09:2020 - 01:05:01 [main] INFO com.magento.AddToCart - Fetched the Product final price
+05:09:2020 - 01:05:02 [main] INFO com.magento.AddToCart - Clicked on 'Inez Full Zip Jacket' product
+05:09:2020 - 01:05:02 [main] INFO com.magento.AddToCart - Selected a Configurable Product
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - Random Size: 162
+05:09:2020 - 01:05:02 [main] INFO com.magento.AddToCart - Swatch 'null' is selected
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - move target out of bounds
+  (Session info: chrome=80.0.3987.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'thundurus', ip: '192.168.43.96', os.name: 'Linux', os.arch: 'amd64', os.version: '4.15.0-112-generic', java.version: '1.8.0_265'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.132, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: /tmp/.com.google.Chrome.kBcQxS}, goog:chromeOptions: {debuggerAddress: localhost:34481}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 7d56c4e99665b7070b78a41901caffc0
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:618)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:639)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - com.magento.modules.MouseActions.moveClickEvent(MouseActions.java:20)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - com.magento.pageModels.ProductModel.addToCart(ProductModel.java:100)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - com.magento.AddToCart.addProductToCart(AddToCart.java:40)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - java.lang.reflect.Method.invoke(Method.java:498)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - java.util.ArrayList.forEach(ArrayList.java:1259)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.TestRunner.privateRun(TestRunner.java:766)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.TestRunner.run(TestRunner.java:587)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunner.run(SuiteRunner.java:286)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.TestNG.runSuites(TestNG.java:1039)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.testng.TestNG.run(TestNG.java:1007)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+05:09:2020 - 01:05:02 [main] ERROR com.magento.AddToCart - Keys to send should be a not null CharSequence
+05:09:2020 - 01:05:03 [main] INFO magento.modules.Screenshot - Base64 screenshot taken
+05:09:2020 - 01:05:03 [main] INFO magento.modules.Screenshot - Browser is closed
+05:09:2020 - 01:05:03 [main] INFO magento.modules.Screenshot - Database connection is closed.
+05:09:2020 - 01:06:44 [main] INFO magento.mysql.JdbcConnection - Database Connection Established at Port:3306
+05:09:2020 - 01:06:44 [main] INFO magento.extent_reports.ExtentReport - Extent report config file is loaded
+05:09:2020 - 01:06:44 [main] INFO magento.extent_reports.ExtentReport - Reporter attached to reports
+05:09:2020 - 01:06:45 [main] INFO magento.extent_reports.ExtentReport - Chrome browser is Launched
+05:09:2020 - 01:06:46 [main] INFO magento.extent_reports.ExtentReport - Website Url is hit
+05:09:2020 - 01:06:46 [main] INFO magento.extent_reports.ExtentReport - Test 'setLoggerExtent' execution Started
+05:09:2020 - 01:06:46 [main] INFO com.magento.AddToCart - Row 1 data is fetched and mapped
+05:09:2020 - 01:06:46 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 01:06:46 [main] INFO com.magento.AddToCart - Test 'navListingPage' execution Started
+05:09:2020 - 01:06:48 [main] INFO com.magento.AddToCart - Search result is displayed for 'jacket'
+05:09:2020 - 01:06:48 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 01:06:48 [main] INFO com.magento.AddToCart - Test 'addProductToCart' execution Started
+05:09:2020 - 01:06:48 [main] INFO com.magento.AddToCart - Product 'Orion Two-Tone Fitted Jacket' is picked
+05:09:2020 - 01:06:53 [main] INFO com.magento.AddToCart - Fetched the Product final price
+05:09:2020 - 01:06:54 [main] INFO com.magento.AddToCart - Clicked on 'Orion Two-Tone Fitted Jacket' product
+05:09:2020 - 01:06:55 [main] INFO com.magento.AddToCart - Selected a Configurable Product
+05:09:2020 - 01:06:55 [main] ERROR com.magento.AddToCart - Random Size: 146
+05:09:2020 - 01:06:55 [main] INFO com.magento.AddToCart - Swatch 'null' is selected
+05:09:2020 - 01:06:55 [main] ERROR com.magento.AddToCart - Random Size: 20
+05:09:2020 - 01:06:55 [main] INFO com.magento.AddToCart - Swatch 'null' is selected
+05:09:2020 - 01:06:56 [main] ERROR com.magento.AddToCart - Keys to send should be a not null CharSequence
+05:09:2020 - 01:06:56 [main] INFO magento.modules.Screenshot - Base64 screenshot taken
+05:09:2020 - 01:06:56 [main] INFO magento.modules.Screenshot - Browser is closed
+05:09:2020 - 01:06:56 [main] INFO magento.modules.Screenshot - Database connection is closed.
+05:09:2020 - 01:12:16 [main] INFO magento.mysql.JdbcConnection - Database Connection Established at Port:3306
+05:09:2020 - 01:12:16 [main] INFO magento.extent_reports.ExtentReport - Extent report config file is loaded
+05:09:2020 - 01:12:16 [main] INFO magento.extent_reports.ExtentReport - Reporter attached to reports
+05:09:2020 - 01:12:17 [main] INFO magento.extent_reports.ExtentReport - Chrome browser is Launched
+05:09:2020 - 01:12:18 [main] INFO magento.extent_reports.ExtentReport - Website Url is hit
+05:09:2020 - 01:12:18 [main] INFO magento.extent_reports.ExtentReport - Test 'setLoggerExtent' execution Started
+05:09:2020 - 01:12:18 [main] INFO com.magento.AddToCart - Row 1 data is fetched and mapped
+05:09:2020 - 01:12:18 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 01:12:18 [main] INFO com.magento.AddToCart - Test 'navListingPage' execution Started
+05:09:2020 - 01:12:19 [main] INFO com.magento.AddToCart - Search result is displayed for 'jacket'
+05:09:2020 - 01:12:19 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 01:12:19 [main] INFO com.magento.AddToCart - Test 'addProductToCart' execution Started
+05:09:2020 - 01:12:20 [main] INFO com.magento.AddToCart - Product 'Orion Two-Tone Fitted Jacket' is picked
+05:09:2020 - 01:12:25 [main] INFO com.magento.AddToCart - Fetched the Product final price
+05:09:2020 - 01:12:25 [main] INFO com.magento.AddToCart - Clicked on 'Orion Two-Tone Fitted Jacket' product
+05:09:2020 - 01:12:26 [main] INFO com.magento.AddToCart - Selected a Configurable Product
+05:09:2020 - 01:12:26 [main] ERROR com.magento.AddToCart - Random Size: 145
+05:09:2020 - 01:12:26 [main] INFO com.magento.AddToCart - Swatch 'null' is selected
+05:09:2020 - 01:12:26 [main] ERROR com.magento.AddToCart - Random Size: 111
+05:09:2020 - 01:12:27 [main] INFO com.magento.AddToCart - Swatch 'null' is selected
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - javascript error: Failed to execute 'elementsFromPoint' on 'Document': The provided double value is non-finite.
+  (Session info: chrome=80.0.3987.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'thundurus', ip: '192.168.43.96', os.name: 'Linux', os.arch: 'amd64', os.version: '4.15.0-112-generic', java.version: '1.8.0_265'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.132, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: /tmp/.com.google.Chrome.ZgDaPb}, goog:chromeOptions: {debuggerAddress: localhost:34895}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 6b968d20bd3f74a340cbe45464ded71f
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:618)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:639)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - com.magento.modules.MouseActions.moveClickEvent(MouseActions.java:20)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - com.magento.pageModels.ProductModel.addToCart(ProductModel.java:100)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - com.magento.AddToCart.addProductToCart(AddToCart.java:40)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - java.lang.reflect.Method.invoke(Method.java:498)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - java.util.ArrayList.forEach(ArrayList.java:1259)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.TestRunner.privateRun(TestRunner.java:766)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.TestRunner.run(TestRunner.java:587)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunner.run(SuiteRunner.java:286)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.TestNG.runSuites(TestNG.java:1039)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.testng.TestNG.run(TestNG.java:1007)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+05:09:2020 - 01:12:27 [main] ERROR com.magento.AddToCart - org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+05:09:2020 - 01:12:32 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 01:12:32 [main] INFO com.magento.AddToCart - Browser is closed
+05:09:2020 - 01:12:32 [main] INFO com.magento.AddToCart - Database connection is closed.
+05:09:2020 - 15:02:03 [main] INFO magento.mysql.JdbcConnection - Database Connection Established at Port:3306
+05:09:2020 - 15:02:03 [main] INFO magento.extent_reports.ExtentReport - Extent report config file is loaded
+05:09:2020 - 15:02:04 [main] INFO magento.extent_reports.ExtentReport - Reporter attached to reports
+05:09:2020 - 15:02:08 [main] INFO magento.extent_reports.ExtentReport - Chrome browser is Launched
+05:09:2020 - 15:02:12 [main] INFO magento.extent_reports.ExtentReport - Website Url is hit
+05:09:2020 - 15:02:12 [main] INFO magento.extent_reports.ExtentReport - Test 'setLoggerExtent' execution Started
+05:09:2020 - 15:02:13 [main] INFO com.magento.AddToCart - Row 1 data is fetched and mapped
+05:09:2020 - 15:02:13 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 15:02:13 [main] INFO com.magento.AddToCart - Test 'navListingPage' execution Started
+05:09:2020 - 15:02:15 [main] INFO com.magento.AddToCart - Search result is displayed for 'jacket'
+05:09:2020 - 15:02:15 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 15:02:15 [main] INFO com.magento.AddToCart - Test 'addProductToCart' execution Started
+05:09:2020 - 15:02:15 [main] INFO com.magento.AddToCart - Product 'Olivia 1/4 Zip Light Jacket' is picked
+05:09:2020 - 15:02:20 [main] INFO com.magento.AddToCart - Fetched the Product final price
+05:09:2020 - 15:02:21 [main] INFO com.magento.AddToCart - Clicked on 'Olivia 1/4 Zip Light Jacket' product
+05:09:2020 - 15:02:22 [main] INFO com.magento.AddToCart - Selected a Configurable Product
+05:09:2020 - 15:02:33 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 15:02:33 [main] INFO com.magento.AddToCart - Browser is closed
+05:09:2020 - 15:02:33 [main] INFO com.magento.AddToCart - Database connection is closed.
+05:09:2020 - 16:06:13 [main] INFO magento.mysql.JdbcConnection - Database Connection Established at Port:3306
+05:09:2020 - 16:06:13 [main] INFO magento.extent_reports.ExtentReport - Extent report config file is loaded
+05:09:2020 - 16:06:13 [main] INFO magento.extent_reports.ExtentReport - Reporter attached to reports
+05:09:2020 - 16:06:15 [main] INFO magento.extent_reports.ExtentReport - Chrome browser is Launched
+05:09:2020 - 16:06:16 [main] INFO magento.extent_reports.ExtentReport - Website Url is hit
+05:09:2020 - 16:06:16 [main] INFO magento.extent_reports.ExtentReport - Test 'setLoggerExtent' execution Started
+05:09:2020 - 16:06:17 [main] INFO com.magento.AddToCart - Row 1 data is fetched and mapped
+05:09:2020 - 16:06:17 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 16:06:17 [main] INFO com.magento.AddToCart - Test 'navListingPage' execution Started
+05:09:2020 - 16:06:18 [main] INFO com.magento.AddToCart - Search result is displayed for 'jacket'
+05:09:2020 - 16:06:18 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 16:06:18 [main] INFO com.magento.AddToCart - Test 'addProductToCart' execution Started
+05:09:2020 - 16:06:18 [main] INFO com.magento.AddToCart - Product 'Riona Full Zip Jacket' is picked
+05:09:2020 - 16:06:23 [main] INFO com.magento.AddToCart - Fetched the Product final price
+05:09:2020 - 16:06:24 [main] INFO com.magento.AddToCart - Clicked on 'Riona Full Zip Jacket' product
+05:09:2020 - 16:06:25 [main] INFO com.magento.AddToCart - Selected a Configurable Product
+05:09:2020 - 16:06:36 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 16:06:36 [main] INFO com.magento.AddToCart - Browser is closed
+05:09:2020 - 16:06:36 [main] INFO com.magento.AddToCart - Database connection is closed.
+05:09:2020 - 16:24:00 [main] INFO magento.mysql.JdbcConnection - Database Connection Established at Port:3306
+05:09:2020 - 16:24:00 [main] INFO magento.extent_reports.ExtentReport - Extent report config file is loaded
+05:09:2020 - 16:24:00 [main] INFO magento.extent_reports.ExtentReport - Reporter attached to reports
+05:09:2020 - 16:24:01 [main] INFO magento.extent_reports.ExtentReport - Chrome browser is Launched
+05:09:2020 - 16:24:03 [main] INFO magento.extent_reports.ExtentReport - Website Url is hit
+05:09:2020 - 16:24:03 [main] INFO magento.extent_reports.ExtentReport - Test 'setLoggerExtent' execution Started
+05:09:2020 - 16:24:03 [main] INFO com.magento.AddToCart - Row 1 data is fetched and mapped
+05:09:2020 - 16:24:03 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 16:24:03 [main] INFO com.magento.AddToCart - Test 'navListingPage' execution Started
+05:09:2020 - 16:24:05 [main] INFO com.magento.AddToCart - Search result is displayed for 'jacket'
+05:09:2020 - 16:24:05 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 16:24:05 [main] INFO com.magento.AddToCart - Test 'addProductToCart' execution Started
+05:09:2020 - 16:24:05 [main] INFO com.magento.AddToCart - Product 'Lando Gym Jacket' is picked
+05:09:2020 - 16:24:10 [main] INFO com.magento.AddToCart - Fetched the Product final price
+05:09:2020 - 16:24:11 [main] INFO com.magento.AddToCart - Clicked on 'Lando Gym Jacket' product
+05:09:2020 - 16:24:11 [main] INFO com.magento.AddToCart - Selected a Configurable Product
+05:09:2020 - 16:24:12 [main] INFO com.magento.AddToCart - Swatch 'XL' is selected
+05:09:2020 - 16:24:12 [main] INFO com.magento.AddToCart - Swatch 'S' is selected
+05:09:2020 - 16:24:12 [main] INFO com.magento.AddToCart - Swatch 'S' is selected
+05:09:2020 - 16:24:12 [main] INFO com.magento.AddToCart - Swatch 'XL' is selected
+05:09:2020 - 16:24:12 [main] INFO com.magento.AddToCart - Swatch 'L' is selected
+05:09:2020 - 16:24:13 [main] INFO com.magento.AddToCart - Swatch 'Green' is selected
+05:09:2020 - 16:24:13 [main] INFO com.magento.AddToCart - Swatch 'Gray' is selected
+05:09:2020 - 16:24:13 [main] INFO com.magento.AddToCart - Swatch 'Gray' is selected
+05:09:2020 - 16:24:18 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 16:24:18 [main] INFO com.magento.AddToCart - Browser is closed
+05:09:2020 - 16:24:18 [main] INFO com.magento.AddToCart - Database connection is closed.
+05:09:2020 - 16:30:30 [main] INFO magento.mysql.JdbcConnection - Database Connection Established at Port:3306
+05:09:2020 - 16:30:30 [main] INFO magento.extent_reports.ExtentReport - Extent report config file is loaded
+05:09:2020 - 16:30:31 [main] INFO magento.extent_reports.ExtentReport - Reporter attached to reports
+05:09:2020 - 16:30:32 [main] INFO magento.extent_reports.ExtentReport - Chrome browser is Launched
+05:09:2020 - 16:30:33 [main] INFO magento.extent_reports.ExtentReport - Website Url is hit
+05:09:2020 - 16:30:33 [main] INFO magento.extent_reports.ExtentReport - Test 'setLoggerExtent' execution Started
+05:09:2020 - 16:30:33 [main] INFO com.magento.AddToCart - Row 1 data is fetched and mapped
+05:09:2020 - 16:30:33 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 16:30:33 [main] INFO com.magento.AddToCart - Test 'navListingPage' execution Started
+05:09:2020 - 16:30:35 [main] INFO com.magento.AddToCart - Search result is displayed for 'jacket'
+05:09:2020 - 16:30:35 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 16:30:35 [main] INFO com.magento.AddToCart - Test 'addProductToCart' execution Started
+05:09:2020 - 16:30:35 [main] INFO com.magento.AddToCart - Product 'Inez Full Zip Jacket' is picked
+05:09:2020 - 16:30:40 [main] INFO com.magento.AddToCart - Fetched the Product final price
+05:09:2020 - 16:30:41 [main] INFO com.magento.AddToCart - Clicked on 'Inez Full Zip Jacket' product
+05:09:2020 - 16:30:41 [main] INFO com.magento.AddToCart - Selected a Configurable Product
+05:09:2020 - 16:30:42 [main] INFO com.magento.AddToCart - Swatch 'S' is selected
+05:09:2020 - 16:30:42 [main] INFO com.magento.AddToCart - Swatch 'Purple' is selected
+05:09:2020 - 16:30:47 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 16:30:47 [main] INFO com.magento.AddToCart - Browser is closed
+05:09:2020 - 16:30:47 [main] INFO com.magento.AddToCart - Database connection is closed.
+05:09:2020 - 17:01:45 [main] INFO magento.mysql.JdbcConnection - Database Connection Established at Port:3306
+05:09:2020 - 17:01:45 [main] INFO magento.extent_reports.ExtentReport - Extent report config file is loaded
+05:09:2020 - 17:01:45 [main] INFO magento.extent_reports.ExtentReport - Reporter attached to reports
+05:09:2020 - 17:01:46 [main] INFO magento.extent_reports.ExtentReport - Chrome browser is Launched
+05:09:2020 - 17:01:47 [main] INFO magento.extent_reports.ExtentReport - Website Url is hit
+05:09:2020 - 17:01:48 [main] INFO magento.extent_reports.ExtentReport - Test 'setLoggerExtent' execution Started
+05:09:2020 - 17:01:48 [main] INFO com.magento.AddToCart - Row 1 data is fetched and mapped
+05:09:2020 - 17:01:48 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 17:01:48 [main] INFO com.magento.AddToCart - Test 'navListingPage' execution Started
+05:09:2020 - 17:01:49 [main] INFO com.magento.AddToCart - Search result is displayed for 'jacket'
+05:09:2020 - 17:01:49 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 17:01:49 [main] INFO com.magento.AddToCart - Test 'addProductToCart' execution Started
+05:09:2020 - 17:01:49 [main] INFO com.magento.AddToCart - Product 'Typhon Performance Fleece-lined Jacket' is picked
+05:09:2020 - 17:01:55 [main] INFO com.magento.AddToCart - Fetched the Product final price
+05:09:2020 - 17:01:55 [main] INFO com.magento.AddToCart - Clicked on 'Typhon Performance Fleece-lined Jacket' product
+05:09:2020 - 17:01:56 [main] INFO com.magento.AddToCart - Selected a Configurable Product
+05:09:2020 - 17:01:56 [main] INFO com.magento.AddToCart - Swatch 'S' is selected
+05:09:2020 - 17:01:57 [main] INFO com.magento.AddToCart - Swatch 'Black' is selected
+05:09:2020 - 17:02:02 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 17:02:02 [main] INFO com.magento.AddToCart - Browser is closed
+05:09:2020 - 17:02:02 [main] INFO com.magento.AddToCart - Database connection is closed.
+05:09:2020 - 18:12:39 [main] INFO magento.mysql.JdbcConnection - Database Connection Established at Port:3306
+05:09:2020 - 18:12:39 [main] INFO magento.extent_reports.ExtentReport - Extent report config file is loaded
+05:09:2020 - 18:12:39 [main] INFO magento.extent_reports.ExtentReport - Reporter attached to reports
+05:09:2020 - 18:12:41 [main] INFO magento.extent_reports.ExtentReport - Chrome browser is Launched
+05:09:2020 - 18:12:43 [main] INFO magento.extent_reports.ExtentReport - Website Url is hit
+05:09:2020 - 18:12:43 [main] INFO magento.extent_reports.ExtentReport - Test 'setLoggerExtent' execution Started
+05:09:2020 - 18:12:43 [main] INFO com.magento.AddToCart - Row 1 data is fetched and mapped
+05:09:2020 - 18:12:43 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 18:12:43 [main] INFO com.magento.AddToCart - Test 'navListingPage' execution Started
+05:09:2020 - 18:12:46 [main] INFO com.magento.AddToCart - Search result is displayed for 'jacket'
+05:09:2020 - 18:12:46 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 18:12:46 [main] INFO com.magento.AddToCart - Test 'addProductToCart' execution Started
+05:09:2020 - 18:12:46 [main] INFO com.magento.AddToCart - Product 'Juno Jacket' is picked
+05:09:2020 - 18:12:51 [main] INFO com.magento.AddToCart - Fetched the Product final price
+05:09:2020 - 18:12:52 [main] INFO com.magento.AddToCart - Clicked on 'Juno Jacket' product
+05:09:2020 - 18:12:53 [main] INFO com.magento.AddToCart - Selected a Configurable Product
+05:09:2020 - 18:12:53 [main] INFO com.magento.AddToCart - Swatch 'XL' is selected
+05:09:2020 - 18:12:54 [main] INFO com.magento.AddToCart - Swatch 'Green' is selected
+05:09:2020 - 18:12:55 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 18:12:55 [main] INFO com.magento.AddToCart - Browser is closed
+05:09:2020 - 18:12:55 [main] INFO com.magento.AddToCart - Database connection is closed.
+05:09:2020 - 18:15:56 [main] INFO magento.mysql.JdbcConnection - Database Connection Established at Port:3306
+05:09:2020 - 18:15:56 [main] INFO magento.extent_reports.ExtentReport - Extent report config file is loaded
+05:09:2020 - 18:15:56 [main] INFO magento.extent_reports.ExtentReport - Reporter attached to reports
+05:09:2020 - 18:15:57 [main] INFO magento.extent_reports.ExtentReport - Chrome browser is Launched
+05:09:2020 - 18:15:58 [main] INFO magento.extent_reports.ExtentReport - Website Url is hit
+05:09:2020 - 18:15:58 [main] INFO magento.extent_reports.ExtentReport - Test 'setLoggerExtent' execution Started
+05:09:2020 - 18:15:58 [main] INFO com.magento.AddToCart - Row 1 data is fetched and mapped
+05:09:2020 - 18:15:58 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 18:15:58 [main] INFO com.magento.AddToCart - Test 'navListingPage' execution Started
+05:09:2020 - 18:16:00 [main] INFO com.magento.AddToCart - Search result is displayed for 'jacket'
+05:09:2020 - 18:16:00 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 18:16:00 [main] INFO com.magento.AddToCart - Test 'addProductToCart' execution Started
+05:09:2020 - 18:16:00 [main] INFO com.magento.AddToCart - Product 'Adrienne Trek Jacket' is picked
+05:09:2020 - 18:16:05 [main] INFO com.magento.AddToCart - Fetched the Product final price
+05:09:2020 - 18:16:06 [main] INFO com.magento.AddToCart - Clicked on 'Adrienne Trek Jacket' product
+05:09:2020 - 18:16:07 [main] INFO com.magento.AddToCart - Selected a Configurable Product
+05:09:2020 - 18:16:07 [main] INFO com.magento.AddToCart - Swatch 'XL' is selected
+05:09:2020 - 18:16:08 [main] INFO com.magento.AddToCart - Swatch 'Gray' is selected
+05:09:2020 - 18:16:09 [main] INFO com.magento.AddToCart - Product Successfully added to Cart
+05:09:2020 - 18:16:09 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 18:16:09 [main] INFO com.magento.AddToCart - Browser is closed
+05:09:2020 - 18:16:09 [main] INFO com.magento.AddToCart - Database connection is closed.
+05:09:2020 - 18:38:49 [main] INFO magento.mysql.JdbcConnection - Database Connection Established at Port:3306
+05:09:2020 - 18:38:49 [main] INFO magento.extent_reports.ExtentReport - Extent report config file is loaded
+05:09:2020 - 18:38:49 [main] INFO magento.extent_reports.ExtentReport - Reporter attached to reports
+05:09:2020 - 18:38:50 [main] INFO magento.extent_reports.ExtentReport - Chrome browser is Launched
+05:09:2020 - 18:38:51 [main] INFO magento.extent_reports.ExtentReport - Website Url is hit
+05:09:2020 - 18:38:51 [main] INFO magento.extent_reports.ExtentReport - Test 'setLoggerExtent' execution Started
+05:09:2020 - 18:38:51 [main] INFO com.magento.AddToCart - Row 1 data is fetched and mapped
+05:09:2020 - 18:38:51 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 18:38:51 [main] INFO com.magento.AddToCart - Test 'navListingPage' execution Started
+05:09:2020 - 18:38:53 [main] INFO com.magento.AddToCart - Search result is displayed for 'jacket'
+05:09:2020 - 18:38:53 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 18:38:53 [main] INFO com.magento.AddToCart - Test 'addProductToCart' execution Started
+05:09:2020 - 18:38:53 [main] INFO com.magento.AddToCart - Product 'Typhon Performance Fleece-lined Jacket' is picked
+05:09:2020 - 18:38:58 [main] INFO com.magento.AddToCart - Fetched the Product final price
+05:09:2020 - 18:38:59 [main] INFO com.magento.AddToCart - Clicked on 'Typhon Performance Fleece-lined Jacket' product
+05:09:2020 - 18:38:59 [main] INFO com.magento.AddToCart - Selected a Configurable Product
+05:09:2020 - 18:38:59 [main] INFO com.magento.AddToCart - Swatch 'XL' is selected
+05:09:2020 - 18:39:00 [main] INFO com.magento.AddToCart - Swatch 'Black' is selected
+05:09:2020 - 18:39:01 [main] INFO com.magento.AddToCart - Product Successfully added to Cart
+05:09:2020 - 18:39:01 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 18:39:01 [main] INFO com.magento.AddToCart - Browser is closed
+05:09:2020 - 18:39:01 [main] INFO com.magento.AddToCart - Database connection is closed.
+05:09:2020 - 19:38:16 [main] INFO magento.mysql.JdbcConnection - Database Connection Established at Port:3306
+05:09:2020 - 19:38:16 [main] INFO magento.extent_reports.ExtentReport - Extent report config file is loaded
+05:09:2020 - 19:38:16 [main] INFO magento.extent_reports.ExtentReport - Reporter attached to reports
+05:09:2020 - 19:38:17 [main] INFO magento.extent_reports.ExtentReport - Chrome browser is Launched
+05:09:2020 - 19:38:18 [main] INFO magento.extent_reports.ExtentReport - Website Url is hit
+05:09:2020 - 19:38:18 [main] INFO magento.extent_reports.ExtentReport - Test 'setLoggerExtent' execution Started
+05:09:2020 - 19:38:18 [main] INFO com.magento.AddToCart - Row 1 data is fetched and mapped
+05:09:2020 - 19:38:18 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 19:38:18 [main] INFO com.magento.AddToCart - Test 'navListingPage' execution Started
+05:09:2020 - 19:38:20 [main] INFO com.magento.AddToCart - Search result is displayed for 'jacket'
+05:09:2020 - 19:38:20 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 19:38:20 [main] INFO com.magento.AddToCart - Test 'addProductToCart' execution Started
+05:09:2020 - 19:38:20 [main] INFO com.magento.AddToCart - Product 'Juno Jacket' is picked
+05:09:2020 - 19:38:25 [main] INFO com.magento.AddToCart - Fetched the Product final price
+05:09:2020 - 19:38:26 [main] INFO com.magento.AddToCart - Clicked on 'Juno Jacket' product
+05:09:2020 - 19:38:26 [main] INFO com.magento.AddToCart - Selected a Configurable Product
+05:09:2020 - 19:38:27 [main] INFO com.magento.AddToCart - Swatch 'L' is selected
+05:09:2020 - 19:38:27 [main] INFO com.magento.AddToCart - Swatch 'Purple' is selected
+05:09:2020 - 19:38:28 [main] INFO com.magento.AddToCart - Product Successfully added to Cart
+05:09:2020 - 19:38:28 [main] INFO com.magento.AddToCart - Test has run successfully
+05:09:2020 - 19:38:28 [main] INFO com.magento.AddToCart - Browser is closed
+05:09:2020 - 19:38:28 [main] INFO com.magento.AddToCart - Database connection is closed.

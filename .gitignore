@@ -1,6 +1,6 @@
-/target/
-.idea/
-.classpath
-Magento2.3.iml
-test-output/
-.settings/
+MagentoCode/target/
+MagentoCode/.idea/
+MagentoCode/.classpath
+MagentoCode/Magento2.3.iml
+MagentoCode/test-output/
+MagentoCode/.settings/
