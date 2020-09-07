@@ -21,12 +21,12 @@ public class MouseActions extends BrowserSetup {
     }
 
     public static void moveOverEvent(WebElement element) {
-        action.moveToElement(element).build().perform();
+        action.moveToElement(element).perform();
     }
 
     public static void moveOverPosition(WebElement element) {
         position = element.getLocation();
-        action.moveToElement(element).moveByOffset(position.getX(), position.getY()).build().perform();
+        action.moveToElement(element).moveByOffset(position.getX(), position.getY()).perform();
     }
 
     public static void jsHoverEvent(WebElement element) {

@@ -3,11 +3,8 @@ package com.magento.pageModels;
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
 import com.magento.modules.MouseActions;
-import com.magento.modules.WebdriverWait;
 import com.magento.pickers.RandomPicker;
 import com.magento.utilities.ExcelUtils;
-import com.magento.utilities.Property;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -43,9 +40,7 @@ public class ProductModel {
     private WebElement add_success;
 
     /**
-     * Constructor
-     *
-     * @param driver
+     * @param driver - Webdriver element
      */
     public ProductModel(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -128,7 +123,7 @@ public class ProductModel {
         MouseActions.moveClickEvent(add_cart_button);
 
         /*Verifying the Success Message*/
-        if(add_success.isDisplayed()){
+        if (add_success.isDisplayed()) {
             Assert.assertEquals(add_success.getText(), "shopping cart");
             Loggers.getLogger().info("Product Successfully added to Cart");
             ExtentReport.getExtentNode().pass("Product Successfully added to Cart");

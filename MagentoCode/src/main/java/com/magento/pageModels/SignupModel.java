@@ -39,9 +39,7 @@ public class SignupModel {
     private static WebElement messages;
 
     /**
-     * Constructor
-     *
-     * @param driver
+     * @param driver - Webdriver element
      */
     public SignupModel(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -63,6 +61,9 @@ public class SignupModel {
         ExtentReport.getExtentNode().pass("Create account link clicked");
     }
 
+    /**
+     * Fill the Create account form and hit Submit
+     */
     public void fillCustomerForm() {
         /*Creating Extent Node*/
         ExtentReport.createNode("Fill Customer Form");

@@ -35,6 +35,7 @@ public class AddToCart extends BrowserSetup {
         ListingModel listingModel = new ListingModel(driver);
         ProductModel productModel = new ProductModel(driver);
 
+        listingModel.fetchProductDetails();
         listingModel.pickProduct();
         productModel.verifyProductDetails();
         productModel.addToCart();
