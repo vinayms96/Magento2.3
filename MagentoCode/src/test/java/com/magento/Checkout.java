@@ -4,6 +4,7 @@ import com.magento.browser_setup.BrowserSetup;
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
 import com.magento.pageModels.ListingModel;
+import com.magento.pageModels.MinicartModel;
 import com.magento.pageModels.SearchModel;
 import com.magento.utilities.ExcelUtils;
 import com.magento.utilities.Property;
@@ -22,8 +23,11 @@ public class Checkout extends BrowserSetup {
     public void placeOrder() {
         SearchModel searchModel = new SearchModel(driver);
         ListingModel listingModel = new ListingModel(driver);
+        MinicartModel minicartModel = new MinicartModel(driver);
+
         searchModel.searchText();
         listingModel.fetchProductDetails();
         listingModel.addCartListing();
+        minicartModel.getMiniProductDetails();
     }
 }
