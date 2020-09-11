@@ -56,6 +56,8 @@ public class ProductModel {
 
         /*Verifying Product name*/
         Assert.assertEquals(ListingModel.getList_product_name(), product_name.getText());
+        Loggers.getLogger().info("Product name verified successfully");
+        ExtentReport.getExtentNode().pass("Product name verified successfully");
 
         /*Fetching the Final price*/
         product_final_price = pdp_final_price.getText();
@@ -67,8 +69,13 @@ public class ProductModel {
 
             Assert.assertEquals(ListingModel.getList_product_old_price(), product_old_price);
             Assert.assertEquals(ListingModel.getList_product_final_price(), product_final_price);
+            Loggers.getLogger().info("Product old price and final price verified successfully");
+            ExtentReport.getExtentNode().pass("Product old price and final price verified successfully");
+
         } else {
             Assert.assertEquals(ListingModel.getList_product_final_price(), product_final_price);
+            Loggers.getLogger().info("Product final price verified successfully");
+            ExtentReport.getExtentNode().pass("Product final price verified successfully");
         }
     }
 

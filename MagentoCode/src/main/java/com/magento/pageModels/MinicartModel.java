@@ -2,6 +2,7 @@ package com.magento.pageModels;
 
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
+import com.magento.modules.MouseActions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -33,18 +34,30 @@ public class MinicartModel {
     private WebElement quantity;
     @FindBy(css = ".viewcart")
     private WebElement view_cart;
+    @FindBy(id = "top-cart-btn-checkout")
+    private WebElement go_checkout_button;
 
+    /**
+     * @param driver - Webdriver element
+     */
     public MinicartModel(WebDriver driver) {
         PageFactory.initElements(driver, this);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
+    /**
+     * Fetch the Minicart product details
+     */
     public void getMiniProductDetails() {
+        /*Setting the Extent reports*/
         ExtentReport.createNode("Get Minicart Product Details");
 
         if (mini_cart_pop.isDisplayed()) {
+            /*Fetching product name*/
             mini_cart_pop.click();
             mini_product_name = product_name.getText();
+
+            /*Fetching the config options*/
             try {
                 if (see_details.isDisplayed()) {
                     see_details.click();
@@ -63,15 +76,28 @@ public class MinicartModel {
                 Loggers.getLogger().info("The product '" + mini_product_name + "' is a simple product");
                 ExtentReport.getExtentNode().pass("The product '" + mini_product_name + "' is a simple product");
             }
+            /*Fetching the Product Price*/
             mini_product_price = product_price.getText();
             Loggers.getLogger().info("Minicart product price '" + mini_product_price + "' is fetched");
             ExtentReport.getExtentNode().pass("Minicart product price '" + mini_product_price + "' is fetched");
 
+            /*Fetching the Product Qty*/
             mini_product_qty = quantity.getAttribute("data-item-qty");
             Loggers.getLogger().info("Minicart product quantity '" + mini_product_qty + "' is fetched");
             ExtentReport.getExtentNode().pass("Minicart product quantity '" + mini_product_qty + "' is fetched");
         }
+    }
 
+    /**
+     * Navigate to Checkout page
+     */
+    public void goToCheckout() {
+        /*Setting the Extent reports*/
+        ExtentReport.createNode("Go to Checkout page");
+
+        MouseActions.moveClickEvent(go_checkout_button);
+        Loggers.getLogger().info("Clicked on Checkout button");
+        ExtentReport.getExtentNode().pass("Clicked on Checkout button");
     }
 
 }

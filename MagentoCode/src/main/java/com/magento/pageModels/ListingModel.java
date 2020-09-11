@@ -91,7 +91,7 @@ public class ListingModel {
      */
     public void pickProduct() {
         /*Setting ExtentReports*/
-        ExtentReport.createNode("Pick Product from listing");
+        ExtentReport.createNode("Pick Product from Listing");
 
         /*Clicking on the Product name*/
         MouseActions.moveClickEvent(product_item_link.get(product_id));

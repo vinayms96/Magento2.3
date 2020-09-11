@@ -20,14 +20,17 @@ public class Checkout extends BrowserSetup {
     }
 
     @Test(description = "Placing Order by adding product from Listing page", priority = 2, groups = {"checkout.placeOrder"})
-    public void placeOrder() {
+    public void placeOrderMini() {
         SearchModel searchModel = new SearchModel(driver);
         ListingModel listingModel = new ListingModel(driver);
         MinicartModel minicartModel = new MinicartModel(driver);
 
         searchModel.searchText();
+
         listingModel.fetchProductDetails();
         listingModel.addCartListing();
+
         minicartModel.getMiniProductDetails();
+        minicartModel.goToCheckout();
     }
 }
