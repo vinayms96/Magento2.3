@@ -18,11 +18,17 @@ public class SearchModel {
     @FindBy(xpath = "//h1/span")
     private WebElement search_heading;
 
+    /**
+     * @param driver - Webdriver element
+     */
     public SearchModel(WebDriver driver) {
         PageFactory.initElements(driver, this);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
+    /**
+     * Entering search text in search field and Searching
+     */
     public void searchText() {
         /*Setting the extent reports*/
         ExtentReport.createNode("Search for product");
@@ -39,11 +45,15 @@ public class SearchModel {
                 Assert.assertTrue(search_heading.getText().contains(searchQuery));
             }
 
+            /*Logging and Reporting*/
             Loggers.getLogger().info("Search result is displayed for '" + searchQuery + "'");
             ExtentReport.getExtentNode().pass("Search result is displayed for '" + searchQuery + "'");
+
         } else {
+
             Loggers.getLogger().error("Could not find the Search Box");
             ExtentReport.getExtentNode().fail("Could not find the Search Box");
+
         }
     }
 }

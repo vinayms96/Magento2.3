@@ -10,7 +10,8 @@
                 <include name="preTestRuns"/>
                 <include name="browserSetup"/>
                 <exclude name="userAccounts.*"/>
-                <include name="addCart.*"/>
+                <exclude name="addCart.*"/>
+                <include name="checkout.*"/>
                 <include name="postTestRuns"/>
                 <include name="finalFinish"/>
             </run>
@@ -19,7 +20,8 @@
             <class name="com.magento.browser_setup.BrowserSetup"/>
             <class name="com.magento.AppTest"/>
             <class name="com.magento.UserAccounts"/>
-            <class name="com.magento.AddToCart"></class>
+            <class name="com.magento.AddToCart"/>
+            <class name="com.magento.Checkout"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -3,11 +3,8 @@ package com.magento.pageModels;
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
 import com.magento.modules.MouseActions;
-import com.magento.modules.WebdriverWait;
 import com.magento.pickers.RandomPicker;
 import com.magento.utilities.ExcelUtils;
-import com.magento.utilities.Property;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -22,6 +20,7 @@ public class ProductModel {
     private static String product_old_price;
     private static String product_final_price;
     private static String product_quantity;
+    private static ArrayList<String> product_swatches;
 
     @FindBy(xpath = "//h1/span")
     private WebElement product_name;
@@ -43,13 +42,39 @@ public class ProductModel {
     private WebElement add_success;
 
     /**
-     * Constructor
-     *
-     * @param driver
+     * @param driver - Webdriver element
      */
     public ProductModel(WebDriver driver) {
         PageFactory.initElements(driver, this);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    }
+
+    /**
+     * @return - product_old_price
+     */
+    public static String getProduct_old_price() {
+        return product_old_price;
+    }
+
+    /**
+     * @return - product_final_price
+     */
+    public static String getProduct_final_price() {
+        return product_final_price;
+    }
+
+    /**
+     * @return - product_qty
+     */
+    public static String getProduct_quantity() {
+        return product_quantity;
+    }
+
+    /**
+     * @return - product_swatches
+     */
+    public static ArrayList<String> getProduct_swatches() {
+        return product_swatches;
     }
 
     /**
@@ -61,6 +86,8 @@ public class ProductModel {
 
         /*Verifying Product name*/
         Assert.assertEquals(ListingModel.getList_product_name(), product_name.getText());
+        Loggers.getLogger().info("Product name verified successfully");
+        ExtentReport.getExtentNode().pass("Product name verified successfully");
 
         /*Fetching the Final price*/
         product_final_price = pdp_final_price.getText();
@@ -72,8 +99,12 @@ public class ProductModel {
 
             Assert.assertEquals(ListingModel.getList_product_old_price(), product_old_price);
             Assert.assertEquals(ListingModel.getList_product_final_price(), product_final_price);
+            Loggers.getLogger().info("Product old price and final price verified successfully");
+            ExtentReport.getExtentNode().pass("Product old price and final price verified successfully");
         } else {
             Assert.assertEquals(ListingModel.getList_product_final_price(), product_final_price);
+            Loggers.getLogger().info("Product final price verified successfully");
+            ExtentReport.getExtentNode().pass("Product final price verified successfully");
         }
     }
 
@@ -90,16 +121,19 @@ public class ProductModel {
                 Loggers.getLogger().info("Selected a Configurable Product");
                 ExtentReport.getExtentNode().info("Selected a Configurable Product");
 
+                product_swatches = new ArrayList<>(10);
+
                 if (swatches_size_list.get(0).isDisplayed()) {
                     int size_option = RandomPicker.numberPicker(swatches_size_list.size());
                     WebElement size_element = swatches_size_list.get(size_option);
 
                     /*Selecting the Swatches*/
                     MouseActions.moveClickEvent(size_element);
+                    product_swatches.add(size_element.getAttribute("option-label"));
 
                     /*Logging and Reporting*/
-                    Loggers.getLogger().info("Swatch '" + size_element.getAttribute("option-label") + "' is selected");
-                    ExtentReport.getExtentNode().info("Swatch '" + size_element.getAttribute("option-label") + "' is selected");
+                    Loggers.getLogger().info("Swatch '" + product_swatches.get(0) + "' is selected");
+                    ExtentReport.getExtentNode().info("Swatch '" + product_swatches.get(0) + "' is selected");
                 }
 
                 if (swatches_color_list.get(0).isDisplayed()) {
@@ -108,10 +142,11 @@ public class ProductModel {
 
                     /*Selecting the Swatches*/
                     MouseActions.moveClickEvent(color_element);
+                    product_swatches.add(color_element.getAttribute("option-label"));
 
                     /*Logging and Reporting*/
-                    Loggers.getLogger().info("Swatch '" + color_element.getAttribute("option-label") + "' is selected");
-                    ExtentReport.getExtentNode().info("Swatch '" + color_element.getAttribute("option-label") + "' is selected");
+                    Loggers.getLogger().info("Swatch '" + product_swatches.get(1) + "' is selected");
+                    ExtentReport.getExtentNode().info("Swatch '" + product_swatches.get(1) + "' is selected");
                 }
             }
         } catch (Exception e) {
@@ -128,7 +163,7 @@ public class ProductModel {
         MouseActions.moveClickEvent(add_cart_button);
 
         /*Verifying the Success Message*/
-        if(add_success.isDisplayed()){
+        if (add_success.isDisplayed()) {
             Assert.assertEquals(add_success.getText(), "shopping cart");
             Loggers.getLogger().info("Product Successfully added to Cart");
             ExtentReport.getExtentNode().pass("Product Successfully added to Cart");

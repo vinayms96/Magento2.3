@@ -25,12 +25,17 @@ public class LoginModel {
     @FindBy(xpath = "//h1[@class='page-title']/span")
     private static WebElement page_title;
 
-
+    /**
+     * @param driver - Webdriver element
+     */
     public LoginModel(WebDriver driver) {
         PageFactory.initElements(driver, this);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
+    /**
+     * Fill login form and Login
+     */
     public void fillLoginForm() {
         /*Creating Extent Node*/
         ExtentReport.createNode("Enter the Login Details");

@@ -24,4 +24,20 @@ public class WebdriverWait extends BrowserSetup {
         webDriverWait = new WebDriverWait(driver, timeOutInSeconds);
         webDriverWait.until(ExpectedConditions.visibilityOfAllElements(element));
     }
+
+    public static void waitTillPagRefreshed(WebElement element, int timeOutInSeconds) {
+        webDriverWait = new WebDriverWait(driver, timeOutInSeconds);
+        webDriverWait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(element)));
+    }
+
+    public static void waitTillPagRefreshed(List<WebElement> element, int timeOutInSeconds) {
+        webDriverWait = new WebDriverWait(driver, timeOutInSeconds);
+        webDriverWait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOfAllElements(element)));
+    }
+
+    public static void waitTillInvisibility(WebElement element, int timeOutInSeconds) {
+        webDriverWait = new WebDriverWait(driver, timeOutInSeconds);
+        webDriverWait.until(ExpectedConditions.invisibilityOf(element));
+    }
+
 }

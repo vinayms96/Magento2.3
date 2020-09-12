@@ -3,6 +3,7 @@ package com.magento;
 import com.magento.browser_setup.BrowserSetup;
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
+import com.magento.pageModels.AccountModel;
 import com.magento.pageModels.LoginModel;
 import com.magento.pageModels.SignupModel;
 import com.magento.utilities.ExcelUtils;
@@ -23,9 +24,12 @@ public class UserAccounts extends BrowserSetup {
     public void accountCreate() {
         /*PageModel object*/
         SignupModel signupModel = new SignupModel(driver);
+        AccountModel accountModel = new AccountModel(driver);
 
         signupModel.clickCreateAccountLink();
         signupModel.fillCustomerForm();
+
+        accountModel.accountCreateVerify();
     }
 
     @Test(description = "Logging into the User Account", priority = 2, groups = {"userAccounts.accountLogin"})

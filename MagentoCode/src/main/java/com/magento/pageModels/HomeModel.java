@@ -23,11 +23,17 @@ public class HomeModel {
     @FindBy(xpath = "(//nav/ul/li)[3]/a/span[2]")
     private static WebElement main_menu;
 
+    /**
+     * @param driver - Webdriver element
+     */
     public HomeModel(WebDriver driver) {
         PageFactory.initElements(driver, this);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
+    /**
+     * Selecting the Menus
+     */
     public void selectMenus() {
         /*Creating Extent Node*/
         ExtentReport.createNode("Hover and Select Menus");
@@ -81,6 +87,10 @@ public class HomeModel {
         }
     }
 
+    /**
+     * @param menu_element - Element of particular menu
+     * @param category_name - Category name to click
+     */
     public void clickMenus(WebElement menu_element, String category_name) {
         MouseActions.moveClickEvent(menu_element);
         ExtentReport.getExtentNode().pass("Click on the " + category_name);

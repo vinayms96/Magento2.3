@@ -3,10 +3,7 @@ package com.magento;
 import com.magento.browser_setup.BrowserSetup;
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
-import com.magento.pageModels.HomeModel;
-import com.magento.pageModels.ListingModel;
-import com.magento.pageModels.ProductModel;
-import com.magento.pageModels.SearchModel;
+import com.magento.pageModels.*;
 import com.magento.utilities.ExcelUtils;
 import com.magento.utilities.Property;
 import org.testng.annotations.Test;
@@ -34,9 +31,19 @@ public class AddToCart extends BrowserSetup {
     public void addProductToCart() {
         ListingModel listingModel = new ListingModel(driver);
         ProductModel productModel = new ProductModel(driver);
+        MinicartModel minicartModel = new MinicartModel(driver);
+        CartModel cartModel = new CartModel(driver);
 
+        listingModel.fetchProductDetails();
         listingModel.pickProduct();
+
         productModel.verifyProductDetails();
         productModel.addToCart();
+
+        minicartModel.clickMiniCartPop();
+        minicartModel.clickViewCart();
+
+        cartModel.fetchProductDetails();
+        cartModel.verifyProductDetails();
     }
 }

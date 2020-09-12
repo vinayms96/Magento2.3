@@ -39,9 +39,7 @@ public class SignupModel {
     private static WebElement messages;
 
     /**
-     * Constructor
-     *
-     * @param driver
+     * @param driver - Webdriver element
      */
     public SignupModel(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -63,34 +61,42 @@ public class SignupModel {
         ExtentReport.getExtentNode().pass("Create account link clicked");
     }
 
+    /**
+     * Fill the Create account form and hit Submit
+     */
     public void fillCustomerForm() {
         /*Creating Extent Node*/
         ExtentReport.createNode("Fill Customer Form");
 
         /*Filling the form fields*/
         first_name.sendKeys(ExcelUtils.getDataMap().get("first_name"));
+        Loggers.getLogger().info("Entered the Firstname");
         ExtentReport.getExtentNode().pass("Entered the Firstname");
+
         last_name.sendKeys(ExcelUtils.getDataMap().get("last_name"));
+        Loggers.getLogger().info("Entered the Lastname");
         ExtentReport.getExtentNode().pass("Entered the Lastname");
+
 //        if (Property.getProperty("is_subscribed").equals(1)) {
 //            is_subscribed.click();
 //            ExtentReport.getExtentNode().pass("Check the Subscriber Newsletter");
 //        }
-        email_address.sendKeys(ExcelUtils.getDataMap().get("email_id"));
-        ExtentReport.getExtentNode().pass("Entered the Email id");
-        password.sendKeys(ExcelUtils.getDataMap().get("password"));
-        ExtentReport.getExtentNode().pass("Entered the Password");
-        password_confirmation.sendKeys(ExcelUtils.getDataMap().get("password"));
-        ExtentReport.getExtentNode().pass("Entered the Confirmation Password");
-        MouseActions.moveClickEvent(submit);
 
-        /*Checking if the email id already exists*/
-        WebdriverWait.waitTillVisibility(messages, 5);
-        if (messages.getAttribute("innerHTML").contains("There is already an account with this email address.")) {
-            Loggers.getLogger().error("There is already an account with this email address.");
-            ExtentReport.getExtentNode().fail("There is already an account with this email address.");
-        } else {
-            ExtentReport.getExtentNode().pass("User account successfully created");
-        }
+        email_address.sendKeys(ExcelUtils.getDataMap().get("email_id"));
+        Loggers.getLogger().info("Entered the Email id");
+        ExtentReport.getExtentNode().pass("Entered the Email id");
+
+        password.sendKeys(ExcelUtils.getDataMap().get("password"));
+        Loggers.getLogger().info("Entered the Password");
+        ExtentReport.getExtentNode().pass("Entered the Password");
+
+        password_confirmation.sendKeys(ExcelUtils.getDataMap().get("password"));
+        Loggers.getLogger().info("Entered the Confirmation Password");
+        ExtentReport.getExtentNode().pass("Entered the Confirmation Password");
+
+        MouseActions.moveClickEvent(submit);
+        Loggers.getLogger().info("Clicked on Submit button");
+        ExtentReport.getExtentNode().pass("Clicked on Submit button");
+
     }
 }
