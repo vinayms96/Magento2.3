@@ -30,6 +30,7 @@ public class Checkout extends BrowserSetup {
         listingModel.fetchProductDetails();
         listingModel.addCartListing();
 
+        minicartModel.clickMiniCartPop();
         minicartModel.getMiniProductDetails();
         minicartModel.goToCheckout();
 

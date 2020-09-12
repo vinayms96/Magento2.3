@@ -41,6 +41,9 @@ public class CheckoutModel {
     @FindBy(css = ".primary .checkout")
     private WebElement place_order;
 
+    /**
+     * @param driver - WebDriver element
+     */
     public CheckoutModel(WebDriver driver) {
         PageFactory.initElements(driver, this);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -54,7 +57,7 @@ public class CheckoutModel {
         /*Setting up Extent report*/
         ExtentReport.createNode("Verify Checkout Page 1 Redirect");
 
-        WebdriverWait.waitTillVisibility(sign_in_link, 5);
+        WebdriverWait.waitTillVisibility(sign_in_link, 10);
 
         Assert.assertTrue(driver.getCurrentUrl().contains("/checkout/#shipping"));
         Loggers.getLogger().info("Successfully redirected to Checkout page 1");
@@ -69,7 +72,7 @@ public class CheckoutModel {
         /*Setting up Extent report*/
         ExtentReport.createNode("Verify Checkout Page 2 Redirect");
 
-        WebdriverWait.waitTillVisibility(place_order, 5);
+        WebdriverWait.waitTillVisibility(place_order, 10);
 
         Assert.assertTrue(driver.getCurrentUrl().contains("/checkout/#payment"));
         Loggers.getLogger().info("Successfully redirected to Checkout page 2");
@@ -104,7 +107,7 @@ public class CheckoutModel {
         /*Setting up Extent node*/
         ExtentReport.createNode("Select Shipping Method");
 
-        WebdriverWait.waitTillVisibility(selected_ship, 5);
+        WebdriverWait.waitTillVisibility(selected_ship, 10);
 
         int ship_count = shipping_rates.size();
         Loggers.getLogger().info(ship_count + " Shipping Method(s) are/is displayed");
@@ -144,6 +147,7 @@ public class CheckoutModel {
             ExtentReport.getExtentNode().pass("Clicked on Same as Shipping Address checkbox");
         }
 
+        /*Click on Place Order button*/
         MouseActions.moveClickEvent(place_order);
         Loggers.getLogger().info("Clicked on Place Order button");
         ExtentReport.getExtentNode().pass("Clicked on Place Order button");
