@@ -12,6 +12,7 @@ public class ExtentReport implements Constants {
     private static ExtentReports extentReports;
     private static ExtentTest extentTest;
     private static ExtentTest extentNode;
+    private static String dateTime;
 
     /**
      * Setting up the Extent Report with Reporter
@@ -22,7 +23,7 @@ public class ExtentReport implements Constants {
         Loggers.setLogger(ExtentReport.class.getName());
 
         /*Picking the Date and Time*/
-        String dateTime = DatePicker.getDateTime();
+        dateTime = DatePicker.getDateTime();
 
         /*Defining the ype of reporter
          * And specifying the interfaces to save the report*/
@@ -75,6 +76,13 @@ public class ExtentReport implements Constants {
      */
     public static ExtentTest getExtentNode() {
         return extentNode;
+    }
+
+    /**
+     * @return - Date Time String
+     */
+    public static String getDateTime() {
+        return dateTime;
     }
 
 }

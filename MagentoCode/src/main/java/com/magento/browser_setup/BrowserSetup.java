@@ -3,6 +3,7 @@ package com.magento.browser_setup;
 import com.magento.extent_reports.ExtentReport;
 import com.magento.interfaces.Constants;
 import com.magento.loggers.Loggers;
+import com.magento.mail.SMTPMail;
 import com.magento.mysql.DatabaseSampleData;
 import com.magento.mysql.JdbcConnection;
 import com.magento.utilities.ExcelUtils;
@@ -31,6 +32,9 @@ public class BrowserSetup implements Constants {
     @BeforeSuite(description = "Pre Test Configurations", groups = {"preTestRuns"})
     public void preTestRun() {
 
+        /*configuring the Extent Reports*/
+        ExtentReport.extentReport();
+
         /*Setting the Loggers*/
         Loggers.setLogger(BrowserSetup.class.getName());
 
@@ -58,8 +62,6 @@ public class BrowserSetup implements Constants {
                 break;
         }
 
-        /*configuring the Extent Reports*/
-        ExtentReport.extentReport();
     }
 
     /**
@@ -137,6 +139,7 @@ public class BrowserSetup implements Constants {
         /*Flushing the Extent Reports to generate the report*/
         if (Property.getProperty("extent").equalsIgnoreCase("enable")) {
             ExtentReport.getExtentReports().flush();
+            SMTPMail.sendEmail();
             Loggers.getLogger().info("Extent Report is flushed and report is created");
         }
     }
