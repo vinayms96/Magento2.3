@@ -16,4 +16,14 @@ public class DatePicker {
         simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         return simpleDateFormat.format(date);
     }
+
+    /**
+     * Get the Day and Date for Mail
+     * @return String
+     */
+    public static String getDayDate() {
+        date = new Date();
+        simpleDateFormat = new SimpleDateFormat("E yyyy-MM-dd HH:mm");
+        return simpleDateFormat.format(date);
+    }
 }

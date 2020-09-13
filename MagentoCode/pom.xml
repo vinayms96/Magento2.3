@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <name>magento</name>
-    <url>http://www.example.com</url>
+    <url>https://github.com/vinayms96/Magento2.3.git</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -200,6 +200,12 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.30</version>
             <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
         </dependency>
     </dependencies>
 

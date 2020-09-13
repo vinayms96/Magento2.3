@@ -55,7 +55,7 @@ public class OrderSuccessModel {
 
         order_number = order_num.getText();
         Loggers.getLogger().info("Fetched the Order Number: "+ order_number);
-        ExtentReport.getExtentNode().pass("Fetched the Order Number" + order_number);
+        ExtentReport.getExtentNode().pass("Fetched the Order Number: " + order_number);
 
         /*Redirect to Homepage*/
         MouseActions.moveClickEvent(continue_shopping);
