@@ -101,11 +101,11 @@ public class MinicartModel {
     /**
      * Navigate to Checkout page
      */
-    public void goToCheckout() {
+    public void goToCheckout(WebDriver driver) {
         /*Setting the Extent reports*/
         ExtentReport.createNode("Go to Checkout page");
 
-        MouseActions.moveClickEvent(go_checkout_button);
+        MouseActions.moveClickEvent(driver, go_checkout_button);
         Loggers.getLogger().info("Clicked on Checkout button");
         ExtentReport.getExtentNode().pass("Clicked on Checkout button");
     }
@@ -113,8 +113,8 @@ public class MinicartModel {
     /**
      * Click on View Cart link
      */
-    public void clickViewCart() {
-        MouseActions.moveClickEvent(view_cart);
+    public void clickViewCart(WebDriver driver) {
+        MouseActions.moveClickEvent(driver, view_cart);
         Loggers.getLogger().info("Clicked on View Cart link");
         ExtentReport.getExtentNode().pass("Clicked on View Cart link");
     }

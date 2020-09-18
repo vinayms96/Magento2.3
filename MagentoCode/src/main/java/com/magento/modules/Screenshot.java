@@ -1,8 +1,8 @@
 package com.magento.modules;
 
 import com.magento.browser_setup.BrowserSetup;
-import com.magento.loggers.Loggers;
 import com.magento.interfaces.Constants;
+import com.magento.loggers.Loggers;
 import com.magento.pickers.DatePicker;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -17,6 +17,7 @@ public class Screenshot implements Constants {
 
     /**
      * Takes screenshot and convert it to Base64
+     *
      * @return Base64 String
      */
     public static String getScreenshotBase64() {
@@ -31,6 +32,7 @@ public class Screenshot implements Constants {
 
     /**
      * Takes screenshot and copying it to file and naming the image name to errorMessage.
+     *
      * @param errorMessage
      */
     public static void getScreenshot(String errorMessage) {

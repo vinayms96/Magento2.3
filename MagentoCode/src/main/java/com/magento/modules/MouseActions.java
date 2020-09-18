@@ -4,32 +4,36 @@ import com.magento.browser_setup.BrowserSetup;
 import com.magento.loggers.Loggers;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.Coordinates;
 
 import java.awt.*;
 
-public class MouseActions extends BrowserSetup {
-    private static Actions action = new Actions(driver);
+public class MouseActions {
+    private static Actions action;
     private static Robot robot;
-    private static JavascriptExecutor jscript = (JavascriptExecutor) driver;
+    private static JavascriptExecutor jscript;
     private static Point position;
 
-    public static void moveClickEvent(WebElement element) {
+    public static void moveClickEvent(WebDriver driver, WebElement element) {
+        action = new Actions(driver);
         action.moveToElement(element).click().build().perform();
     }
 
-    public static void moveOverEvent(WebElement element) {
+    public static void moveOverEvent(WebDriver driver, WebElement element) {
+        action = new Actions(driver);
         action.moveToElement(element).perform();
     }
 
-    public static void moveOverPosition(WebElement element) {
+    public static void moveOverPosition(WebDriver driver, WebElement element) {
+        action = new Actions(driver);
         position = element.getLocation();
         action.moveToElement(element).moveByOffset(position.getX(), position.getY()).perform();
     }
 
-    public static void jsHoverEvent(WebElement element) {
+    public static void jsHoverEvent(WebDriver driver, WebElement element) {
+        jscript = (JavascriptExecutor) driver;
         String hoverEvent = "if(document.createEvent) {" +
                 "var evObj = document.createEvent('MouseEvents');" +
                 "evObj.initEvent('mouseover', true, false); " +
@@ -41,11 +45,13 @@ public class MouseActions extends BrowserSetup {
         jscript.executeScript(hoverEvent, element);
     }
 
-    public static void jsClickEvent(WebElement element) {
+    public static void jsClickEvent(WebDriver driver, WebElement element) {
+        jscript = (JavascriptExecutor) driver;
         jscript.executeScript("arguments[0].click();", element);
     }
 
-    public static void jsScrollViewEvent(WebElement element) {
+    public static void jsScrollViewEvent(WebDriver driver, WebElement element) {
+        jscript = (JavascriptExecutor) driver;
         jscript.executeScript("arguments[0].scrollIntoView();", element);
     }
 
@@ -53,7 +59,7 @@ public class MouseActions extends BrowserSetup {
         position = element.getLocation();
         try {
             robot = new Robot();
-            robot.mouseMove(position.getX(),position.getY());
+            robot.mouseMove(position.getX(), position.getY());
         } catch (AWTException e) {
             Loggers.getLogger().error(e.getMessage());
         }

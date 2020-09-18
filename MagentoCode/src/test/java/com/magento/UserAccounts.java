@@ -12,11 +12,13 @@ import org.testng.annotations.Test;
 
 public class UserAccounts extends BrowserSetup {
 
-    @Test(description = "Setting up the Loggers and Extent Reports", priority = 0, groups = {"userAccounts.setLoggerExtent"})
-    public void setLoggerExtent() {
+    /**
+     * @param extentTestName
+     */
+    public void setLoggerExtent(String extentTestName) {
         /*Setting the Loggers and Extent Reports*/
         Loggers.setLogger(UserAccounts.class.getName());
-        ExtentReport.createTest("User Accounts");
+        ExtentReport.createTest(extentTestName);
         ExcelUtils.getRowData(Integer.parseInt(Property.getProperty("testRow")));
     }
 
@@ -26,10 +28,14 @@ public class UserAccounts extends BrowserSetup {
         SignupModel signupModel = new SignupModel(driver);
         AccountModel accountModel = new AccountModel(driver);
 
-        signupModel.clickCreateAccountLink();
-        signupModel.fillCustomerForm();
+        setLoggerExtent("Create New User Account");
+
+        signupModel.clickCreateAccountLink(driver);
+        signupModel.fillCustomerForm(driver);
 
         accountModel.accountCreateVerify();
+//        accountModel.clickAccountDropdown(driver);
+//        accountModel.selectDropOptions(driver, "sign out");
     }
 
     @Test(description = "Logging into the User Account", priority = 2, groups = {"userAccounts.accountLogin"})
@@ -37,6 +43,8 @@ public class UserAccounts extends BrowserSetup {
         /*PageModel object*/
         LoginModel loginModel = new LoginModel(driver);
 
-        loginModel.fillLoginForm();
+        setLoggerExtent("Login to User Account");
+
+        loginModel.fillLoginForm(driver);
     }
 }

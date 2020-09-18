@@ -15,10 +15,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
 
 public class BrowserSetup implements Constants {
     public static WebDriver driver;
@@ -29,14 +29,14 @@ public class BrowserSetup implements Constants {
     /**
      * Executing all the Pre Test Run methods in @BeforeSuite
      */
-    @BeforeSuite(description = "Pre Test Configurations", groups = {"preTestRuns"})
+    @BeforeSuite(description = "Pre Test Configurations", alwaysRun = true)
     public void preTestRun() {
-
-        /*configuring the Extent Reports*/
-        ExtentReport.extentReport();
 
         /*Setting the Loggers*/
         Loggers.setLogger(BrowserSetup.class.getName());
+
+        /*configuring the Extent Reports*/
+        ExtentReport.extentReport();
 
         /*Configuring the Excel Data*/
         ExcelUtils.excelConfigure(EXCEL_TEST_PATH);
@@ -69,7 +69,7 @@ public class BrowserSetup implements Constants {
      * Also selecting Browser Modes (Headless or not)
      * off -> Headless
      */
-    @BeforeTest(description = "Browser setup configurations", groups = {"browserSetup"})
+    @BeforeMethod(description = "Browser setup configurations", alwaysRun = true)
     public void setup() {
         /*Setting Browser Capabilities*/
         capabilities = new DesiredCapabilities();
@@ -96,7 +96,7 @@ public class BrowserSetup implements Constants {
             Loggers.getLogger().info("Chrome browser is Launched");
         } else if (Property.getProperty("browser").equalsIgnoreCase("Firefox")) {
 //            WebDriverManager.firefoxdriver().setup();
-            System.setProperty("webdriver.chrome.driver", "./../magento_data/browser_drivers/geckodriver");
+            System.setProperty("webdriver.gecko.driver", "./../magento_data/browser_drivers/geckodriver");
             driver = new FirefoxDriver();
             Loggers.getLogger().info("Firefox browser is Launched");
         }
@@ -117,7 +117,7 @@ public class BrowserSetup implements Constants {
     /**
      * Closing the Browser after the end of each Test
      */
-    @AfterTest(description = "Post Test configurations", groups = {"postTestRuns"})
+    @AfterMethod(description = "Post Test configurations", alwaysRun = true)
     public void finish() {
         driver.quit();
         Loggers.getLogger().info("Browser is closed");
@@ -126,7 +126,7 @@ public class BrowserSetup implements Constants {
     /**
      * Executing all the Post Test Run methods in @AfterSuite
      */
-    @AfterSuite(description = "Final finish configurations", groups = {"finalFinish"})
+    @AfterSuite(description = "Final finish configurations", alwaysRun = true)
     public void postTestRun() {
         /*Closing the Database Connection*/
         try {
@@ -139,7 +139,7 @@ public class BrowserSetup implements Constants {
         /*Flushing the Extent Reports to generate the report*/
         if (Property.getProperty("extent").equalsIgnoreCase("enable")) {
             ExtentReport.getExtentReports().flush();
-            SMTPMail.sendEmail();
+//            SMTPMail.sendEmail();
             Loggers.getLogger().info("Extent Report is flushed and report is created");
         }
     }

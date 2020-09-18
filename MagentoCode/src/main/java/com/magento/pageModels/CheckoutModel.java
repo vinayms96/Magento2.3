@@ -11,12 +11,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class CheckoutModel {
+    private Select select;
 
     @FindBy(css = ".authentication-wrapper .action")
     private WebElement sign_in_link;
@@ -24,6 +26,18 @@ public class CheckoutModel {
     private WebElement email_field;
     @FindBy(id = "login-password")
     private WebElement password_field;
+    @FindBy(xpath = "//input[@name='street[0]']")
+    private WebElement street_address;
+    @FindBy(xpath = "//input[@name='city']")
+    private WebElement city;
+    @FindBy(xpath = "//select[@name='region_id']")
+    private WebElement state;
+    @FindBy(xpath = "//select[@name='country_id']")
+    private WebElement country;
+    @FindBy(xpath = "//input[@name='postcode']")
+    private WebElement post_code;
+    @FindBy(xpath = "//input[@name='telephone']")
+    private WebElement telephone;
     @FindBy(xpath = "(//div[@class='block-content'] //button)[1]")
     private WebElement login_submit;
     @FindBy(css = ".shipping-address-item.selected-item")
@@ -32,7 +46,7 @@ public class CheckoutModel {
     private List<WebElement> shipping_rates;
     @FindBy(css = "#shipping-method-buttons-container .button")
     private WebElement next_submit;
-    @FindBy(xpath = "//td[1]")
+    @FindBy(xpath = "//td/input[1]")
     private By select_shipping;
     @FindBy(xpath = "//td[4]")
     private By ship_method_name;
@@ -82,13 +96,13 @@ public class CheckoutModel {
     /**
      * Signing in from Checkout page
      */
-    public void checkoutSignIn() {
+    public void checkoutSignIn(WebDriver driver) {
         /*Setting up Extent node*/
         ExtentReport.createNode("Checkout Sign in");
 
-        MouseActions.moveClickEvent(sign_in_link);
+        MouseActions.moveClickEvent(driver, sign_in_link);
 
-        WebdriverWait.waitTillVisibility(email_field, 5);
+        WebdriverWait.waitTillVisibility(email_field, 10);
         email_field.sendKeys(ExcelUtils.getDataMap().get("email_id"));
         Loggers.getLogger().info("Entered email id in checkout");
 
@@ -103,11 +117,23 @@ public class CheckoutModel {
     /**
      * Select the Shipping Method and click on Next
      */
-    public void selectShippingMethod() {
+    public void selectShippingMethod(WebDriver driver) {
         /*Setting up Extent node*/
         ExtentReport.createNode("Select Shipping Method");
 
-        WebdriverWait.waitTillVisibility(selected_ship, 10);
+        /*Wait till the Shipping Address is present*/
+        try {
+            WebdriverWait.waitTillVisibility(selected_ship, 7);
+        } catch (Exception e) {
+            addShippingAddress();
+        }
+
+        try {
+            Thread.sleep(3000);
+        } catch (Exception e) {
+            Loggers.getLogger().error("Shipping Method Could not be found");
+            ExtentReport.getExtentNode().error("Shipping Method Could not be found");
+        }
 
         int ship_count = shipping_rates.size();
         Loggers.getLogger().info(ship_count + " Shipping Method(s) are/is displayed");
@@ -128,7 +154,7 @@ public class CheckoutModel {
         }
 
         /*Clicking on Next button*/
-        MouseActions.moveClickEvent(next_submit);
+        MouseActions.moveClickEvent(driver, next_submit);
         Loggers.getLogger().info("Clicked on Next button");
         ExtentReport.getExtentNode().pass("Clicked on Next button");
     }
@@ -136,7 +162,7 @@ public class CheckoutModel {
     /**
      * Selecting billing address and click on Place Order
      */
-    public void clickPlaceOrder() {
+    public void clickPlaceOrder(WebDriver driver) {
         /*Setting up Extent Node*/
         ExtentReport.createNode("Select Billing Address & click on Place Order");
 
@@ -148,8 +174,39 @@ public class CheckoutModel {
         }
 
         /*Click on Place Order button*/
-        MouseActions.moveClickEvent(place_order);
+        MouseActions.moveClickEvent(driver, place_order);
         Loggers.getLogger().info("Clicked on Place Order button");
         ExtentReport.getExtentNode().pass("Clicked on Place Order button");
+    }
+
+    public void addShippingAddress() {
+        /*Setting up Extent Node*/
+        ExtentReport.createNode("Filling the Shipping Address");
+
+        select = new Select(country);
+        select.selectByValue(ExcelUtils.getDataMap().get("country"));
+        Loggers.getLogger().info("Entered the Country");
+        ExtentReport.getExtentNode().pass("Entered the Country");
+
+        select = new Select(state);
+        select.selectByValue(ExcelUtils.getDataMap().get("state"));
+        Loggers.getLogger().info("Entered the State");
+        ExtentReport.getExtentNode().pass("Entered the State");
+
+        street_address.sendKeys(ExcelUtils.getDataMap().get("street_address"));
+        Loggers.getLogger().info("Entered the Street Address");
+        ExtentReport.getExtentNode().pass("Entered the Street Address");
+
+        city.sendKeys(ExcelUtils.getDataMap().get("city"));
+        Loggers.getLogger().info("Entered the City");
+        ExtentReport.getExtentNode().pass("Entered the City");
+
+        post_code.sendKeys(ExcelUtils.getDataMap().get("post_code"));
+        Loggers.getLogger().info("Entered the Zip Code");
+        ExtentReport.getExtentNode().pass("Entered the Zip Code");
+
+        telephone.sendKeys(ExcelUtils.getDataMap().get("mobile_number"));
+        Loggers.getLogger().info("Entered the Mobile Number");
+        ExtentReport.getExtentNode().pass("Entered the Mobile Number");
     }
 }

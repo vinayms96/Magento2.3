@@ -111,7 +111,7 @@ public class ProductModel {
     /**
      * Adding the Product to cart
      */
-    public void addToCart() {
+    public void addToCart(WebDriver driver) {
         /*Setting up the Extent Report*/
         ExtentReport.createNode("Add to Cart");
 
@@ -128,7 +128,7 @@ public class ProductModel {
                     WebElement size_element = swatches_size_list.get(size_option);
 
                     /*Selecting the Swatches*/
-                    MouseActions.moveClickEvent(size_element);
+                    MouseActions.moveClickEvent(driver, size_element);
                     product_swatches.add(size_element.getAttribute("option-label"));
 
                     /*Logging and Reporting*/
@@ -141,7 +141,7 @@ public class ProductModel {
                     WebElement color_element = swatches_color_list.get(color_option);
 
                     /*Selecting the Swatches*/
-                    MouseActions.moveClickEvent(color_element);
+                    MouseActions.moveClickEvent(driver, color_element);
                     product_swatches.add(color_element.getAttribute("option-label"));
 
                     /*Logging and Reporting*/
@@ -160,7 +160,7 @@ public class ProductModel {
         quantity.sendKeys(product_quantity);
 
         /*Click on Add to Cart button*/
-        MouseActions.moveClickEvent(add_cart_button);
+        MouseActions.moveClickEvent(driver, add_cart_button);
 
         /*Verifying the Success Message*/
         if (add_success.isDisplayed()) {

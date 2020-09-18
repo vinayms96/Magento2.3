@@ -6,6 +6,7 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.magento.interfaces.Constants;
 import com.magento.loggers.Loggers;
 import com.magento.pickers.DatePicker;
+import com.magento.utilities.Property;
 
 public class ExtentReport implements Constants {
     private static ExtentSparkReporter sparkReporter;
@@ -36,12 +37,28 @@ public class ExtentReport implements Constants {
         /*Defining the ExtentReports and attaching the above reporter*/
         extentReports = new ExtentReports();
         extentReports.attachReporter(sparkReporter);
+
+        /*Setting System Environment*/
+        setSystemInformation();
         Loggers.getLogger().info("Reporter attached to reports");
+
+    }
+
+    /**
+     * Setting the System Environment for Extent Reports
+     */
+    public static void setSystemInformation() {
+
+        extentReports.setSystemInfo("Selenium Version", Property.getProperty("seleniumVersion"));
+        extentReports.setSystemInfo("Environment", Property.getProperty("environ"));
+        extentReports.setSystemInfo("Browser", Property.getProperty("browser"));
+        extentReports.setSystemInfo("Contributors", Property.getProperty("contributor"));
+        Loggers.getLogger().info("Extent environments are set");
+
     }
 
     /**
      * Creating the Test using the extentReports reference
-     *
      * @param testName
      */
     public static void createTest(String testName) {
