@@ -42,6 +42,27 @@ public class ListingModel {
     }
 
     /**
+     * @return - Get Product Name
+     */
+    public static String getList_product_name() {
+        return list_product_name;
+    }
+
+    /**
+     * @return - Get the Product Old price
+     */
+    public static String getList_product_old_price() {
+        return list_product_old_price;
+    }
+
+    /**
+     * @return - Get Product final price
+     */
+    public static String getList_product_final_price() {
+        return list_product_final_price;
+    }
+
+    /**
      * Fetch the Product Name, Old Price(If present) and Final Price
      */
     public void fetchProductDetails() {
@@ -61,21 +82,21 @@ public class ListingModel {
             if (old_price_list.get(product_id).isDisplayed()) {
                 /*Fetching the Old Price in listing page*/
                 list_product_old_price = old_price_list.get(product_id).findElement(By.className("price")).getText();
-                Loggers.getLogger().info("Product Old Price: "+list_product_old_price);
-                ExtentReport.getExtentNode().pass("Product Old Price: "+list_product_old_price);
+                Loggers.getLogger().info("Product Old Price: " + list_product_old_price);
+                ExtentReport.getExtentNode().pass("Product Old Price: " + list_product_old_price);
 
                 /*Fetching the Final Price in listing page*/
                 list_product_final_price = final_price_list.get(product_id).findElement(By.className("price")).getText();
-                Loggers.getLogger().info("Product Final Price: "+list_product_final_price);
-                ExtentReport.getExtentNode().pass("Product Final Price: "+list_product_final_price);
+                Loggers.getLogger().info("Product Final Price: " + list_product_final_price);
+                ExtentReport.getExtentNode().pass("Product Final Price: " + list_product_final_price);
             }
         } catch (Exception e) {
             /*Fetching Final Price if Old Price not present*/
             try {
                 if (final_price_list.get(product_id).isDisplayed()) {
                     list_product_final_price = final_price_list.get(product_id).findElement(By.className("price")).getText();
-                    Loggers.getLogger().info("Product Final Price: "+list_product_final_price);
-                    ExtentReport.getExtentNode().pass("Product Final Price: "+list_product_final_price);
+                    Loggers.getLogger().info("Product Final Price: " + list_product_final_price);
+                    ExtentReport.getExtentNode().pass("Product Final Price: " + list_product_final_price);
                 }
             } catch (Exception er) {
                 Loggers.getLogger().error("Could not fetch the Product Price in listing page");
@@ -89,12 +110,12 @@ public class ListingModel {
      * Pick a product from Listing page randomly
      * Fetching the Product Name along with Final and Old Prices(if available)
      */
-    public void pickProduct() {
+    public void pickProduct(WebDriver driver) {
         /*Setting ExtentReports*/
         ExtentReport.createNode("Pick Product from Listing");
 
         /*Clicking on the Product name*/
-        MouseActions.moveClickEvent(product_item_link.get(product_id));
+        MouseActions.moveClickEvent(driver, product_item_link.get(product_id));
         Loggers.getLogger().info("Clicked on '" + list_product_name + "' product");
         ExtentReport.getExtentNode().pass("Clicked on '" + list_product_name + "' product");
     }
@@ -102,13 +123,13 @@ public class ListingModel {
     /**
      * Adding the Product randomly from listing page
      */
-    public void addCartListing() {
+    public void addCartListing(WebDriver driver) {
 
         /*Setting ExtentReports*/
         ExtentReport.createNode("Add to Cart from listing");
 
         /*Moving over the Product*/
-        MouseActions.jsScrollViewEvent(product_list.get(product_id).findElement(By.tagName("img")));
+        MouseActions.jsScrollViewEvent(driver, product_list.get(product_id).findElement(By.tagName("img")));
 
         /*Picking Random product*/
         WebElement select_product = product_list.get(product_id);
@@ -141,27 +162,6 @@ public class ListingModel {
             Loggers.getLogger().info("Product Successfully added to Cart");
             ExtentReport.getExtentNode().pass("Product Successfully added to Cart");
         }
-    }
-
-    /**
-     * @return - Get Product Name
-     */
-    public static String getList_product_name() {
-        return list_product_name;
-    }
-
-    /**
-     * @return - Get the Product Old price
-     */
-    public static String getList_product_old_price() {
-        return list_product_old_price;
-    }
-
-    /**
-     * @return - Get Product final price
-     */
-    public static String getList_product_final_price() {
-        return list_product_final_price;
     }
 
 }

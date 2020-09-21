@@ -12,18 +12,19 @@ public class Loggers {
     private static Logger log;
 
     /**
+     * @return Logger
+     */
+    public static Logger getLogger() {
+        return log;
+    }
+
+    /**
      * Setting the Loggers
+     *
      * @param className
      */
     public static void setLogger(String className) {
         stackTrace = new Throwable().getStackTrace()[1];
         log = LogManager.getLogger(stackTrace.getClassName());
-    }
-
-    /**
-     * @return Logger
-     */
-    public static Logger getLogger() {
-        return log;
     }
 }

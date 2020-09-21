@@ -10,38 +10,36 @@ import org.testng.annotations.Test;
 
 public class AddToCart extends BrowserSetup {
 
-    @Test(description = "Setting up the Loggers and Extent Reports", priority = 1, groups = {"addCart.setLoggerExtent"})
-    public void setLoggerExtent() {
+    /**
+     * @param extentTestName
+     */
+    public void setLoggerExtent(String extentTestName) {
         /*Setting the Loggers and Extent Reports*/
         Loggers.setLogger(AddToCart.class.getName());
-        ExtentReport.createTest("Add to Cart");
+        ExtentReport.createTest(extentTestName);
         ExcelUtils.getRowData(Integer.parseInt(Property.getProperty("testRow")));
     }
 
-    @Test(description = "Navigating to the listing page", priority = 2, groups = {"addCart.navListingPage"})
-    public void navListingPage() {
-        HomeModel homeModel = new HomeModel(driver);
-        SearchModel searchModel = new SearchModel(driver);
-
-//        homepageModel.selectMenus();
-        searchModel.searchText();
-    }
-
-    @Test(description = "Navigate to PDP and Add to Cart", priority = 3, groups = {"addCart.addProductToCart"})
+    @Test(description = "Navigate to PDP and Add to Cart", priority = 1, groups = {"addCart.addProductToCart"})
     public void addProductToCart() {
+        SearchModel searchModel = new SearchModel(driver);
         ListingModel listingModel = new ListingModel(driver);
         ProductModel productModel = new ProductModel(driver);
         MinicartModel minicartModel = new MinicartModel(driver);
         CartModel cartModel = new CartModel(driver);
 
+        setLoggerExtent("Add to Cart");
+
+        searchModel.searchText();
+
         listingModel.fetchProductDetails();
-        listingModel.pickProduct();
+        listingModel.pickProduct(driver);
 
         productModel.verifyProductDetails();
-        productModel.addToCart();
+        productModel.addToCart(driver);
 
         minicartModel.clickMiniCartPop();
-        minicartModel.clickViewCart();
+        minicartModel.clickViewCart(driver);
 
         cartModel.fetchProductDetails();
         cartModel.verifyProductDetails();

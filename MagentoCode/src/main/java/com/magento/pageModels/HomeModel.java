@@ -18,10 +18,10 @@ public class HomeModel {
 
     @FindBy(xpath = "//nav/ul/li")
     private static List<WebElement> menu_links;
-    @FindBy(xpath = "/ul/li")
-    private List<WebElement> sub_menu_links;
     @FindBy(xpath = "(//nav/ul/li)[3]/a/span[2]")
     private static WebElement main_menu;
+    @FindBy(xpath = "/ul/li")
+    private List<WebElement> sub_menu_links;
 
     /**
      * @param driver - Webdriver element
@@ -34,7 +34,7 @@ public class HomeModel {
     /**
      * Selecting the Menus
      */
-    public void selectMenus() {
+    public void selectMenus(WebDriver driver) {
         /*Creating Extent Node*/
         ExtentReport.createNode("Hover and Select Menus");
 
@@ -74,7 +74,7 @@ public class HomeModel {
 //                        MouseActions.moveOverEvent(inner_nav.findElement(By.tagName("a")));
 //                        MouseActions.jsHoverEvent(inner_nav.findElement(By.tagName("a")));
                         MouseActions.robotMoveOverPosition(inner_nav.findElement(By.tagName("a")));
-                        clickMenus(inner_nav.findElement(By.tagName("a")),sub_category_1);
+                        clickMenus(driver, inner_nav.findElement(By.tagName("a")), sub_category_1);
                         System.out.println("Came Here");
                         break;
                     }
@@ -88,11 +88,11 @@ public class HomeModel {
     }
 
     /**
-     * @param menu_element - Element of particular menu
+     * @param menu_element  - Element of particular menu
      * @param category_name - Category name to click
      */
-    public void clickMenus(WebElement menu_element, String category_name) {
-        MouseActions.moveClickEvent(menu_element);
+    public void clickMenus(WebDriver driver, WebElement menu_element, String category_name) {
+        MouseActions.moveClickEvent(driver, menu_element);
         ExtentReport.getExtentNode().pass("Click on the " + category_name);
         Loggers.getLogger().info("Click on the " + category_name);
     }

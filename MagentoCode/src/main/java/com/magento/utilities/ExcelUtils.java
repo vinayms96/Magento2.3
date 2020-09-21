@@ -27,6 +27,7 @@ public class ExcelUtils {
     /**
      * This method runs in the beginning of the Project execution as set in @BeforeSuite Annotation
      * This method declares the Workbook and stores all the headers to ArrayList<String>
+     *
      * @param path
      */
     public static void excelConfigure(String path) {
@@ -54,6 +55,7 @@ public class ExcelUtils {
 
     /**
      * Fetch the entire row data and map it to HashMap<String, String>
+     *
      * @param row_num
      */
     public static void getRowData(int row_num) {
@@ -66,6 +68,7 @@ public class ExcelUtils {
     /**
      * Fetch the last row number from the Excel Sheet
      * And return the Integer
+     *
      * @return int
      */
     public static int getLastRowNumber() {
@@ -75,6 +78,7 @@ public class ExcelUtils {
     /**
      * Fetch the last cell number from the Excel Sheet
      * And return the Integer
+     *
      * @return int
      */
     public static int getLastCellNumber() {
@@ -83,6 +87,7 @@ public class ExcelUtils {
 
     /**
      * Return the Cell Headers list from ArrayList<String>
+     *
      * @return ArrayList<String>
      */
     public static ArrayList<String> getCellHeaders() {
@@ -91,6 +96,7 @@ public class ExcelUtils {
 
     /**
      * Return the Data that is Mapped from HashMap<String,String>
+     *
      * @return HashMap<String, String>
      */
     public static HashMap<String, String> getDataMap() {

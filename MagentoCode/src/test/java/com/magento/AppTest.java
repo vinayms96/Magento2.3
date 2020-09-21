@@ -1,11 +1,11 @@
 package com.magento;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.magento.extent_reports.ExtentReport;
 import com.magento.interfaces.Constants;
 import com.magento.loggers.Loggers;
-import com.magento.mysql.DatabaseSampleData;
-import com.magento.mysql.JdbcConnection;
+import com.magento.mail.SMTPMail;
 import com.magento.utilities.ExcelUtils;
-import org.testng.annotations.Test;
 
 import java.sql.SQLException;
 
@@ -17,16 +17,20 @@ public class AppTest implements Constants {
      * Rigourous Test :-)
      */
 //    @Test
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, InterruptedException {
         Loggers.setLogger(AppTest.class.getName());
+        ExtentReport.extentReport();
         ExcelUtils.excelConfigure(EXCEL_TEST_PATH);
         ExcelUtils.getRowData(1);
         System.out.println(ExcelUtils.getLastCellNumber());
         System.out.println(ExcelUtils.getDataMap().get("password"));
         System.out.println(ExcelUtils.getDataMap().get("first_name"));
 //        Loggers.getLogger().info("Test");
-//        ExtentReport.extentReport();
-//        ExtentReport.createTest("New Test");
+        ExtentReport.createTest("New Test");
+        ExtentReport.getExtentTest().pass("Mail Test Successful");
+        Thread.sleep(15);
+        ExtentReport.getExtentReports().flush();
+        SMTPMail.sendEmail();
 //        ExtentReport.createNode("Node11");
 //        ExtentReport.getExtentNode().pass("Node1 Pass");
 //        ExtentReport.createNode("Node12");

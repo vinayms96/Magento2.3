@@ -16,6 +16,7 @@ public class DatabaseUtils {
 
     /**
      * Execute the query passed and return the ResultSet
+     *
      * @param getQuery
      * @return ResultSet
      */
@@ -48,6 +49,7 @@ public class DatabaseUtils {
 
     /**
      * Getting the ResultSet Metadata for column count
+     *
      * @return ResultSetMetaData
      */
     public static ResultSetMetaData getResultSetMetaData() {

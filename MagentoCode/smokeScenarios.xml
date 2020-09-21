@@ -7,18 +7,12 @@
     <test thread-count="5" name="Test">
         <groups>
             <run>
-                <include name="preTestRuns"/>
-                <include name="browserSetup"/>
-                <exclude name="userAccounts.*"/>
-                <exclude name="addCart.*"/>
+                <include name="userAccounts.*"/>
+                <include name="addCart.*"/>
                 <include name="checkout.*"/>
-                <include name="postTestRuns"/>
-                <include name="finalFinish"/>
             </run>
         </groups>
         <classes>
-            <class name="com.magento.browser_setup.BrowserSetup"/>
-            <class name="com.magento.AppTest"/>
             <class name="com.magento.UserAccounts"/>
             <class name="com.magento.AddToCart"/>
             <class name="com.magento.Checkout"/>

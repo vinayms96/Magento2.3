@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
 
@@ -22,8 +23,8 @@ public class LoginModel {
     private static WebElement password;
     @FindBy(xpath = "(//div/button[@id='send2'])[1]")
     private static WebElement submit;
-    @FindBy(xpath = "//h1[@class='page-title']/span")
-    private static WebElement page_title;
+    @FindBy(css = ".greet.welcome .logged-in")
+    private static WebElement user_name;
 
     /**
      * @param driver - Webdriver element
@@ -36,7 +37,7 @@ public class LoginModel {
     /**
      * Fill login form and Login
      */
-    public void fillLoginForm() {
+    public void fillLoginForm(WebDriver driver) {
         /*Creating Extent Node*/
         ExtentReport.createNode("Enter the Login Details");
 
@@ -46,15 +47,28 @@ public class LoginModel {
 
         /*Entering the form details*/
         email_id.sendKeys(ExcelUtils.getDataMap().get("email_id"));
+        Loggers.getLogger().info("Entered the Email id");
+        ExtentReport.getExtentNode().pass("Entered the user Email id");
+
         password.sendKeys(ExcelUtils.getDataMap().get("password"));
-        MouseActions.moveClickEvent(submit);
+        Loggers.getLogger().info("Entered the user Password");
+        ExtentReport.getExtentNode().pass("Entered the user Password");
+
+        MouseActions.moveClickEvent(driver, submit);
+        Loggers.getLogger().info("Clicked on Submit button");
+        ExtentReport.getExtentNode().pass("Clicked on Submit button");
 
         /*Verifying if user is logged in*/
-        WebdriverWait.waitTillVisibility(page_title, 5);
-        if (page_title.getText().equals("My Account")) {
+        WebdriverWait.waitTillVisibility(user_name, 5);
+
+        String fullName = ExcelUtils.getDataMap().get("first_name") + " " +
+                ExcelUtils.getDataMap().get("last_name");
+
+        try {
+            Assert.assertTrue(user_name.getText().contains(fullName));
             Loggers.getLogger().info("User logged in Successfully");
             ExtentReport.getExtentNode().pass("User logged in Successfully");
-        } else {
+        } catch (Exception e) {
             Loggers.getLogger().error("User could not be logged in");
             ExtentReport.getExtentNode().fail("User could not be logged in");
         }

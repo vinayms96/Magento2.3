@@ -9,11 +9,14 @@ import com.magento.utilities.Property;
 import org.testng.annotations.Test;
 
 public class Checkout extends BrowserSetup {
-    @Test(description = "Setting up the Loggers and Extent Reports", priority = 1, groups = {"checkout.setLoggerExtent"})
-    public void setLoggerExtent() {
+
+    /**
+     * @param extentTestName
+     */
+    public void setLoggerExtent(String extentTestName) {
         /*Setting the Loggers and Extent Reports*/
         Loggers.setLogger(Checkout.class.getName());
-        ExtentReport.createTest("Place Order");
+        ExtentReport.createTest(extentTestName);
         ExcelUtils.getRowData(Integer.parseInt(Property.getProperty("testRow")));
     }
 
@@ -25,22 +28,24 @@ public class Checkout extends BrowserSetup {
         CheckoutModel checkoutModel = new CheckoutModel(driver);
         OrderSuccessModel orderSuccessModel = new OrderSuccessModel(driver);
 
+        setLoggerExtent("Place Order");
+
         searchModel.searchText();
 
         listingModel.fetchProductDetails();
-        listingModel.addCartListing();
+        listingModel.addCartListing(driver);
 
         minicartModel.clickMiniCartPop();
         minicartModel.getMiniProductDetails();
-        minicartModel.goToCheckout();
+        minicartModel.goToCheckout(driver);
 
         checkoutModel.verifyCheckout1(driver);
-        checkoutModel.checkoutSignIn();
-        checkoutModel.selectShippingMethod();
+        checkoutModel.checkoutSignIn(driver);
+        checkoutModel.selectShippingMethod(driver);
         checkoutModel.verifyCheckout2(driver);
-        checkoutModel.clickPlaceOrder();
+        checkoutModel.clickPlaceOrder(driver);
 
         orderSuccessModel.verifyOrderSuccess(driver);
-        orderSuccessModel.fetchOrderNumber();
+        orderSuccessModel.fetchOrderNumber(driver);
     }
 }

@@ -3,7 +3,6 @@ package com.magento.pageModels;
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
 import com.magento.modules.MouseActions;
-import com.magento.modules.WebdriverWait;
 import com.magento.utilities.ExcelUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -49,12 +48,12 @@ public class SignupModel {
     /**
      * Click on Create Account link
      */
-    public void clickCreateAccountLink() {
+    public void clickCreateAccountLink(WebDriver driver) {
         /*Creating Extent Node*/
         ExtentReport.createNode("Click Create Account Link");
 
         /*Clicking on link*/
-        MouseActions.moveClickEvent(create_account_link);
+        MouseActions.moveClickEvent(driver, create_account_link);
 
         /*Logging and Reporting*/
         Loggers.getLogger().info("Create account link clicked");
@@ -64,7 +63,7 @@ public class SignupModel {
     /**
      * Fill the Create account form and hit Submit
      */
-    public void fillCustomerForm() {
+    public void fillCustomerForm(WebDriver driver) {
         /*Creating Extent Node*/
         ExtentReport.createNode("Fill Customer Form");
 
@@ -94,7 +93,7 @@ public class SignupModel {
         Loggers.getLogger().info("Entered the Confirmation Password");
         ExtentReport.getExtentNode().pass("Entered the Confirmation Password");
 
-        MouseActions.moveClickEvent(submit);
+        MouseActions.moveClickEvent(driver, submit);
         Loggers.getLogger().info("Clicked on Submit button");
         ExtentReport.getExtentNode().pass("Clicked on Submit button");
 

@@ -9,6 +9,7 @@ public class DatePicker {
 
     /**
      * Get the Date and Time
+     *
      * @return String
      */
     public static String getDateTime() {
@@ -19,6 +20,7 @@ public class DatePicker {
 
     /**
      * Get the Day and Date for Mail
+     *
      * @return String
      */
     public static String getDayDate() {

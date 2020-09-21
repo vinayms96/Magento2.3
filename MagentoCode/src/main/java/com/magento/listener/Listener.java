@@ -1,12 +1,9 @@
 package com.magento.listener;
 
 import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.MediaEntityModelProvider;
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
 import com.magento.modules.Screenshot;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -17,7 +14,7 @@ public class Listener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        Loggers.getLogger().info("Test '"+result.getMethod().getMethodName()+"' execution Started");
+        Loggers.getLogger().info("Test '" + result.getMethod().getMethodName() + "' execution Started");
     }
 
     @Override
@@ -45,7 +42,7 @@ public class Listener implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        Loggers.getLogger().info("Method '"+result.getMethod().getMethodName()+"' execution is Skipped");
+        Loggers.getLogger().info("Method '" + result.getMethod().getMethodName() + "' execution is Skipped");
     }
 
     @Override

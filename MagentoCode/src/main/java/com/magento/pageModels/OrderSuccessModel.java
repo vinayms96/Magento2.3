@@ -49,7 +49,7 @@ public class OrderSuccessModel {
     /**
      * Fetching the Order Number
      */
-    public void fetchOrderNumber() {
+    public void fetchOrderNumber(WebDriver driver) {
         /*Setting up Extent Node*/
         ExtentReport.createNode("Fetch the Order Number");
 
@@ -58,7 +58,7 @@ public class OrderSuccessModel {
         ExtentReport.getExtentNode().pass("Fetched the Order Number: " + order_number);
 
         /*Redirect to Homepage*/
-        MouseActions.moveClickEvent(continue_shopping);
+        MouseActions.moveClickEvent(driver, continue_shopping);
     }
 
     /**
