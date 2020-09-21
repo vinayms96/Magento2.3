@@ -5,5 +5,5 @@ MagentoCode/Magento2.3.iml
 MagentoCode/test-output/
 MagentoCode/.settings/
 magento_data/Reports
-magento_data/Logs
+magento_data/Logs/
 .idea/
