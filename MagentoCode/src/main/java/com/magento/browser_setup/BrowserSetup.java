@@ -83,7 +83,7 @@ public class BrowserSetup implements Constants {
         ff_options.merge(capabilities);
 
         /*Setting Browser Mode*/
-        if (Property.getProperty("head").equalsIgnoreCase("off")) {
+        if (Property.getProperty("headless").equalsIgnoreCase("on")) {
             ch_options.addArguments("--headless");
             ff_options.addArguments("--headless");
         }
@@ -92,12 +92,12 @@ public class BrowserSetup implements Constants {
         if (Property.getProperty("browser").equalsIgnoreCase("Chrome")) {
 //            WebDriverManager.chromedriver().setup();
             System.setProperty("webdriver.chrome.driver", "./../magento_data/browser_drivers/chromedriver");
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(ch_options);
             Loggers.getLogger().info("Chrome browser is Launched");
         } else if (Property.getProperty("browser").equalsIgnoreCase("Firefox")) {
 //            WebDriverManager.firefoxdriver().setup();
             System.setProperty("webdriver.gecko.driver", "./../magento_data/browser_drivers/geckodriver");
-            driver = new FirefoxDriver();
+            driver = new FirefoxDriver(ff_options);
             Loggers.getLogger().info("Firefox browser is Launched");
         }
 
