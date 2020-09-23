@@ -1,6 +1,5 @@
 package com.magento.modules;
 
-import com.magento.browser_setup.BrowserSetup;
 import com.magento.loggers.Loggers;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Point;
@@ -16,22 +15,38 @@ public class MouseActions {
     private static JavascriptExecutor jscript;
     private static Point position;
 
+    /**
+     * @param driver
+     * @param element
+     */
     public static void moveClickEvent(WebDriver driver, WebElement element) {
         action = new Actions(driver);
         action.moveToElement(element).click().build().perform();
     }
 
+    /**
+     * @param driver
+     * @param element
+     */
     public static void moveOverEvent(WebDriver driver, WebElement element) {
         action = new Actions(driver);
         action.moveToElement(element).perform();
     }
 
+    /**
+     * @param driver
+     * @param element
+     */
     public static void moveOverPosition(WebDriver driver, WebElement element) {
         action = new Actions(driver);
         position = element.getLocation();
         action.moveToElement(element).moveByOffset(position.getX(), position.getY()).perform();
     }
 
+    /**
+     * @param driver
+     * @param element
+     */
     public static void jsHoverEvent(WebDriver driver, WebElement element) {
         jscript = (JavascriptExecutor) driver;
         String hoverEvent = "if(document.createEvent) {" +
@@ -45,16 +60,27 @@ public class MouseActions {
         jscript.executeScript(hoverEvent, element);
     }
 
+    /**
+     * @param driver
+     * @param element
+     */
     public static void jsClickEvent(WebDriver driver, WebElement element) {
         jscript = (JavascriptExecutor) driver;
         jscript.executeScript("arguments[0].click();", element);
     }
 
+    /**
+     * @param driver
+     * @param element
+     */
     public static void jsScrollViewEvent(WebDriver driver, WebElement element) {
         jscript = (JavascriptExecutor) driver;
         jscript.executeScript("arguments[0].scrollIntoView();", element);
     }
 
+    /**
+     * @param element
+     */
     public static void robotMoveOverPosition(WebElement element) {
         position = element.getLocation();
         try {

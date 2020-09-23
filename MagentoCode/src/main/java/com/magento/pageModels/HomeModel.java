@@ -3,18 +3,20 @@ package com.magento.pageModels;
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
 import com.magento.modules.MouseActions;
-import com.magento.modules.WebdriverWait;
+import com.magento.project_setup.TestNGBase;
 import com.magento.utilities.ExcelUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class HomeModel {
+public class HomeModel extends TestNGBase {
 
     @FindBy(xpath = "//nav/ul/li")
     private static List<WebElement> menu_links;
@@ -38,6 +40,8 @@ public class HomeModel {
         /*Creating Extent Node*/
         ExtentReport.createNode("Hover and Select Menus");
 
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+
         WebElement outer_nav = null;
         WebElement inner_nav;
         List<WebElement> nav_sub_menu;
@@ -52,7 +56,7 @@ public class HomeModel {
                     if (menu_tag.getText().equalsIgnoreCase(main_category)) {
 //                        MouseActions.moveOverEvent(outer_nav.findElement(By.tagName("a")));
 //                        MouseActions.jsHoverEvent(outer_nav.findElement(By.tagName("a")));
-                        WebdriverWait.waitTillVisibility(outer_nav.findElement(By.xpath("//a/span[1]")), 5);
+                        wait.until(ExpectedConditions.visibilityOf(outer_nav.findElement(By.xpath("//a/span[1]"))));
                         MouseActions.robotMoveOverPosition(outer_nav.findElement(By.xpath("//a/span[1]")));
                         break;
                     }

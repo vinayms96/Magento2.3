@@ -4,6 +4,7 @@ import com.magento.extent_reports.ExtentReport;
 import com.magento.interfaces.Constants;
 import com.magento.loggers.Loggers;
 import com.magento.pickers.DatePicker;
+import com.magento.project_setup.TestNGBase;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -13,12 +14,12 @@ import javax.mail.Multipart;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMultipart;
 
-public class MailAttachment implements Constants {
+public class MailAttachment extends TestNGBase implements Constants {
     final static String REPORT_NAME = "Test_Report.html";
     private static BodyPart messageBodyPart;
     private static Multipart multipart;
 
-    public static Multipart attachReport() {
+    public Multipart attachReport() {
         try {
             /*Setting the Message to display*/
             messageBodyPart = new MimeBodyPart();

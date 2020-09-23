@@ -4,13 +4,13 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
 import com.magento.modules.Screenshot;
+import com.magento.project_setup.TestNGBase;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import java.io.IOException;
-
-public class Listener implements ITestListener {
+public class Listener extends TestNGBase implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
@@ -24,17 +24,20 @@ public class Listener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
+        WebDriver driver = null;
 
         Loggers.getLogger().error(result.getThrowable().getMessage());
         for (int er = 0; er < result.getThrowable().getStackTrace().length; er++) {
             Loggers.getLogger().error(result.getThrowable().getStackTrace()[er]);
         }
-        ExtentReport.getExtentNode().fail(result.getThrowable().getMessage());
+        ExtentReport.getExtentNode().fail(result.getThrowable());
 
         try {
+            driver = (WebDriver) result.getTestClass().getRealClass().getDeclaredField("driver")
+                    .get(result.getInstance());
             ExtentReport.getExtentNode().fail(result.getTestName(), MediaEntityBuilder
-                    .createScreenCaptureFromBase64String(Screenshot.getScreenshotBase64()).build());
-        } catch (IOException e) {
+                    .createScreenCaptureFromBase64String(Screenshot.getScreenshotBase64(driver)).build());
+        } catch (Exception e) {
             Loggers.getLogger().error(e.getMessage());
         }
 

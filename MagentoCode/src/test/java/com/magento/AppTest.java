@@ -18,18 +18,19 @@ public class AppTest implements Constants {
      */
 //    @Test
     public static void main(String[] args) throws SQLException, InterruptedException {
+        ExtentReport extentReport = new ExtentReport();
         Loggers.setLogger(AppTest.class.getName());
-        ExtentReport.extentReport();
+        extentReport.extentReport();
         ExcelUtils.excelConfigure(EXCEL_TEST_PATH);
         ExcelUtils.getRowData(1);
         System.out.println(ExcelUtils.getLastCellNumber());
         System.out.println(ExcelUtils.getDataMap().get("password"));
         System.out.println(ExcelUtils.getDataMap().get("first_name"));
 //        Loggers.getLogger().info("Test");
-        ExtentReport.createTest("New Test");
-        ExtentReport.getExtentTest().pass("Mail Test Successful");
+        extentReport.createTest("New Test");
+        extentReport.getExtentTest().pass("Mail Test Successful");
         Thread.sleep(15);
-        ExtentReport.getExtentReports().flush();
+        extentReport.getExtentReports().flush();
         SMTPMail.sendEmail();
 //        ExtentReport.createNode("Node11");
 //        ExtentReport.getExtentNode().pass("Node1 Pass");

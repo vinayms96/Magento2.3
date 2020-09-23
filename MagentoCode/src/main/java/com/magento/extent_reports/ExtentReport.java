@@ -9,10 +9,14 @@ import com.magento.pickers.DatePicker;
 import com.magento.utilities.Property;
 
 public class ExtentReport implements Constants {
+    private static ThreadLocal<ExtentTest> extentTestThreadLocal = new ThreadLocal<>();
+    private static ThreadLocal<ExtentTest> extentNodeThreadLocal = new ThreadLocal<>();
+    private static ThreadLocal<ExtentTest> extentSubNodeThreadLocal = new ThreadLocal<>();
     private static ExtentSparkReporter sparkReporter;
     private static ExtentReports extentReports;
     private static ExtentTest extentTest;
     private static ExtentTest extentNode;
+    private static ExtentTest extentSubNode;
     private static String dateTime;
 
     /**
@@ -59,10 +63,12 @@ public class ExtentReport implements Constants {
 
     /**
      * Creating the Test using the extentReports reference
+     *
      * @param testName
      */
     public static void createTest(String testName) {
         extentTest = extentReports.createTest(testName);
+        extentTestThreadLocal.set(extentTest);
     }
 
     /**
@@ -71,7 +77,18 @@ public class ExtentReport implements Constants {
      * @param nodeName
      */
     public static void createNode(String nodeName) {
-        extentNode = extentTest.createNode(nodeName);
+        extentNode = extentTestThreadLocal.get().createNode(nodeName);
+        extentNodeThreadLocal.set(extentNode);
+    }
+
+    /**
+     * Creating the Sub Node using the extentNode reference
+     *
+     * @param subNodeName
+     */
+    public static void createSubNode(String subNodeName) {
+        extentSubNode = extentNodeThreadLocal.get().createNode(subNodeName);
+        extentSubNodeThreadLocal.set(extentTest);
     }
 
     /**
@@ -85,14 +102,21 @@ public class ExtentReport implements Constants {
      * @return extentTest
      */
     public static ExtentTest getExtentTest() {
-        return extentTest;
+        return extentTestThreadLocal.get();
     }
 
     /**
      * @return extentNode
      */
     public static ExtentTest getExtentNode() {
-        return extentNode;
+        return extentNodeThreadLocal.get();
+    }
+
+    /**
+     * @return extentSubNode
+     */
+    public static ExtentTest getExtentSubNode() {
+        return extentSubNodeThreadLocal.get();
     }
 
     /**

@@ -1,22 +1,30 @@
 package com.magento;
 
-import com.magento.browser_setup.BrowserSetup;
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
 import com.magento.pageModels.*;
+import com.magento.project_setup.TestNGBase;
 import com.magento.utilities.ExcelUtils;
 import com.magento.utilities.Property;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class AddToCart extends BrowserSetup {
+public class AddToCart extends TestNGBase {
+    public WebDriver driver;
 
     /**
-     * @param extentTestName
+     * Setting up Loggers and Extent reports
      */
-    public void setLoggerExtent(String extentTestName) {
+    @BeforeClass(description = "Pre Test Configurations", alwaysRun = true)
+    public void preTestRuns() {
+        /*Initialize Driver*/
+        driver = initializeDriver();
+
         /*Setting the Loggers and Extent Reports*/
         Loggers.setLogger(AddToCart.class.getName());
-        ExtentReport.createTest(extentTestName);
+        ExtentReport.createTest("Add to Cart");
         ExcelUtils.getRowData(Integer.parseInt(Property.getProperty("testRow")));
     }
 
@@ -27,8 +35,6 @@ public class AddToCart extends BrowserSetup {
         ProductModel productModel = new ProductModel(driver);
         MinicartModel minicartModel = new MinicartModel(driver);
         CartModel cartModel = new CartModel(driver);
-
-        setLoggerExtent("Add to Cart");
 
         searchModel.searchText();
 
@@ -41,7 +47,8 @@ public class AddToCart extends BrowserSetup {
         minicartModel.clickMiniCartPop();
         minicartModel.clickViewCart(driver);
 
-        cartModel.fetchProductDetails();
+        cartModel.fetchProductDetails(driver);
         cartModel.verifyProductDetails();
     }
+
 }

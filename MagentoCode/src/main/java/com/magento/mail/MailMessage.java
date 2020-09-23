@@ -35,7 +35,8 @@ public class MailMessage {
             /*Set the Mail Subject*/
             message.setSubject("Testing Report " + DatePicker.getDayDate());
 
-            message.setContent(MailAttachment.attachReport());
+            MailAttachment mailAttachment = new MailAttachment();
+            message.setContent(mailAttachment.attachReport());
 
             return message;
         } catch (Exception e) {

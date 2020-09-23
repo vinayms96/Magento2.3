@@ -2,25 +2,28 @@ package com.magento.pageModels;
 
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
-import com.magento.modules.WebdriverWait;
+import com.magento.project_setup.TestNGBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class CartModel {
+public class CartModel extends TestNGBase {
 
-    private static String cart_product_name;
-    private static ArrayList<String> cart_swatch;
-    private static String cart_final_price;
-    private static String cart_subtotal_price;
-    private static String cart_product_qty;
+    private String cart_product_name;
+    private ArrayList<String> cart_swatch;
+    private String cart_final_price;
+    private String cart_subtotal_price;
+    private String cart_product_qty;
 
     @FindBy(css = ".cart.item .item-info")
     private List<WebElement> product_list;
@@ -46,11 +49,13 @@ public class CartModel {
     /**
      * Fetching the Cart product details
      */
-    public void fetchProductDetails() {
+    public void fetchProductDetails(WebDriver driver) {
         /*Setting up Extent Node*/
         ExtentReport.createNode("Fetch Cart Product Details");
 
-        WebdriverWait.waitTillListVisible(product_list, 5);
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+
+        wait.until(ExpectedConditions.visibilityOfAllElements(product_list));
         cart_swatch = new ArrayList<>(10);
 
         for (WebElement element :
@@ -68,7 +73,10 @@ public class CartModel {
             /*Fetching the Product Swatch options*/
             for (WebElement swatch :
                     swatch_options) {
-                cart_swatch.add(swatch.findElement(By.xpath("//dl/dd")).getText());
+                String swatch_text = (String) ((JavascriptExecutor) driver)
+                        .executeScript("return arguments[0].text;", swatch);
+                cart_swatch.add(swatch_text);
+//                cart_swatch.add(swatch.findElement(By.xpath("//dl/dd")).getText());
             }
             Loggers.getLogger().info("Fetched the Product swatches");
             ExtentReport.getExtentNode().pass("Fetched the product swatches");

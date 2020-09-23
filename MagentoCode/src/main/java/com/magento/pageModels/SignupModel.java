@@ -3,6 +3,7 @@ package com.magento.pageModels;
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
 import com.magento.modules.MouseActions;
+import com.magento.project_setup.TestNGBase;
 import com.magento.utilities.ExcelUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,11 +12,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
-public class SignupModel {
+public class SignupModel extends TestNGBase {
 
-    /**
-     * Page Element references
-     */
     @FindBy(css = ".header .links")
     private static WebElement header_links;
     @FindBy(xpath = "//ul[@class='header links']/li[3]/a")
@@ -50,7 +48,8 @@ public class SignupModel {
      */
     public void clickCreateAccountLink(WebDriver driver) {
         /*Creating Extent Node*/
-        ExtentReport.createNode("Click Create Account Link");
+        ExtentReport.createNode("Create Account: Click Create Account Link");
+//        ExtentReport.createSubNode("Click Create Account Link");
 
         /*Clicking on link*/
         MouseActions.moveClickEvent(driver, create_account_link);
@@ -58,6 +57,7 @@ public class SignupModel {
         /*Logging and Reporting*/
         Loggers.getLogger().info("Create account link clicked");
         ExtentReport.getExtentNode().pass("Create account link clicked");
+//        ExtentReport.getExtentSubNode().pass("Create account link clicked");
     }
 
     /**
@@ -65,37 +65,44 @@ public class SignupModel {
      */
     public void fillCustomerForm(WebDriver driver) {
         /*Creating Extent Node*/
-        ExtentReport.createNode("Fill Customer Form");
+        ExtentReport.createNode("Create Account: Fill Customer Form");
+//        ExtentReport.createSubNode("Fill Customer Form");
 
         /*Filling the form fields*/
         first_name.sendKeys(ExcelUtils.getDataMap().get("first_name"));
         Loggers.getLogger().info("Entered the Firstname");
         ExtentReport.getExtentNode().pass("Entered the Firstname");
+//        ExtentReport.getExtentSubNode().pass("Entered the Firstname");
 
         last_name.sendKeys(ExcelUtils.getDataMap().get("last_name"));
         Loggers.getLogger().info("Entered the Lastname");
         ExtentReport.getExtentNode().pass("Entered the Lastname");
+//        ExtentReport.getExtentSubNode().pass("Entered the Lastname");
 
 //        if (Property.getProperty("is_subscribed").equals(1)) {
 //            is_subscribed.click();
-//            ExtentReport.getExtentNode().pass("Check the Subscriber Newsletter");
+//            ExtentReport.getExtentSubNode().pass("Check the Subscriber Newsletter");
 //        }
 
         email_address.sendKeys(ExcelUtils.getDataMap().get("email_id"));
         Loggers.getLogger().info("Entered the Email id");
         ExtentReport.getExtentNode().pass("Entered the Email id");
+//        ExtentReport.getExtentSubNode().pass("Entered the Email id");
 
         password.sendKeys(ExcelUtils.getDataMap().get("password"));
         Loggers.getLogger().info("Entered the Password");
         ExtentReport.getExtentNode().pass("Entered the Password");
+//        ExtentReport.getExtentSubNode().pass("Entered the Password");
 
         password_confirmation.sendKeys(ExcelUtils.getDataMap().get("password"));
         Loggers.getLogger().info("Entered the Confirmation Password");
         ExtentReport.getExtentNode().pass("Entered the Confirmation Password");
+//        ExtentReport.getExtentSubNode().pass("Entered the Confirmation Password");
 
         MouseActions.moveClickEvent(driver, submit);
         Loggers.getLogger().info("Clicked on Submit button");
         ExtentReport.getExtentNode().pass("Clicked on Submit button");
+//        ExtentReport.getExtentSubNode().pass("Clicked on Submit button");
 
     }
 }

@@ -4,6 +4,7 @@ import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
 import com.magento.modules.MouseActions;
 import com.magento.pickers.RandomPicker;
+import com.magento.project_setup.TestNGBase;
 import com.magento.utilities.ExcelUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class ProductModel {
+public class ProductModel extends TestNGBase {
     private static String product_old_price;
     private static String product_final_price;
     private static String product_quantity;

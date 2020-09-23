@@ -3,17 +3,19 @@ package com.magento.pageModels;
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
 import com.magento.modules.MouseActions;
-import com.magento.modules.WebdriverWait;
+import com.magento.project_setup.TestNGBase;
 import com.magento.utilities.ExcelUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
 
-public class LoginModel {
+public class LoginModel extends TestNGBase {
 
     @FindBy(xpath = "(//ul[@class='header links']/li/a)[1]")
     private static WebElement login_link;
@@ -39,39 +41,57 @@ public class LoginModel {
      */
     public void fillLoginForm(WebDriver driver) {
         /*Creating Extent Node*/
-        ExtentReport.createNode("Enter the Login Details");
+        ExtentReport.createNode("Login Account: Enter the Login Details");
+//        ExtentReport.createSubNode("Enter the Login Details");
+
+        WebDriverWait wait = new WebDriverWait(driver, 10);
 
         /*Click on Login link*/
-        WebdriverWait.waitTillClickable(login_link, 5);
+        wait.until(ExpectedConditions.elementToBeClickable(login_link));
         login_link.click();
 
         /*Entering the form details*/
         email_id.sendKeys(ExcelUtils.getDataMap().get("email_id"));
         Loggers.getLogger().info("Entered the Email id");
         ExtentReport.getExtentNode().pass("Entered the user Email id");
+//        ExtentReport.getExtentSubNode().pass("Entered the user Email id");
 
         password.sendKeys(ExcelUtils.getDataMap().get("password"));
         Loggers.getLogger().info("Entered the user Password");
         ExtentReport.getExtentNode().pass("Entered the user Password");
+//        ExtentReport.getExtentSubNode().pass("Entered the user Password");
 
         MouseActions.moveClickEvent(driver, submit);
         Loggers.getLogger().info("Clicked on Submit button");
         ExtentReport.getExtentNode().pass("Clicked on Submit button");
+//        ExtentReport.getExtentSubNode().pass("Clicked on Submit button");
 
         /*Verifying if user is logged in*/
-        WebdriverWait.waitTillVisibility(user_name, 5);
+        wait.until(ExpectedConditions.visibilityOf(user_name));
+
+    }
+
+    public boolean verifyLogin() {
+        /*Creating Extent Node*/
+        ExtentReport.createNode("Login Account: Verify the Login Details");
+//        ExtentReport.createSubNode("Verify the Login Details");
 
         String fullName = ExcelUtils.getDataMap().get("first_name") + " " +
                 ExcelUtils.getDataMap().get("last_name");
+        Loggers.getLogger().info("Username: " + fullName);
+        ExtentReport.getExtentNode().info("Username: " + fullName);
 
         try {
+            Thread.sleep(2000);
             Assert.assertTrue(user_name.getText().contains(fullName));
             Loggers.getLogger().info("User logged in Successfully");
-            ExtentReport.getExtentNode().pass("User logged in Successfully");
+//            ExtentReport.getExtentSubNode().pass("User logged in Successfully");
+            return true;
         } catch (Exception e) {
             Loggers.getLogger().error("User could not be logged in");
-            ExtentReport.getExtentNode().fail("User could not be logged in");
+//            ExtentReport.getExtentSubNode().fail("User could not be logged in");
         }
+        return false;
     }
 
 }

@@ -3,20 +3,22 @@ package com.magento.pageModels;
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
 import com.magento.modules.MouseActions;
-import com.magento.modules.WebdriverWait;
+import com.magento.project_setup.TestNGBase;
 import com.magento.utilities.Property;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class AccountModel {
+public class AccountModel extends TestNGBase {
 
     @FindBy(css = ".messages .success")
     private WebElement acc_success_message;
@@ -38,7 +40,8 @@ public class AccountModel {
 
     public void accountCreateVerify() {
         /*Setting Extent reports*/
-        ExtentReport.createNode("Account Creation Verification");
+//        ExtentReport.createSubNode("Account Creation Verification");
+        ExtentReport.createNode("Create Account: Account Creation Verification");
 
         try {
 
@@ -47,32 +50,40 @@ public class AccountModel {
                     .getAttribute("innerHTML").contains("Thank you for registering"));
             Loggers.getLogger().info("Account is created Successfully");
             ExtentReport.getExtentNode().pass("Account is created Successfully");
+//            ExtentReport.getExtentSubNode().pass("Account is created Successfully");
 
         } catch (Exception er) {
 
             /*Checking if the email id already exists*/
             Assert.assertTrue(acc_error_message.findElement(By.xpath("//div"))
                     .getAttribute("innerHTML").contains("There is already an account with this email address."));
-            Loggers.getLogger().error("There is already an account with this email address.");
-            ExtentReport.getExtentNode().fail("There is already an account with this email address.");
+            Loggers.getLogger().warn("There is already an account with this email address.");
+            ExtentReport.getExtentNode().warning("There is already an account with this email address.");
+//            ExtentReport.getExtentSubNode().fail("There is already an account with this email address.");
 
         } catch (AssertionError assertionError) {
 
             Loggers.getLogger().error("Success message was not displayed.");
             ExtentReport.getExtentNode().fail("Success message was not displayed.");
+//            ExtentReport.getExtentSubNode().fail("Success message was not displayed.");
 
         }
     }
 
     public void clickAccountDropdown(WebDriver driver) {
+        /*Setting Extent reports*/
+//        ExtentReport.createSubNode("Select Account dropdown options");
         ExtentReport.createNode("Select Account dropdown options");
 
         MouseActions.moveClickEvent(driver, account_dropdown);
         Loggers.getLogger().info("Clicked on Account Dropdown");
         ExtentReport.getExtentNode().pass("Clicked on Account Dropdown");
+//        ExtentReport.getExtentSubNode().pass("Clicked on Account Dropdown");
     }
 
     public void selectDropOptions(WebDriver driver, String dropdownOption) {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+
         Iterator<WebElement> options = account_drop_list.iterator();
         while (options.hasNext()) {
             WebElement element = options.next();
@@ -84,12 +95,14 @@ public class AccountModel {
         }
         Loggers.getLogger().info("Clicked on '" + dropdownOption + "' button");
         ExtentReport.getExtentNode().pass("Clicked on '" + dropdownOption + "' button");
+//        ExtentReport.getExtentSubNode().pass("Clicked on '" + dropdownOption + "' button");
+
         try {
             Thread.sleep(5000);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        WebdriverWait.waitTillPagRefreshed(logout_success, 10);
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(logout_success)));
 
         /*Verifying the Logout*/
         Assert.assertEquals(driver.getCurrentUrl(), (Property.getProperty("url") + "/customer/account/logoutSuccess/"));
@@ -98,6 +111,7 @@ public class AccountModel {
         /*Logging and Reporting*/
         Loggers.getLogger().info("User logged out successfully");
         ExtentReport.getExtentNode().pass("User logged out successfully");
+//        ExtentReport.getExtentSubNode().pass("User logged out successfully");
     }
 
 }

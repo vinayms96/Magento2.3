@@ -3,21 +3,23 @@ package com.magento.pageModels;
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
 import com.magento.modules.MouseActions;
-import com.magento.modules.WebdriverWait;
 import com.magento.pickers.RandomPicker;
+import com.magento.project_setup.TestNGBase;
 import com.magento.utilities.ExcelUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class CheckoutModel {
+public class CheckoutModel extends TestNGBase {
     private Select select;
 
     @FindBy(css = ".authentication-wrapper .action")
@@ -71,8 +73,11 @@ public class CheckoutModel {
         /*Setting up Extent report*/
         ExtentReport.createNode("Verify Checkout Page 1 Redirect");
 
-        WebdriverWait.waitTillVisibility(sign_in_link, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
 
+        wait.until(ExpectedConditions.visibilityOf(sign_in_link));
+
+        Loggers.getLogger().info(driver.getCurrentUrl());
         Assert.assertTrue(driver.getCurrentUrl().contains("/checkout/#shipping"));
         Loggers.getLogger().info("Successfully redirected to Checkout page 1");
         ExtentReport.getExtentNode().pass("Successfully redirected to Checkout page 1");
@@ -86,7 +91,9 @@ public class CheckoutModel {
         /*Setting up Extent report*/
         ExtentReport.createNode("Verify Checkout Page 2 Redirect");
 
-        WebdriverWait.waitTillVisibility(place_order, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+
+        wait.until(ExpectedConditions.visibilityOf(place_order));
 
         Assert.assertTrue(driver.getCurrentUrl().contains("/checkout/#payment"));
         Loggers.getLogger().info("Successfully redirected to Checkout page 2");
@@ -100,9 +107,12 @@ public class CheckoutModel {
         /*Setting up Extent node*/
         ExtentReport.createNode("Checkout Sign in");
 
-        MouseActions.moveClickEvent(driver, sign_in_link);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+//        MouseActions.moveClickEvent(driver, sign_in_link);
+        sign_in_link.click();
 
-        WebdriverWait.waitTillVisibility(email_field, 10);
+        wait.until(ExpectedConditions.visibilityOf(email_field));
+
         email_field.sendKeys(ExcelUtils.getDataMap().get("email_id"));
         Loggers.getLogger().info("Entered email id in checkout");
 
@@ -121,9 +131,11 @@ public class CheckoutModel {
         /*Setting up Extent node*/
         ExtentReport.createNode("Select Shipping Method");
 
+        WebDriverWait wait = new WebDriverWait(driver, 7);
+
         /*Wait till the Shipping Address is present*/
         try {
-            WebdriverWait.waitTillVisibility(selected_ship, 7);
+            wait.until(ExpectedConditions.visibilityOf(selected_ship));
         } catch (Exception e) {
             addShippingAddress();
         }

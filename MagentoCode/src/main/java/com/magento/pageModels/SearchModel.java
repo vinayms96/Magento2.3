@@ -2,6 +2,7 @@ package com.magento.pageModels;
 
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
+import com.magento.project_setup.TestNGBase;
 import com.magento.utilities.ExcelUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,7 @@ import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
 
-public class SearchModel {
+public class SearchModel extends TestNGBase {
     @FindBy(id = "search")
     private WebElement search_box;
     @FindBy(xpath = "//h1/span")

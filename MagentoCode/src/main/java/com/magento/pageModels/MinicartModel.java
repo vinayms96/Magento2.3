@@ -3,6 +3,7 @@ package com.magento.pageModels;
 import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
 import com.magento.modules.MouseActions;
+import com.magento.project_setup.TestNGBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class MinicartModel {
+public class MinicartModel extends TestNGBase {
     private static String mini_product_name;
     private static String swatch_one;
     private static String swatch_two;

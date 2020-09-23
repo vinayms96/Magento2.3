@@ -4,6 +4,7 @@ import com.magento.extent_reports.ExtentReport;
 import com.magento.loggers.Loggers;
 import com.magento.modules.MouseActions;
 import com.magento.pickers.RandomPicker;
+import com.magento.project_setup.TestNGBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +15,7 @@ import org.testng.Assert;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class ListingModel {
+public class ListingModel extends TestNGBase {
     private static String list_product_name;
     private static String list_product_final_price;
     private static String list_product_old_price;
@@ -103,7 +104,6 @@ public class ListingModel {
                 ExtentReport.getExtentNode().pass("Could not fetch the Product Price in listing page");
             }
         }
-
     }
 
     /**
