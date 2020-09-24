@@ -35,13 +35,13 @@ public class OrderSuccessModel extends TestNGBase {
      *               Verifying the Order Placement
      */
     public void verifyOrderSuccess(WebDriver driver) {
-        /*Setting up Extent Node*/
+        // Setting up Extent Node
         ExtentReport.createNode("Verify the Order Success");
 
         WebDriverWait wait = new WebDriverWait(driver, 15);
         wait.until(ExpectedConditions.visibilityOf(order_num));
 
-        /*Verifying Order Success*/
+        // Verifying Order Success
         Assert.assertTrue(driver.getCurrentUrl().equals(Property.getProperty("url")+"/checkout/onepage/success/"));
         Assert.assertTrue(thank_you.getText().equals("Thank you for your purchase!"));
         Loggers.getLogger().info("Order Placed Successfully");
@@ -52,14 +52,14 @@ public class OrderSuccessModel extends TestNGBase {
      * Fetching the Order Number
      */
     public void fetchOrderNumber(WebDriver driver) {
-        /*Setting up Extent Node*/
+        // Setting up Extent Node
         ExtentReport.createNode("Fetch the Order Number");
 
         order_number = order_num.getText();
         Loggers.getLogger().info("Fetched the Order Number: "+ order_number);
         ExtentReport.getExtentNode().pass("Fetched the Order Number: " + order_number);
 
-        /*Redirect to Homepage*/
+        // Redirect to Homepage
         MouseActions.moveClickEvent(driver, continue_shopping);
     }
 

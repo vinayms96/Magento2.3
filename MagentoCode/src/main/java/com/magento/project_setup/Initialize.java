@@ -23,24 +23,24 @@ public class Initialize {
      */
     public WebDriver initializeDriver() {
 
-        /*Setting Browser Capabilities*/
+        // Setting Browser Capabilities
         capabilities = new DesiredCapabilities();
         capabilities.setAcceptInsecureCerts(true);
 
-        /*Setting Browser Options*/
+        // Setting Browser Options
         ch_options = new ChromeOptions();
         ch_options.merge(capabilities);
 
         ff_options = new FirefoxOptions();
         ff_options.merge(capabilities);
 
-        /*Setting Browser Mode*/
+        // Setting Browser Mode
         if (Property.getProperty("headless").equalsIgnoreCase("on")) {
             ch_options.addArguments("--headless");
             ff_options.addArguments("--headless");
         }
 
-        /*Selecting the Browser*/
+        // Selecting the Browser
         if (Property.getProperty("browser").equalsIgnoreCase("Chrome")) {
 //            WebDriverManager.chromedriver().setup();
             System.setProperty("webdriver.chrome.driver", "./../magento_data/browser_drivers/chromedriver");
@@ -53,7 +53,7 @@ public class Initialize {
             Loggers.getLogger().info("Firefox browser is Launched");
         }
 
-        /*Hitting the URL and Maximizing the window*/
+        // Hitting the URL and Maximizing the window
         driver.manage().window().maximize();
         driver.get(Property.getProperty("url"));
 

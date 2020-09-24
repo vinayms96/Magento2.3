@@ -36,13 +36,13 @@ public class ExcelUtils {
         formatter = new DataFormatter();
 
         try {
-            /*Declaring the Workbook by passing the interfaces to Excel file*/
+            // Declaring the Workbook by passing the interfaces to Excel file
             work_book = new XSSFWorkbook(new FileInputStream(new File(path)));
 
-            /*Get the sheet at index 0*/
+            // Get the sheet at index 0
             sheet = work_book.getSheetAt(0);
 
-            /*Iterate through the Columns and store the Headers in ArrayList<String>*/
+            // Iterate through the Columns and store the Headers in ArrayList<String>
             Iterator<Row> first_row = sheet.iterator();
             Iterator<Cell> cell_iter = first_row.next().cellIterator();
             while (cell_iter.hasNext()) {

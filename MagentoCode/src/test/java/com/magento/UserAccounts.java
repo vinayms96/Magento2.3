@@ -22,10 +22,10 @@ public class UserAccounts extends TestNGBase {
      */
     @BeforeClass(description = "Pre Test Configurations", alwaysRun = true)
     public void preTestRuns() {
-        /*Initialize Driver*/
+        // Initialize Driver
         driver = initializeDriver();
 
-        /*Setting the Loggers and Extent Reports*/
+        // Setting the Loggers and Extent Reports
         Loggers.setLogger(UserAccounts.class.getName());
         ExtentReport.createTest("User Accounts");
         ExcelUtils.getRowData(Integer.parseInt(Property.getProperty("testRow")));
@@ -36,8 +36,7 @@ public class UserAccounts extends TestNGBase {
      */
     @Test(description = "Creating the User Account", priority = 1, groups = {"userAccounts.accountCreate"})
     public void accountCreate() {
-
-        /*PageModel object*/
+        // PageModel object
         SignupModel signupModel = new SignupModel(driver);
         AccountModel accountModel = new AccountModel(driver);
         LoginModel loginModel = new LoginModel(driver);
@@ -57,8 +56,7 @@ public class UserAccounts extends TestNGBase {
      */
     @Test(description = "Logging into the User Account", priority = 2, groups = {"userAccounts.accountLogin"})
     public void accountLogin() {
-
-        /*PageModel object*/
+        // PageModel object
         LoginModel loginModel = new LoginModel(driver);
 
         loginModel.fillLoginForm(driver);

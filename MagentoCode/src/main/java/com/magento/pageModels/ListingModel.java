@@ -67,32 +67,32 @@ public class ListingModel extends TestNGBase {
      * Fetch the Product Name, Old Price(If present) and Final Price
      */
     public void fetchProductDetails() {
-        /*Setting ExtentReports*/
+        // Setting ExtentReports
         ExtentReport.createNode("Fetch product details in Listing page");
 
-        /*Pick random product number*/
+        // Pick random product number
         product_id = RandomPicker.numberPicker(product_list.size());
 
-        /*Fetching the Product name*/
+        // Fetching the Product name
         list_product_name = product_item_link.get(product_id).getText();
         Loggers.getLogger().info("Product '" + list_product_name + "' is picked");
         ExtentReport.getExtentNode().pass("Product '" + list_product_name + "' is picked");
 
-        /*Fetching Old Price if present*/
+        // Fetching Old Price if present
         try {
             if (old_price_list.get(product_id).isDisplayed()) {
-                /*Fetching the Old Price in listing page*/
+                // Fetching the Old Price in listing page
                 list_product_old_price = old_price_list.get(product_id).findElement(By.className("price")).getText();
                 Loggers.getLogger().info("Product Old Price: " + list_product_old_price);
                 ExtentReport.getExtentNode().pass("Product Old Price: " + list_product_old_price);
 
-                /*Fetching the Final Price in listing page*/
+                // Fetching the Final Price in listing page
                 list_product_final_price = final_price_list.get(product_id).findElement(By.className("price")).getText();
                 Loggers.getLogger().info("Product Final Price: " + list_product_final_price);
                 ExtentReport.getExtentNode().pass("Product Final Price: " + list_product_final_price);
             }
         } catch (Exception e) {
-            /*Fetching Final Price if Old Price not present*/
+            // Fetching Final Price if Old Price not present
             try {
                 if (final_price_list.get(product_id).isDisplayed()) {
                     list_product_final_price = final_price_list.get(product_id).findElement(By.className("price")).getText();
@@ -111,10 +111,10 @@ public class ListingModel extends TestNGBase {
      * Fetching the Product Name along with Final and Old Prices(if available)
      */
     public void pickProduct(WebDriver driver) {
-        /*Setting ExtentReports*/
+        // Setting ExtentReports
         ExtentReport.createNode("Pick Product from Listing");
 
-        /*Clicking on the Product name*/
+        // Clicking on the Product name
         MouseActions.moveClickEvent(driver, product_item_link.get(product_id));
         Loggers.getLogger().info("Clicked on '" + list_product_name + "' product");
         ExtentReport.getExtentNode().pass("Clicked on '" + list_product_name + "' product");
@@ -125,38 +125,38 @@ public class ListingModel extends TestNGBase {
      */
     public void addCartListing(WebDriver driver) {
 
-        /*Setting ExtentReports*/
+        // Setting ExtentReports
         ExtentReport.createNode("Add to Cart from listing");
 
-        /*Moving over the Product*/
+        // Moving over the Product
         MouseActions.jsScrollViewEvent(driver, product_list.get(product_id).findElement(By.tagName("img")));
 
-        /*Picking Random product*/
+        // Picking Random product
         WebElement select_product = product_list.get(product_id);
         List<WebElement> list_product_swatches = select_product.findElements(By.cssSelector(".swatch-attribute"));
 
-        /*Selecting the Random Config options*/
+        // Selecting the Random Config options
         for (WebElement swatches_per_product : list_product_swatches) {
 
             List<WebElement> every_swatch_options = swatches_per_product.findElements(By.cssSelector(".swatch-option"));
 
-            /*Picking random Swatch Option*/
+            // Picking random Swatch Option
             int swatch_option = RandomPicker.numberPicker(every_swatch_options.size());
 
-            /*Clicking on Swatch Options*/
+            // Clicking on Swatch Options
             every_swatch_options.get(swatch_option).click();
 
-            /*Logging and Reporting*/
+            // Logging and Reporting
             Loggers.getLogger().info("Selected '" + every_swatch_options.get(swatch_option).getAttribute("option-label") + "' swatch option");
             ExtentReport.getExtentNode().pass("Selected '" + every_swatch_options.get(swatch_option).getAttribute("option-label") + "' swatch option");
 
         }
 
-        /*Clicking on Add to Cart button*/
+        // Clicking on Add to Cart button
         submit_button.get(product_id + 1).click();
         Loggers.getLogger().info("Clicked on the Add to Cart button");
 
-        /*Verifying the Success Message*/
+        // Verifying the Success Message
         if (add_success.isDisplayed()) {
             Assert.assertEquals(add_success.getText(), "shopping cart");
             Loggers.getLogger().info("Product Successfully added to Cart");

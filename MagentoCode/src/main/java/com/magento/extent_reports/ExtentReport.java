@@ -24,25 +24,25 @@ public class ExtentReport implements Constants {
      */
     public static void extentReport() {
 
-        /*Setting the Loggers*/
+        // Setting the Loggers
         Loggers.setLogger(ExtentReport.class.getName());
 
-        /*Picking the Date and Time*/
+        // Picking the Date and Time
         dateTime = DatePicker.getDateTime();
 
         /*Defining the ype of reporter
          * And specifying the interfaces to save the report*/
         sparkReporter = new ExtentSparkReporter(EXTENT_PATH + dateTime + ".html");
 
-        /*Loading the Extent Configuration XML file*/
+        // Loading the Extent Configuration XML file
         sparkReporter.loadXMLConfig(EXTENT_CONFIG_PATH);
         Loggers.getLogger().info("Extent report config file is loaded");
 
-        /*Defining the ExtentReports and attaching the above reporter*/
+        // Defining the ExtentReports and attaching the above reporter
         extentReports = new ExtentReports();
         extentReports.attachReporter(sparkReporter);
 
-        /*Setting System Environment*/
+        // Setting System Environment
         setSystemInformation();
         Loggers.getLogger().info("Reporter attached to reports");
 

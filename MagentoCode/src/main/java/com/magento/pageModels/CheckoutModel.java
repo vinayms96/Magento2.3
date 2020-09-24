@@ -70,7 +70,7 @@ public class CheckoutModel extends TestNGBase {
      *               Verifying the Checkout 1 redirection
      */
     public void verifyCheckout1(WebDriver driver) {
-        /*Setting up Extent report*/
+        // Setting up Extent report
         ExtentReport.createNode("Verify Checkout Page 1 Redirect");
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -88,7 +88,7 @@ public class CheckoutModel extends TestNGBase {
      *               Verifying the Checkout 2 redirection
      */
     public void verifyCheckout2(WebDriver driver) {
-        /*Setting up Extent report*/
+        // Setting up Extent report
         ExtentReport.createNode("Verify Checkout Page 2 Redirect");
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -104,11 +104,10 @@ public class CheckoutModel extends TestNGBase {
      * Signing in from Checkout page
      */
     public void checkoutSignIn(WebDriver driver) {
-        /*Setting up Extent node*/
+        // Setting up Extent node
         ExtentReport.createNode("Checkout Sign in");
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
-//        MouseActions.moveClickEvent(driver, sign_in_link);
         sign_in_link.click();
 
         wait.until(ExpectedConditions.visibilityOf(email_field));
@@ -128,12 +127,12 @@ public class CheckoutModel extends TestNGBase {
      * Select the Shipping Method and click on Next
      */
     public void selectShippingMethod(WebDriver driver) {
-        /*Setting up Extent node*/
+        // Setting up Extent node
         ExtentReport.createNode("Select Shipping Method");
 
         WebDriverWait wait = new WebDriverWait(driver, 7);
 
-        /*Wait till the Shipping Address is present*/
+        // Wait till the Shipping Address is present
         try {
             wait.until(ExpectedConditions.visibilityOf(selected_ship));
         } catch (Exception e) {
@@ -147,11 +146,12 @@ public class CheckoutModel extends TestNGBase {
             ExtentReport.getExtentNode().error("Shipping Method Could not be found");
         }
 
+        // Get number of shipping rates
         int ship_count = shipping_rates.size();
         Loggers.getLogger().info(ship_count + " Shipping Method(s) are/is displayed");
         ExtentReport.getExtentNode().info(ship_count + " Shipping Method(s) are/is displayed");
 
-        /*Selecting one of many options*/
+        // Selecting one of many options
         if (ship_count > 1) {
             int one_ship = RandomPicker.numberPicker(ship_count);
             WebElement ship_method = shipping_rates.get(one_ship);
@@ -165,7 +165,7 @@ public class CheckoutModel extends TestNGBase {
             }
         }
 
-        /*Clicking on Next button*/
+        // Clicking on Next button
         MouseActions.moveClickEvent(driver, next_submit);
         Loggers.getLogger().info("Clicked on Next button");
         ExtentReport.getExtentNode().pass("Clicked on Next button");
@@ -175,24 +175,24 @@ public class CheckoutModel extends TestNGBase {
      * Selecting billing address and click on Place Order
      */
     public void clickPlaceOrder(WebDriver driver) {
-        /*Setting up Extent Node*/
+        // Setting up Extent Node
         ExtentReport.createNode("Select Billing Address & click on Place Order");
 
-        /*Clicking on Default billing if not checked*/
+        // Clicking on Default billing if not checked
         if(set_default_billing.isSelected() == false) {
             set_default_billing.click();
             Loggers.getLogger().info("Clicked on Same as Shipping Address checkbox");
             ExtentReport.getExtentNode().pass("Clicked on Same as Shipping Address checkbox");
         }
 
-        /*Click on Place Order button*/
+        // Click on Place Order button
         MouseActions.moveClickEvent(driver, place_order);
         Loggers.getLogger().info("Clicked on Place Order button");
         ExtentReport.getExtentNode().pass("Clicked on Place Order button");
     }
 
     public void addShippingAddress() {
-        /*Setting up Extent Node*/
+        // Setting up Extent Node
         ExtentReport.createNode("Filling the Shipping Address");
 
         select = new Select(country);

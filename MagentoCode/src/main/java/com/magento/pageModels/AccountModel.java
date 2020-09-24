@@ -33,52 +33,52 @@ public class AccountModel extends TestNGBase {
     @FindBy(css = ".base")
     private WebElement logout_success;
 
+    /**
+     * @param driver - Webdriver element
+     */
     public AccountModel(WebDriver driver) {
         PageFactory.initElements(driver, this);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
+    /**
+     * Verify the User Account created
+     */
     public void accountCreateVerify() {
-        /*Setting Extent reports*/
-//        ExtentReport.createSubNode("Account Creation Verification");
+        // Setting Extent reports
         ExtentReport.createNode("Create Account: Account Creation Verification");
 
         try {
 
-            /*Verifying the account is created*/
+            // Verifying the account is created
             Assert.assertTrue(acc_success_message.findElement(By.xpath("//div"))
                     .getAttribute("innerHTML").contains("Thank you for registering"));
             Loggers.getLogger().info("Account is created Successfully");
             ExtentReport.getExtentNode().pass("Account is created Successfully");
-//            ExtentReport.getExtentSubNode().pass("Account is created Successfully");
 
         } catch (Exception er) {
 
-            /*Checking if the email id already exists*/
+            // Checking if the email id already exists
             Assert.assertTrue(acc_error_message.findElement(By.xpath("//div"))
                     .getAttribute("innerHTML").contains("There is already an account with this email address."));
             Loggers.getLogger().warn("There is already an account with this email address.");
             ExtentReport.getExtentNode().warning("There is already an account with this email address.");
-//            ExtentReport.getExtentSubNode().fail("There is already an account with this email address.");
 
         } catch (AssertionError assertionError) {
 
             Loggers.getLogger().error("Success message was not displayed.");
             ExtentReport.getExtentNode().fail("Success message was not displayed.");
-//            ExtentReport.getExtentSubNode().fail("Success message was not displayed.");
 
         }
     }
 
     public void clickAccountDropdown(WebDriver driver) {
-        /*Setting Extent reports*/
-//        ExtentReport.createSubNode("Select Account dropdown options");
+        // Setting Extent reports
         ExtentReport.createNode("Select Account dropdown options");
 
         MouseActions.moveClickEvent(driver, account_dropdown);
         Loggers.getLogger().info("Clicked on Account Dropdown");
         ExtentReport.getExtentNode().pass("Clicked on Account Dropdown");
-//        ExtentReport.getExtentSubNode().pass("Clicked on Account Dropdown");
     }
 
     public void selectDropOptions(WebDriver driver, String dropdownOption) {
@@ -95,7 +95,6 @@ public class AccountModel extends TestNGBase {
         }
         Loggers.getLogger().info("Clicked on '" + dropdownOption + "' button");
         ExtentReport.getExtentNode().pass("Clicked on '" + dropdownOption + "' button");
-//        ExtentReport.getExtentSubNode().pass("Clicked on '" + dropdownOption + "' button");
 
         try {
             Thread.sleep(5000);
@@ -104,14 +103,13 @@ public class AccountModel extends TestNGBase {
         }
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(logout_success)));
 
-        /*Verifying the Logout*/
+        // Verifying the Logout
         Assert.assertEquals(driver.getCurrentUrl(), (Property.getProperty("url") + "/customer/account/logoutSuccess/"));
         Assert.assertEquals(logout_success.getText(), "You are signed out");
 
-        /*Logging and Reporting*/
+        // Logging and Reporting
         Loggers.getLogger().info("User logged out successfully");
         ExtentReport.getExtentNode().pass("User logged out successfully");
-//        ExtentReport.getExtentSubNode().pass("User logged out successfully");
     }
 
 }

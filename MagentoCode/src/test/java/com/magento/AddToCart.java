@@ -19,10 +19,10 @@ public class AddToCart extends TestNGBase {
      */
     @BeforeClass(description = "Pre Test Configurations", alwaysRun = true)
     public void preTestRuns() {
-        /*Initialize Driver*/
+        // Initialize Driver
         driver = initializeDriver();
 
-        /*Setting the Loggers and Extent Reports*/
+        // Setting the Loggers and Extent Reports
         Loggers.setLogger(AddToCart.class.getName());
         ExtentReport.createTest("Add to Cart");
         ExcelUtils.getRowData(Integer.parseInt(Property.getProperty("testRow")));

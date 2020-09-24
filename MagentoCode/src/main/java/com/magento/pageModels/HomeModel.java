@@ -37,7 +37,7 @@ public class HomeModel extends TestNGBase {
      * Selecting the Menus
      */
     public void selectMenus(WebDriver driver) {
-        /*Creating Extent Node*/
+        // Creating Extent Node
         ExtentReport.createNode("Hover and Select Menus");
 
         WebDriverWait wait = new WebDriverWait(driver, 5);

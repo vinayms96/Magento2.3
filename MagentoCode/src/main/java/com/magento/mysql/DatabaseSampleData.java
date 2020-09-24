@@ -110,7 +110,7 @@ public class DatabaseSampleData implements DatabaseHeaders {
                 preparedStatement.setString(12, ExcelUtils.getDataMap().get(cell_12));
                 preparedStatement.setInt(13, Integer.parseInt(ExcelUtils.getDataMap().get(cell_13)));
 
-                /*Executing the PreparedStatement to enter the table values*/
+                // Executing the PreparedStatement to enter the table values
                 preparedStatement.executeUpdate();
             }
             Loggers.getLogger().info("Sample data is added to the '" + database_table_1 + "' table");
