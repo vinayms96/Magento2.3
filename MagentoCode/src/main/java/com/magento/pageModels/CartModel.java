@@ -50,7 +50,7 @@ public class CartModel extends TestNGBase {
      * Fetching the Cart product details
      */
     public void fetchProductDetails(WebDriver driver) {
-        /*Setting up Extent Node*/
+        // Setting up Extent Node
         ExtentReport.createNode("Fetch Cart Product Details");
 
         WebDriverWait wait = new WebDriverWait(driver, 5);
@@ -61,7 +61,7 @@ public class CartModel extends TestNGBase {
         for (WebElement element :
                 product_list) {
 
-            /*Fetching the Product name*/
+            // Fetching the Product name
             for (WebElement product_object :
                     product_name) {
                 Loggers.getLogger().info(product_object.getAttribute("innerHTML"));
@@ -70,7 +70,7 @@ public class CartModel extends TestNGBase {
                 ExtentReport.getExtentNode().pass("Fetched the Product Name");
             }
 
-            /*Fetching the Product Swatch options*/
+            // Fetching the Product Swatch options
             for (WebElement swatch :
                     swatch_options) {
                 String swatch_text = (String) ((JavascriptExecutor) driver)
@@ -81,7 +81,7 @@ public class CartModel extends TestNGBase {
             Loggers.getLogger().info("Fetched the Product swatches");
             ExtentReport.getExtentNode().pass("Fetched the product swatches");
 
-            /*Fetching Product Final Price*/
+            // Fetching Product Final Price
             for (WebElement final_price :
                     product_final_price) {
                 cart_final_price = final_price.getText();
@@ -89,7 +89,7 @@ public class CartModel extends TestNGBase {
             Loggers.getLogger().info("Fetched the product final price");
             ExtentReport.getExtentNode().pass("Fetched the product final price");
 
-            /*Fetching the Product Subtotal*/
+            // Fetching the Product Subtotal
             for (WebElement subtotal :
                     product_subtotal_price) {
                 cart_subtotal_price = subtotal.getText();
@@ -97,7 +97,7 @@ public class CartModel extends TestNGBase {
             Loggers.getLogger().info("Fetched the product subtotal");
             ExtentReport.getExtentNode().pass("Fetched the product subtotal");
 
-            /*Fetching the Product qty*/
+            // Fetching the Product qty
             for (WebElement qty :
                     product_qty) {
                 cart_product_qty = qty.getAttribute("value");
@@ -113,10 +113,10 @@ public class CartModel extends TestNGBase {
      * Verifying the Product details of products added to cart
      */
     public void verifyProductDetails() {
-        /*Setting up Extent Node*/
+        // Setting up Extent Node
         ExtentReport.createNode("Verify Cart Product Details");
 
-        /*Verifying product details*/
+        // Verifying product details
         Assert.assertEquals(ListingModel.getList_product_name(), cart_product_name);
         Assert.assertEquals(ProductModel.getProduct_final_price(), cart_final_price);
         Assert.assertEquals(ProductModel.getProduct_quantity(), cart_product_qty);
@@ -124,7 +124,7 @@ public class CartModel extends TestNGBase {
 //            Assert.assertEquals(cart_swatch.get(swatch), ProductModel.getProduct_swatches().get(swatch));
 //        }
 
-        /*Logging and Extent Reports*/
+        // Logging and Extent Reports
         Loggers.getLogger().info("Verified the Product details added to cart");
         ExtentReport.getExtentNode().pass("Verified the Product details added to cart");
     }

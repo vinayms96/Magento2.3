@@ -26,12 +26,14 @@ public class Listener extends TestNGBase implements ITestListener {
     public void onTestFailure(ITestResult result) {
         WebDriver driver = null;
 
+        // Throw test fail exception
         Loggers.getLogger().error(result.getThrowable().getMessage());
         for (int er = 0; er < result.getThrowable().getStackTrace().length; er++) {
             Loggers.getLogger().error(result.getThrowable().getStackTrace()[er]);
         }
         ExtentReport.getExtentNode().fail(result.getThrowable());
 
+        // Take Screenshot when test fails
         try {
             driver = (WebDriver) result.getTestClass().getRealClass().getDeclaredField("driver")
                     .get(result.getInstance());

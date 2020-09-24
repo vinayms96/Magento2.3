@@ -82,20 +82,20 @@ public class ProductModel extends TestNGBase {
      * Verifying the Product details with the listing page details
      */
     public void verifyProductDetails() {
-        /*Setting up the Extent Report*/
+        // Setting up the Extent Report
         ExtentReport.createNode("Verify Product Details");
 
-        /*Verifying Product name*/
+        // Verifying Product name
         Assert.assertEquals(ListingModel.getList_product_name(), product_name.getText());
         Loggers.getLogger().info("Product name verified successfully");
         ExtentReport.getExtentNode().pass("Product name verified successfully");
 
-        /*Fetching the Final price*/
+        // Fetching the Final price
         product_final_price = pdp_final_price.getText();
 
-        /*Verifying Product prices*/
+        // Verifying Product prices
         if (ListingModel.getList_product_old_price() != "" && ListingModel.getList_product_old_price() != null) {
-            /*Fetching the Old price*/
+            // Fetching the Old price
             product_old_price = pdp_old_price.getText();
 
             Assert.assertEquals(ListingModel.getList_product_old_price(), product_old_price);
@@ -113,12 +113,12 @@ public class ProductModel extends TestNGBase {
      * Adding the Product to cart
      */
     public void addToCart(WebDriver driver) {
-        /*Setting up the Extent Report*/
+        // Setting up the Extent Report
         ExtentReport.createNode("Add to Cart");
 
         try {
             if (product_options.isDisplayed()) {
-                /*Logging and Reporting*/
+                // Logging and Reporting
                 Loggers.getLogger().info("Selected a Configurable Product");
                 ExtentReport.getExtentNode().info("Selected a Configurable Product");
 
@@ -128,11 +128,11 @@ public class ProductModel extends TestNGBase {
                     int size_option = RandomPicker.numberPicker(swatches_size_list.size());
                     WebElement size_element = swatches_size_list.get(size_option);
 
-                    /*Selecting the Swatches*/
+                    // Selecting the Swatches
                     MouseActions.moveClickEvent(driver, size_element);
                     product_swatches.add(size_element.getAttribute("option-label"));
 
-                    /*Logging and Reporting*/
+                    // Logging and Reporting
                     Loggers.getLogger().info("Swatch '" + product_swatches.get(0) + "' is selected");
                     ExtentReport.getExtentNode().info("Swatch '" + product_swatches.get(0) + "' is selected");
                 }
@@ -141,11 +141,11 @@ public class ProductModel extends TestNGBase {
                     int color_option = RandomPicker.numberPicker(swatches_color_list.size());
                     WebElement color_element = swatches_color_list.get(color_option);
 
-                    /*Selecting the Swatches*/
+                    // Selecting the Swatches
                     MouseActions.moveClickEvent(driver, color_element);
                     product_swatches.add(color_element.getAttribute("option-label"));
 
-                    /*Logging and Reporting*/
+                    // Logging and Reporting
                     Loggers.getLogger().info("Swatch '" + product_swatches.get(1) + "' is selected");
                     ExtentReport.getExtentNode().info("Swatch '" + product_swatches.get(1) + "' is selected");
                 }
@@ -155,15 +155,15 @@ public class ProductModel extends TestNGBase {
             ExtentReport.getExtentNode().info("Selected a Simple Product");
         }
 
-        /*Selecting the qty to add*/
+        // Selecting the qty to add
         product_quantity = ExcelUtils.getDataMap().get("qty");
         quantity.sendKeys(Keys.DELETE);
         quantity.sendKeys(product_quantity);
 
-        /*Click on Add to Cart button*/
+        // Click on Add to Cart button
         MouseActions.moveClickEvent(driver, add_cart_button);
 
-        /*Verifying the Success Message*/
+        // Verifying the Success Message
         if (add_success.isDisplayed()) {
             Assert.assertEquals(add_success.getText(), "shopping cart");
             Loggers.getLogger().info("Product Successfully added to Cart");

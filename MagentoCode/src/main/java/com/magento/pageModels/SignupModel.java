@@ -47,37 +47,32 @@ public class SignupModel extends TestNGBase {
      * Click on Create Account link
      */
     public void clickCreateAccountLink(WebDriver driver) {
-        /*Creating Extent Node*/
+        // Creating Extent Node
         ExtentReport.createNode("Create Account: Click Create Account Link");
-//        ExtentReport.createSubNode("Click Create Account Link");
 
-        /*Clicking on link*/
+        // Clicking on link
         MouseActions.moveClickEvent(driver, create_account_link);
 
-        /*Logging and Reporting*/
+        // Logging and Reporting
         Loggers.getLogger().info("Create account link clicked");
         ExtentReport.getExtentNode().pass("Create account link clicked");
-//        ExtentReport.getExtentSubNode().pass("Create account link clicked");
     }
 
     /**
      * Fill the Create account form and hit Submit
      */
     public void fillCustomerForm(WebDriver driver) {
-        /*Creating Extent Node*/
+        // Creating Extent Node
         ExtentReport.createNode("Create Account: Fill Customer Form");
-//        ExtentReport.createSubNode("Fill Customer Form");
 
-        /*Filling the form fields*/
+        // Filling the form fields
         first_name.sendKeys(ExcelUtils.getDataMap().get("first_name"));
         Loggers.getLogger().info("Entered the Firstname");
         ExtentReport.getExtentNode().pass("Entered the Firstname");
-//        ExtentReport.getExtentSubNode().pass("Entered the Firstname");
 
         last_name.sendKeys(ExcelUtils.getDataMap().get("last_name"));
         Loggers.getLogger().info("Entered the Lastname");
         ExtentReport.getExtentNode().pass("Entered the Lastname");
-//        ExtentReport.getExtentSubNode().pass("Entered the Lastname");
 
 //        if (Property.getProperty("is_subscribed").equals(1)) {
 //            is_subscribed.click();
@@ -87,22 +82,18 @@ public class SignupModel extends TestNGBase {
         email_address.sendKeys(ExcelUtils.getDataMap().get("email_id"));
         Loggers.getLogger().info("Entered the Email id");
         ExtentReport.getExtentNode().pass("Entered the Email id");
-//        ExtentReport.getExtentSubNode().pass("Entered the Email id");
 
         password.sendKeys(ExcelUtils.getDataMap().get("password"));
         Loggers.getLogger().info("Entered the Password");
         ExtentReport.getExtentNode().pass("Entered the Password");
-//        ExtentReport.getExtentSubNode().pass("Entered the Password");
 
         password_confirmation.sendKeys(ExcelUtils.getDataMap().get("password"));
         Loggers.getLogger().info("Entered the Confirmation Password");
         ExtentReport.getExtentNode().pass("Entered the Confirmation Password");
-//        ExtentReport.getExtentSubNode().pass("Entered the Confirmation Password");
 
         MouseActions.moveClickEvent(driver, submit);
         Loggers.getLogger().info("Clicked on Submit button");
         ExtentReport.getExtentNode().pass("Clicked on Submit button");
-//        ExtentReport.getExtentSubNode().pass("Clicked on Submit button");
 
     }
 }

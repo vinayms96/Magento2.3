@@ -21,7 +21,7 @@ public class Screenshot implements Constants {
      * @return Base64 String
      */
     public static String getScreenshotBase64(WebDriver driver) {
-        /*Setting the Loggers*/
+        // Setting the Loggers
         Loggers.setLogger(Screenshot.class.getName());
 
         shot = (TakesScreenshot) driver;
@@ -36,7 +36,7 @@ public class Screenshot implements Constants {
      * @param errorMessage
      */
     public static void getScreenshot(String errorMessage, WebDriver driver) {
-        /*Setting the Loggers*/
+        // Setting the Loggers
         Loggers.setLogger(Screenshot.class.getName());
 
         shot = (TakesScreenshot) driver;

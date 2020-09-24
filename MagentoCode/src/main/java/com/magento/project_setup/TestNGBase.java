@@ -20,28 +20,28 @@ public class TestNGBase extends Initialize implements Constants {
     @BeforeSuite(description = "Pre Test Configurations", alwaysRun = true)
     public void preTestRun() {
 
-        /*Setting the Loggers*/
+        // Setting the Loggers
         Loggers.setLogger(TestNGBase.class.getName());
 
-        /*configuring the Extent Reports*/
+        // configuring the Extent Reports
         ExtentReport.extentReport();
 
-        /*Configuring the Excel Data*/
+        // Configuring the Excel Data
         ExcelUtils.excelConfigure(EXCEL_TEST_PATH);
 
-        /*Configuring the Database Connection*/
+        // Configuring the Database Connection
         JdbcConnection.establishConnection();
 
-        /*Add full or Update the database from Excel*/
+        // Add full or Update the database from Excel
         String property = Property.getProperty("updateData");
 
         switch (property) {
             case "table":
-                /*Creating the table and data*/
+                // Creating the table and data
                 DatabaseSampleData.createTable();
                 break;
             case "update":
-                /*Updating the table and data*/
+                // Updating the table and data
                 ExcelUtils.excelConfigure(EXCEL_UPDATE_PATH);
                 DatabaseSampleData.updateTable();
                 ExcelUtils.excelConfigure(EXCEL_TEST_PATH);
@@ -66,7 +66,7 @@ public class TestNGBase extends Initialize implements Constants {
      */
     @AfterSuite(description = "Final finish configurations", alwaysRun = true)
     public void postTestRun() {
-        /*Closing the Database Connection*/
+        // Closing the Database Connection
         try {
             JdbcConnection.getConnection().close();
             Loggers.getLogger().info("Database connection is closed.");
@@ -74,7 +74,7 @@ public class TestNGBase extends Initialize implements Constants {
             Loggers.getLogger().error(e.getMessage());
         }
 
-        /*Flushing the Extent Reports to generate the report*/
+        // Flushing the Extent Reports to generate the report
         if (Property.getProperty("extent").equalsIgnoreCase("enable")) {
             ExtentReport.getExtentReports().flush();
             SMTPMail.sendEmail();

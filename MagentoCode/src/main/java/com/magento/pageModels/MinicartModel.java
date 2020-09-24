@@ -61,13 +61,13 @@ public class MinicartModel extends TestNGBase {
      * Fetch the Minicart product details
      */
     public void getMiniProductDetails() {
-        /*Setting the Extent reports*/
+        // Setting the Extent reports
         ExtentReport.createNode("Get Minicart Product Details");
 
-        /*Fetching product name*/
+        // Fetching product name
         mini_product_name = product_name.getText();
 
-        /*Fetching the config options*/
+        // Fetching the config options
         try {
             if (see_details.isDisplayed()) {
                 see_details.click();
@@ -87,12 +87,12 @@ public class MinicartModel extends TestNGBase {
             ExtentReport.getExtentNode().pass("The product '" + mini_product_name + "' is a simple product");
         }
 
-        /*Fetching the Product Price*/
+        // Fetching the Product Price
         mini_product_price = product_price.getText();
         Loggers.getLogger().info("Minicart product price '" + mini_product_price + "' is fetched");
         ExtentReport.getExtentNode().pass("Minicart product price '" + mini_product_price + "' is fetched");
 
-        /*Fetching the Product Qty*/
+        // Fetching the Product Qty
         mini_product_qty = quantity.getAttribute("data-item-qty");
         Loggers.getLogger().info("Minicart product quantity '" + mini_product_qty + "' is fetched");
         ExtentReport.getExtentNode().pass("Minicart product quantity '" + mini_product_qty + "' is fetched");
@@ -103,7 +103,7 @@ public class MinicartModel extends TestNGBase {
      * Navigate to Checkout page
      */
     public void goToCheckout(WebDriver driver) {
-        /*Setting the Extent reports*/
+        // Setting the Extent reports
         ExtentReport.createNode("Go to Checkout page");
 
         MouseActions.moveClickEvent(driver, go_checkout_button);

@@ -31,22 +31,22 @@ public class SearchModel extends TestNGBase {
      * Entering search text in search field and Searching
      */
     public void searchText() {
-        /*Setting the extent reports*/
+        // Setting the extent reports
         ExtentReport.createNode("Search for product");
 
-        /*Getting the Search query*/
+        // Getting the Search query
         String searchQuery = ExcelUtils.getDataMap().get("search_text");
 
         if (search_box.isDisplayed()) {
             search_box.sendKeys(searchQuery);
             search_box.sendKeys(Keys.ENTER);
 
-            /*Verifying the Search page heading*/
+            // Verifying the Search page heading
             if (search_heading.isDisplayed()) {
                 Assert.assertTrue(search_heading.getText().contains(searchQuery));
             }
 
-            /*Logging and Reporting*/
+            // Logging and Reporting
             Loggers.getLogger().info("Search result is displayed for '" + searchQuery + "'");
             ExtentReport.getExtentNode().pass("Search result is displayed for '" + searchQuery + "'");
 

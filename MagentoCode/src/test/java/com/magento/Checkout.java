@@ -15,10 +15,10 @@ public class Checkout extends TestNGBase {
 
     @BeforeClass(description = "Pre Test Configurations", alwaysRun = true)
     public void preRunTests() {
-        /*Initialize Driver*/
+        // Initialize Driver
         driver = initializeDriver();
 
-        /*Setting the Loggers and Extent Reports*/
+        // Setting the Loggers and Extent Reports
         Loggers.setLogger(Checkout.class.getName());
         ExtentReport.createTest("Place Order");
         ExcelUtils.getRowData(Integer.parseInt(Property.getProperty("testRow")));
