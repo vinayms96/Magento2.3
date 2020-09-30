@@ -19,24 +19,4 @@
             <class name="com.magento.Checkout"/>
         </classes>
     </test>
-    <!--<test thread-count="5" name="Add to Cart">
-        <groups>
-            <run>
-                <exclude name="addCart.*"/>
-            </run>
-        </groups>
-        <classes>
-            <class name="com.magento.AddToCart"/>
-        </classes>
-    </test>
-    <test thread-count="5" name="Checkout">
-        <groups>
-            <run>
-                <exclude name="checkout.*"/>
-            </run>
-        </groups>
-        <classes>
-            <class name="com.magento.Checkout"/>
-        </classes>
-    </test>-->
 </suite>
